@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Adela Privé</title>
+<meta name="description" content="Hand-crocheted couture purses and scarves by Adela Privé, made in Bulgaria. Enquire on Instagram or by phone.">
+<meta name="theme-color" content="#680B1D">
+<meta property="og:title" content="Contact — Adela Privé">
+<meta property="og:description" content="Hand-crocheted couture purses and scarves. Enquire on Instagram or by phone.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Tenor+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="contact" data-title="meta.contact">
+<div id="site-header"></div>
+<main id="main">
+  <img class="ribbon ribbon--right ribbon--pagehead" src="assets/img/ribbon.svg" alt="">
+
+<div class="wrap">
+  <header class="page-head">
+    <h1 data-i18n="contact.title">Contact</h1>
+    <p class="lead" data-i18n="contact.lead"></p>
+  </header>
+  <div class="contact-grid">
+    <a class="contact-card" data-href="ig" target="_blank" rel="noopener">
+      <h2 data-i18n="contact.instagram.title">Instagram</h2>
+      <span class="big" data-text="ig"></span>
+      <span class="muted" data-i18n="contact.instagram.text"></span>
+    </a>
+    <a class="contact-card" data-href="tel">
+      <h2 data-i18n="contact.phone.title">Phone</h2>
+      <span class="big" data-text="phone"></span>
+      <span class="muted" data-i18n="contact.phone.text"></span>
+    </a>
+  </div>
+  <section class="compose" aria-labelledby="compose-h">
+    <div>
+      <h2 id="compose-h" data-i18n="contact.compose.title"></h2>
+      <p class="muted" data-i18n="contact.compose.text"></p>
+    </div>
+    <form onsubmit="return false">
+      <div class="field"><label for="c-piece" data-i18n="contact.field.piece"></label><select id="c-piece"></select></div>
+      <div class="field"><label for="c-msg" data-i18n="contact.field.message"></label><textarea id="c-msg"></textarea></div>
+      <div class="field"><label for="c-name" data-i18n="contact.field.name"></label><input id="c-name" type="text" autocomplete="name"></div>
+      <div class="compose__actions">
+        <a class="btn" id="c-ig" href="#" target="_blank" rel="noopener" data-i18n="contact.btn.instagram">Copy and open Instagram</a>
+        <a class="btn btn--ghost" id="c-sms" href="#" data-i18n="btn.sms">Send as a text message</a>
+      </div>
+      <div class="toast" role="status" id="c-toast"></div>
+    </form>
+  </section>
+</div>
+<div style="height:clamp(80px,10vw,140px)"></div>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/products.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
