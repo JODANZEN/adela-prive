@@ -287,20 +287,24 @@
     }
   }
 
+  let pickedPiece = null;
   function initContact() {
-    const sel = $("#c-piece");
-    if (!sel) return;
-    const prev = sel.value;
-    sel.innerHTML = P.map(p => '<option value="' + esc(p.id) + '">' + esc(L(p.name)) + " (" + esc(p.id.toUpperCase()) + ")</option>").join("") +
-      '<option value="">' + esc(t("contact.field.pieceNone")) + "</option>";
-    const pre = new URLSearchParams(location.search).get("id");
-    sel.value = prev || pre || "";
+    const row = $("#c-piece");
+    if (!row) return;
+    if (pickedPiece === null) pickedPiece = new URLSearchParams(location.search).get("id") || "";
+    const thumb = p => p.images && p.images[0]
+      ? '<img src="' + esc(p.images[0]) + '" alt="" loading="lazy">'
+      : '<img class="mono" src="' + IMG + 'monogram.svg" alt="">';
+    const opt = (id, label, img) =>
+      '<label class="pick"><input type="radio" name="piece" value="' + esc(id) + '"' + (id === pickedPiece ? " checked" : "") + '>' +
+      '<span class="pick__img">' + img + '</span><span class="pick__name">' + esc(label) + "</span></label>";
+    row.innerHTML = opt("", t("contact.field.pieceNone"), '<img class="mono" src="' + IMG + 'monogram.svg" alt="">') +
+      P.map(p => opt(p.id, L(p.name), thumb(p))).join("");
     const ta = $("#c-msg"), nameEl = $("#c-name");
 
     function compose() {
-      const p = P.find(x => x.id === sel.value);
-      let m = p ? t("msg.piece", { name: L(p.name), ref: p.id.toUpperCase() }) : t("msg.general");
-      return m;
+      const p = P.find(x => x.id === pickedPiece);
+      return p ? t("msg.piece", { name: L(p.name), ref: p.id.toUpperCase() }) : t("msg.general");
     }
     function finalText() {
       const n = nameEl.value.trim();
@@ -308,7 +312,11 @@
     }
     if (!ta.dataset.touched) ta.value = compose();
     ta.oninput = () => { ta.dataset.touched = "1"; };
-    sel.onchange = () => { ta.value = compose(); ta.dataset.touched = ""; };
+    row.onchange = e => {
+      pickedPiece = e.target.value; ta.value = compose(); ta.dataset.touched = "";
+    };
+    const sel = row.querySelector("input:checked");
+    if (sel && pickedPiece) sel.closest(".pick").scrollIntoView({ block: "nearest", inline: "center" });
     // a real link opens Instagram; the click copies the message first
     $("#c-ig").href = igDM();
     $("#c-ig").onclick = () => { copyText(finalText(), $("#c-toast")); };
