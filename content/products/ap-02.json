@@ -1,6 +1,6 @@
 {
   "name_en": "Triangle Tote Bag",
-  "name_bg": "Triangle Tote Bag",
+  "name_bg": "Триъгълна чанта тоут",
   "status": "available",
   "price": "",
   "category": "purses",
@@ -11,12 +11,12 @@
     "/assets/uploads/ap-02-4.webp"
   ],
   "description_en": "A soft triangle tote with long, loose fringe handles that fall past the bag.",
-  "description_bg": "A soft triangle tote with long, loose fringe handles that fall past the bag.",
+  "description_bg": "Мека триъгълна чанта с дълги свободни ресни, които се спускат под чантата.",
   "dimensions": "28 × 15 cm",
   "colour_en": "Black",
-  "colour_bg": "Black",
+  "colour_bg": "Черно",
   "material_en": "Wool",
-  "material_bg": "Wool",
+  "material_bg": "Вълна",
   "ref": "AP-02",
   "featured": true,
   "hero": false,

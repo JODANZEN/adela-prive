@@ -1,6 +1,6 @@
 {
   "name_en": "Mini Bag",
-  "name_bg": "Mini Bag",
+  "name_bg": "Мини чанта",
   "status": "available",
   "price": "",
   "category": "purses",
@@ -10,12 +10,12 @@
     "/assets/uploads/ap-09-3.webp"
   ],
   "description_en": "A compact mini bag with a chain strap for wearing across the body.",
-  "description_bg": "A compact mini bag with a chain strap for wearing across the body.",
+  "description_bg": "Компактна мини чанта с верижка за носене през рамо.",
   "dimensions": "20 × 15 cm",
   "colour_en": "Lapis blue",
-  "colour_bg": "Lapis blue",
+  "colour_bg": "Лапис синьо",
   "material_en": "T-shirt yarn",
-  "material_bg": "T-shirt yarn",
+  "material_bg": "Трикотажна прежда",
   "ref": "AP-09",
   "featured": false,
   "hero": false,

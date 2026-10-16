@@ -1,6 +1,6 @@
 {
   "name_en": "Top Handle Bag",
-  "name_bg": "Top Handle Bag",
+  "name_bg": "Чанта с горни дръжки",
   "status": "available",
   "price": "",
   "category": "purses",
@@ -11,12 +11,12 @@
     "/assets/uploads/ap-12-4.webp"
   ],
   "description_en": "A bag with rounded top handles, roomy enough for a phone and the essentials.",
-  "description_bg": "A bag with rounded top handles, roomy enough for a phone and the essentials.",
+  "description_bg": "Чанта с кръгли дръжки, достатъчно просторна за телефон и най-необходимото.",
   "dimensions": "22 × 13 × 9 cm",
   "colour_en": "Coffee brown",
-  "colour_bg": "Coffee brown",
+  "colour_bg": "Кафяво",
   "material_en": "Wool",
-  "material_bg": "Wool",
+  "material_bg": "Макраме шнур",
   "ref": "AP-12",
   "featured": false,
   "hero": false,

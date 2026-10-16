@@ -1,6 +1,6 @@
 {
   "name_en": "Bucket Bag",
-  "name_bg": "Bucket Bag",
+  "name_bg": "Чанта-торбичка",
   "status": "available",
   "price": "",
   "category": "purses",
@@ -9,12 +9,12 @@
     "/assets/uploads/ap-08-2.webp"
   ],
   "description_en": "A small drawstring bucket bag carried on a beaded handle.",
-  "description_bg": "A small drawstring bucket bag carried on a beaded handle.",
+  "description_bg": "Малка чанта-торбичка с връзки и дръжка с мъниста.",
   "dimensions": "16 × 18 cm",
   "colour_en": "White",
-  "colour_bg": "White",
+  "colour_bg": "Бяло",
   "material_en": "T-shirt yarn with silver tint",
-  "material_bg": "T-shirt yarn with silver tint",
+  "material_bg": "Трикотажна прежда със сребрист отблясък",
   "ref": "AP-08",
   "featured": false,
   "hero": false,

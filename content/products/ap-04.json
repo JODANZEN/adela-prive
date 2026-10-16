@@ -1,6 +1,6 @@
 {
   "name_en": "Shell Bag",
-  "name_bg": "Shell Bag",
+  "name_bg": "Чанта „Мида“",
   "status": "available",
   "price": "",
   "category": "purses",
@@ -9,12 +9,12 @@
     "/assets/uploads/ap-04-2.webp"
   ],
   "description_en": "A shell-shaped bag with a movable handle.",
-  "description_bg": "A shell-shaped bag with a movable handle.",
+  "description_bg": "Чанта във формата на мида с подвижна дръжка.",
   "dimensions": "22 × 17 cm",
   "colour_en": "Ivory",
-  "colour_bg": "Ivory",
+  "colour_bg": "Слонова кост",
   "material_en": "Macramé cord",
-  "material_bg": "Macramé cord",
+  "material_bg": "Макраме шнур",
   "ref": "AP-04",
   "featured": true,
   "hero": false,

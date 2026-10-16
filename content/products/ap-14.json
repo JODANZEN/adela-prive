@@ -1,6 +1,6 @@
 {
   "name_en": "Mini Shopper Bag",
-  "name_bg": "Mini Shopper Bag",
+  "name_bg": "Мини чанта шопър",
   "status": "available",
   "price": "",
   "category": "purses",
@@ -10,12 +10,12 @@
     "/assets/uploads/ap-14-3.webp"
   ],
   "description_en": "A small shopper with cut-out handles, worked in a thick, textured stitch.",
-  "description_bg": "A small shopper with cut-out handles, worked in a thick, textured stitch.",
+  "description_bg": "Малка чанта шопър с изрязани дръжки.",
   "dimensions": "20 × 15 × 9 cm",
   "colour_en": "Sand beige",
-  "colour_bg": "Sand beige",
+  "colour_bg": "Пясъчно бежово",
   "material_en": "Wool",
-  "material_bg": "Wool",
+  "material_bg": "Трикотажна прежда",
   "ref": "AP-14",
   "featured": false,
   "hero": false,

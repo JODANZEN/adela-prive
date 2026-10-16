@@ -1,6 +1,6 @@
 {
   "name_en": "Clutch Bag",
-  "name_bg": "Clutch Bag",
+  "name_bg": "Клъч",
   "status": "available",
   "price": "",
   "category": "purses",
@@ -10,12 +10,12 @@
     "/assets/uploads/ap-13-3.webp"
   ],
   "description_en": "A soft, rounded clutch with a lined interior, held in the hand for evenings out.",
-  "description_bg": "A soft, rounded clutch with a lined interior, held in the hand for evenings out.",
+  "description_bg": "Мек, заоблен клъч с хастар отвътре, който се носи в ръка за вечер навън.",
   "dimensions": "32 × 13 × 13 cm",
   "colour_en": "Dusty rose",
-  "colour_bg": "Dusty rose",
+  "colour_bg": "Пепелява роза",
   "material_en": "Wool",
-  "material_bg": "Wool",
+  "material_bg": "Вълна",
   "ref": "AP-13",
   "featured": false,
   "hero": false,

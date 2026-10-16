@@ -1,6 +1,6 @@
 {
   "name_en": "Classic White Bag",
-  "name_bg": "Classic White Bag",
+  "name_bg": "Класическа чанта",
   "status": "available",
   "price": "",
   "category": "purses",
@@ -9,12 +9,12 @@
     "/assets/uploads/ap-06-2.webp"
   ],
   "description_en": "A structured shoulder bag worked in a deep textured stitch.",
-  "description_bg": "A structured shoulder bag worked in a deep textured stitch.",
+  "description_bg": "Стегната чанта за рамо, изработена с плътна релефна плетка.",
   "dimensions": "23 × 12 cm",
   "colour_en": "Snow white",
-  "colour_bg": "Snow white",
+  "colour_bg": "Снежнобяло",
   "material_en": "T-shirt yarn",
-  "material_bg": "T-shirt yarn",
+  "material_bg": "Трикотажна прежда",
   "ref": "AP-06",
   "featured": false,
   "hero": false,

@@ -1,6 +1,6 @@
 {
   "name_en": "Ring Handle Bag",
-  "name_bg": "Ring Handle Bag",
+  "name_bg": "Чанта с дръжки халки",
   "status": "available",
   "price": "",
   "category": "purses",
@@ -9,12 +9,12 @@
     "/assets/uploads/ap-05-2.webp"
   ],
   "description_en": "A rounded bag carried on two polished metal ring handles.",
-  "description_bg": "A rounded bag carried on two polished metal ring handles.",
+  "description_bg": "Заоблена чанта с две полирани метални дръжки халки.",
   "dimensions": "22 × 18 cm",
   "colour_en": "Mint green",
-  "colour_bg": "Mint green",
+  "colour_bg": "Ментово зелено",
   "material_en": "Macramé cord",
-  "material_bg": "Macramé cord",
+  "material_bg": "Макраме шнур",
   "ref": "AP-05",
   "featured": true,
   "hero": false,

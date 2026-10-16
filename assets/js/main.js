@@ -20,8 +20,8 @@
     try { localStorage.setItem("ap-lang", l); } catch (e) { /* private mode */ }
   }
   const urlLang = new URLSearchParams(location.search).get("lang");
-  // English only for now (the Bulgarian text stays in i18n.js for later)
-  let lang = "en";
+  let lang = (urlLang === "bg" || urlLang === "en") ? urlLang
+    : storedLang() || ((navigator.language || "").toLowerCase().startsWith("bg") ? "bg" : S.defaultLang);
 
   function t(key, vars) {
     const has = (o, k) => o && Object.prototype.hasOwnProperty.call(o, k);
@@ -94,7 +94,6 @@
 
   /* ---------- header, drawer, footer ---------------------------- */
   function langSwitch() {
-    if (!S.languages) return "";
     return '<div class="lang" role="group" aria-label="' + esc(t("lang.label")) + '">' +
       '<button type="button" data-lang="en" aria-pressed="' + (lang === "en") + '" lang="en">EN</button><span aria-hidden="true">/</span>' +
       '<button type="button" data-lang="bg" aria-pressed="' + (lang === "bg") + '" lang="bg">БГ</button></div>';
@@ -462,8 +461,8 @@
     if (rows.length < 2) return false;
     const head = rows[0].map(h => h.trim().toLowerCase());
     const at = (...names) => { for (const n of names) { const i = head.indexOf(n); if (i >= 0) return i; } return -1; };
-    const c = { id: at("id"), name: at("name", "piece"), status: at("status"), price: at("price"), size: at("size"),
-      colour: at("colour", "color"),
+    const c = { id: at("id"), name: at("name", "piece"), nameBg: at("name (bg)"), status: at("status"), price: at("price"), size: at("size"),
+      colour: at("colour", "color"), colourBg: at("colour (bg)", "color (bg)"),
       matEn: at("material", "material (en)"), matBg: at("material (bg)"),
       descEn: at("description", "description (en)"), descBg: at("description (bg)") };
     if (c.id < 0) return false;
@@ -472,9 +471,11 @@
       const p = P.find(x => x.id === val(r, c.id));
       if (!p) return;
       p.details = p.details || {};
-      const nm = val(r, c.name); if (nm) p.name = { en: nm, bg: nm };
+      const nm = val(r, c.name), nmBg = val(r, c.nameBg);
+      if (nm || nmBg) p.name = { en: nm || nmBg, bg: nmBg || nm };
       const st = sheetStatus(val(r, c.status)); if (st) p.status = st;
-      const col = val(r, c.colour); if (col) p.details.colour = { en: col, bg: col };
+      const col = val(r, c.colour), colBg = val(r, c.colourBg);
+      if (col || colBg) p.details.colour = { en: col || colBg, bg: colBg || col };
       if (c.price >= 0) p.price = val(r, c.price);
       const size = val(r, c.size); if (size) p.details.dimensions = { en: size, bg: size.replace(/cm/g, "см") };
       const mEn = val(r, c.matEn), mBg = val(r, c.matBg);

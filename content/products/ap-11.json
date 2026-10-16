@@ -1,6 +1,6 @@
 {
   "name_en": "Fringe Mini Tote Bag",
-  "name_bg": "Fringe Mini Tote Bag",
+  "name_bg": "Мини чанта тоут с ресни",
   "status": "available",
   "price": "",
   "category": "purses",
@@ -11,12 +11,12 @@
     "/assets/uploads/ap-11-4.webp"
   ],
   "description_en": "A mini tote with long fringe falling from the base. Carry it by hand or over the shoulder.",
-  "description_bg": "A mini tote with long fringe falling from the base. Carry it by hand or over the shoulder.",
+  "description_bg": "Носи се в ръка или на рамо.",
   "dimensions": "20 × 15 cm",
   "colour_en": "Lapis blue",
-  "colour_bg": "Lapis blue",
+  "colour_bg": "Лапис синьо",
   "material_en": "Wool",
-  "material_bg": "Wool",
+  "material_bg": "Трикотажна прежда",
   "ref": "AP-11",
   "featured": false,
   "hero": false,

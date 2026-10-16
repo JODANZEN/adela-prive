@@ -1,6 +1,6 @@
 {
   "name_en": "Japanese Knot Bag",
-  "name_bg": "Japanese Knot Bag",
+  "name_bg": "Чанта „Японски възел“",
   "status": "available",
   "price": "€30",
   "category": "purses",
@@ -9,12 +9,12 @@
     "/assets/uploads/ap-03-2.webp"
   ],
   "description_en": "A Japanese knot bag in yarn with a glossy sheen, finished with a fringed base.",
-  "description_bg": "A Japanese knot bag in yarn with a glossy sheen, finished with a fringed base.",
+  "description_bg": "Чанта тип „японски възел“ от прежда с мек гланц, завършена с ресни отдолу.",
   "dimensions": "30 × 23 cm",
   "colour_en": "Bordeaux, glossy",
-  "colour_bg": "Bordeaux, glossy",
+  "colour_bg": "Бордо с гланц",
   "material_en": "Wool",
-  "material_bg": "Wool",
+  "material_bg": "Вълна",
   "ref": "AP-03",
   "featured": false,
   "hero": true,
