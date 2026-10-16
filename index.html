@@ -12,7 +12,7 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Tenor+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Tenor+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body data-page="home" data-title="meta.home">
@@ -45,7 +45,7 @@
   <img class="ribbon ribbon--right" style="bottom:8px" src="assets/img/ribbon.svg" alt="">
   <div class="wrap">
     <div class="section-head">
-      <h2 id="col-h" data-i18n="home.collection.title">The collection</h2>
+      <h2 id="col-h" class="duo" data-duo="collection">My Collection</h2>
       <p data-i18n="home.collection.text"></p>
     </div>
     <div class="grid grid--stagger" id="featured"></div>
@@ -61,7 +61,7 @@
 <section class="section" id="how-to-buy" aria-labelledby="buy-h">
   <div class="wrap">
     <div class="section-head">
-      <h2 id="buy-h" data-i18n="order.title">How to buy</h2>
+      <h2 id="buy-h" class="duo" data-duo="buy">How to buy</h2>
       <p data-i18n="order.text"></p>
     </div>
     <ol class="steps" style="list-style:none;margin:0;padding:0">
@@ -78,9 +78,12 @@
 
 <section class="section has-ribbon" style="padding-top:0" aria-labelledby="at-h">
   <div class="wrap split">
-    <div id="atelier-photo"></div>
+    <div class="about-visual about-visual--flip">
+      <div class="about-visual__bg"><img src="assets/img/about-portrait-tall.webp" alt="" loading="lazy"></div>
+      <figure class="about-visual__fg"><img src="assets/img/about-portrait.webp" alt="The founder of Adela Privé" loading="lazy"></figure>
+    </div>
     <div>
-      <h2 id="at-h" data-i18n="atelier.teaser.title">The atelier</h2>
+      <h2 id="at-h" class="duo" data-duo="about">About me</h2>
       <p class="lead" data-i18n="atelier.teaser.text"></p>
       <a class="link" href="atelier.html" data-i18n="atelier.teaser.link">About the atelier</a>
     </div>

@@ -145,6 +145,12 @@
   function applyText() {
     document.documentElement.lang = lang;
     $$("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
+    // two-part titles in the style of her flyer: a script word + a serif word
+    $$("[data-duo]").forEach(el => {
+      const k = "duo." + el.dataset.duo;
+      el.innerHTML = '<span class="duo__script">' + esc(t(k + ".a")) + '</span> <span class="duo__serif">' + esc(t(k + ".b")) + "</span>";
+      el.setAttribute("aria-label", t(k + ".a") + " " + t(k + ".b"));
+    });
     $$("[data-i18n-attr]").forEach(el => {
       el.dataset.i18nAttr.split(";").forEach(pair => {
         const [attr, key] = pair.split(":");
@@ -197,7 +203,7 @@
         : photoHTML([], "Adela Privé", { eager: true });
     }
     const ap = $("#atelier-photo");
-    if (ap) ap.innerHTML = photoHTML(["assets/img/atelier-label.webp"], t("atelier.teaser.title"));
+    if (ap) ap.innerHTML = photoHTML(["assets/img/about-portrait.webp"], t("atelier.teaser.title"));
   }
 
   let currentFilter = "all";
