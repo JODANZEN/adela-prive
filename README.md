@@ -20,7 +20,7 @@ to the clipboard so the buyer can paste it.
 
 ## Editing
 
-- **Status, price, size, material, descriptions** → the Google Sheet "Adela Privé — Pieces"
+- **Name, status, price, size, material, colour, description** → the Google Sheet "Adela Privé — Pieces"
   (id in `sheetId` in `assets/js/config.js`). Read live on every visit; empty cells fall back
   to the product files. Keep the `id` column and the header names as they are.
 - **New pieces, photos, names** → the product files in `content/products/` (or, later, the admin page at `/admin`

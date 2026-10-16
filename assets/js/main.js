@@ -20,8 +20,8 @@
     try { localStorage.setItem("ap-lang", l); } catch (e) { /* private mode */ }
   }
   const urlLang = new URLSearchParams(location.search).get("lang");
-  let lang = (urlLang === "bg" || urlLang === "en") ? urlLang
-    : storedLang() || ((navigator.language || "").toLowerCase().startsWith("bg") ? "bg" : S.defaultLang);
+  // English only for now (the Bulgarian text stays in i18n.js for later)
+  let lang = "en";
 
   function t(key, vars) {
     let s = (T[lang] && T[lang][key]) || T.en[key] || key;
@@ -52,7 +52,7 @@
   const small = src => isProduct(src) ? src.replace(/\.(webp|jpe?g|png)$/i, "-sm.webp") : src;
   // if a small copy is missing (e.g. a brand-new upload before the build ran), use the full photo
   const fallback = src => ' onerror="this.onerror=null;this.removeAttribute(\'srcset\');this.src=\'' + esc(src) + '\'"';
-  const priceText = p => statusOf(p) === "sold" ? t("status.sold") : (p.price || t("product.price"));
+  const priceText = p => statusOf(p) === "sold" ? t("status.sold") : ((p.price || "").replace(/[.,]00(?=\D*$)/, "") || t("product.price"));
   const refOf = p => p.ref || "";
   const withRef = (key, p, name) => t(key, { name: name, ref: refOf(p) }).replace(" ()", "");
   function imgTag(src, alt, opts) {
@@ -93,6 +93,7 @@
 
   /* ---------- header, drawer, footer ---------------------------- */
   function langSwitch() {
+    if (!S.languages) return "";
     return '<div class="lang" role="group" aria-label="' + esc(t("lang.label")) + '">' +
       '<button type="button" data-lang="en" aria-pressed="' + (lang === "en") + '" lang="en">EN</button><span aria-hidden="true">/</span>' +
       '<button type="button" data-lang="bg" aria-pressed="' + (lang === "bg") + '" lang="bg">БГ</button></div>';
@@ -169,7 +170,7 @@
   /* ---------- static text --------------------------------------- */
   function applyText() {
     document.documentElement.lang = lang;
-    $$("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
+    $$("[data-i18n]").forEach(el => { const v = t(el.dataset.i18n); el.textContent = v; el.hidden = v === ""; });
     // two-part titles in the style of her flyer: a script word + a serif word
     $$("[data-duo]").forEach(el => {
       const k = "duo." + el.dataset.duo;
@@ -293,21 +294,16 @@
           "<h1>" + esc(name) + "</h1>" +
           '<div class="price">' + esc(priceText(p)) + "</div>" +
           '<p class="desc">' + esc(L(p.description)) + "</p>" +
-          '<p class="handmade">' + esc(t("product.handmade")) + "</p>" +
           '<dl class="details">' +
-            '<div><dt>' + esc(t("product.status")) + '</dt><dd class="status status--' + esc(st) + '">' + esc(t("status." + st)) + "</dd></div>" +
             detail("material", L(d.material)) + detail("dimensions", L(d.dimensions)) +
             detail("colour", L(d.colour)) +
           "</dl>" +
-          '<section class="enquire" aria-labelledby="enq-h"><h2 id="enq-h">' + esc(t(st === "sold" ? "product.enquireSoldTitle" : "product.enquireTitle")) + "</h2>" +
-            "<p>" + esc(t(st === "sold" ? "product.enquireSoldText" : "product.enquireText")) + "</p>" +
-            '<div class="enquire__msg" id="enq-msg">' + esc(msg) + "</div>" +
-            '<div class="enquire__actions">' +
-              '<a class="btn" id="enq-ig" href="' + igDM() + '" target="_blank" rel="noopener">' + ICON.ig + esc(t("btn.instagram")) + "</a>" +
+          (st === "sold" ? "" :
+            '<div class="order">' +
+              '<a class="btn" id="enq-ig" href="' + igDM() + '" target="_blank" rel="noopener">' + ICON.ig + esc(t("btn.order")) + "</a>" +
               '<a class="btn btn--ghost" href="' + tel() + '">' + ICON.phone + esc(t("btn.call", { phone: S.phone })) + "</a>" +
-              '<button class="btn btn--ghost" type="button" id="enq-copy">' + ICON.copy + esc(t("btn.copy")) + "</button>" +
-            "</div><div class=\"toast\" role=\"status\" id=\"enq-toast\"></div>" +
-          "</section>" +
+              '<div class="toast" role="status" id="enq-toast"></div>' +
+            "</div>") +
         "</div>" +
       "</div>" +
       (imgs.length ? lightboxHTML(imgs, name) : "");
@@ -318,8 +314,7 @@
     if (lbEl) document.body.appendChild(lbEl);
 
     // copy the message first so it can be pasted straight into the DM
-    $("#enq-ig").addEventListener("click", () => { copyText(msg, $("#enq-toast")); });
-    $("#enq-copy").addEventListener("click", () => copyText(msg, $("#enq-toast")));
+    if ($("#enq-ig")) $("#enq-ig").addEventListener("click", () => { copyText(msg, $("#enq-toast")); });
 
     const track = $("#g-track");
     const go = (i, smooth) => track.scrollTo({ left: i * track.clientWidth, behavior: smooth ? "smooth" : "auto" });
@@ -453,7 +448,7 @@
   function sheetStatus(v) {
     v = (v || "").trim().toLowerCase();
     if (!v) return "";
-    if (/sold|продад/.test(v)) return "sold";
+    if (/sold|unavailable|продад/.test(v)) return "sold";
     if (/order|поръч/.test(v)) return "made-to-order";
     if (/avail|налич/.test(v)) return "available";
     return "";
@@ -462,16 +457,20 @@
     const rows = parseCSV(text || "");
     if (rows.length < 2) return false;
     const head = rows[0].map(h => h.trim().toLowerCase());
-    const at = name => head.indexOf(name);
-    const c = { id: at("id"), status: at("status"), price: at("price"), size: at("size"),
-      matEn: at("material (en)"), matBg: at("material (bg)"), descEn: at("description (en)"), descBg: at("description (bg)") };
+    const at = (...names) => { for (const n of names) { const i = head.indexOf(n); if (i >= 0) return i; } return -1; };
+    const c = { id: at("id"), name: at("name", "piece"), status: at("status"), price: at("price"), size: at("size"),
+      colour: at("colour", "color"),
+      matEn: at("material", "material (en)"), matBg: at("material (bg)"),
+      descEn: at("description", "description (en)"), descBg: at("description (bg)") };
     if (c.id < 0) return false;
     const val = (r, i) => (i >= 0 && r[i] != null ? String(r[i]).trim() : "");
     rows.slice(1).forEach(r => {
       const p = P.find(x => x.id === val(r, c.id));
       if (!p) return;
       p.details = p.details || {};
+      const nm = val(r, c.name); if (nm) p.name = { en: nm, bg: nm };
       const st = sheetStatus(val(r, c.status)); if (st) p.status = st;
+      const col = val(r, c.colour); if (col) p.details.colour = { en: col, bg: col };
       if (c.price >= 0) p.price = val(r, c.price);
       const size = val(r, c.size); if (size) p.details.dimensions = { en: size, bg: size.replace(/cm/g, "см") };
       const mEn = val(r, c.matEn), mBg = val(r, c.matBg);

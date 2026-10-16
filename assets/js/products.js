@@ -2,44 +2,6 @@
    Don't edit this file: edit the pieces on the admin page (/admin). */
 window.PRODUCTS = [
   {
-    "id": "ap-01",
-    "ref": "AP-01",
-    "category": "scarves",
-    "status": "available",
-    "price": "",
-    "featured": false,
-    "hero": true,
-    "images": [
-      "assets/uploads/ap-01-1.webp",
-      "assets/uploads/ap-01-2.webp",
-      "assets/uploads/ap-01-3.webp",
-      "assets/uploads/ap-01-4.webp",
-      "assets/uploads/ap-01-5.webp"
-    ],
-    "name": {
-      "en": "Burgundy Scarf",
-      "bg": "Шал в бордо"
-    },
-    "description": {
-      "en": "A long, chunky scarf in deep burgundy, finished with a fringe at each end. Made for the coldest days.",
-      "bg": "Дълъг, обемен шал в наситено бордо, завършен с ресни в двата края. За най-студените дни."
-    },
-    "details": {
-      "material": {
-        "en": "",
-        "bg": ""
-      },
-      "dimensions": {
-        "en": "",
-        "bg": ""
-      },
-      "colour": {
-        "en": "Burgundy",
-        "bg": "Бордо"
-      }
-    }
-  },
-  {
     "id": "ap-02",
     "ref": "AP-02",
     "category": "purses",
@@ -54,17 +16,17 @@ window.PRODUCTS = [
       "assets/uploads/ap-02-4.webp"
     ],
     "name": {
-      "en": "Black Triangle Tote",
-      "bg": "Черна триъгълна чанта"
+      "en": "Triangle Tote Bag",
+      "bg": "Triangle Tote Bag"
     },
     "description": {
-      "en": "A soft triangle tote in black with long, loose fringe handles that fall past the bag.",
-      "bg": "Мека триъгълна чанта в черно с дълги свободни ресни, които се спускат под чантата."
+      "en": "A soft triangle tote with long, loose fringe handles that fall past the bag.",
+      "bg": "A soft triangle tote with long, loose fringe handles that fall past the bag."
     },
     "details": {
       "material": {
-        "en": "",
-        "bg": ""
+        "en": "Wool",
+        "bg": "Wool"
       },
       "dimensions": {
         "en": "28 × 15 cm",
@@ -72,7 +34,7 @@ window.PRODUCTS = [
       },
       "colour": {
         "en": "Black",
-        "bg": "Черно"
+        "bg": "Black"
       }
     }
   },
@@ -81,25 +43,25 @@ window.PRODUCTS = [
     "ref": "AP-03",
     "category": "purses",
     "status": "available",
-    "price": "",
-    "featured": true,
-    "hero": false,
+    "price": "€30",
+    "featured": false,
+    "hero": true,
     "images": [
       "assets/uploads/ap-03-1.webp",
       "assets/uploads/ap-03-2.webp"
     ],
     "name": {
-      "en": "Bordeaux Japanese Knot Bag",
-      "bg": "Чанта „Японски възел“ в бордо"
+      "en": "Japanese Knot Bag",
+      "bg": "Japanese Knot Bag"
     },
     "description": {
-      "en": "A Japanese knot bag in bordeaux yarn with a glossy sheen, worn on the wrist, with a fringed base.",
-      "bg": "Чанта тип „японски възел“ от прежда в бордо с лек гланц. Носи се на китката и има ресни отдолу."
+      "en": "A Japanese knot bag in yarn with a glossy sheen, finished with a fringed base.",
+      "bg": "A Japanese knot bag in yarn with a glossy sheen, finished with a fringed base."
     },
     "details": {
       "material": {
-        "en": "",
-        "bg": ""
+        "en": "Wool",
+        "bg": "Wool"
       },
       "dimensions": {
         "en": "30 × 23 cm",
@@ -107,7 +69,7 @@ window.PRODUCTS = [
       },
       "colour": {
         "en": "Bordeaux, glossy",
-        "bg": "Бордо с гланц"
+        "bg": "Bordeaux, glossy"
       }
     }
   },
@@ -124,17 +86,17 @@ window.PRODUCTS = [
       "assets/uploads/ap-04-2.webp"
     ],
     "name": {
-      "en": "Shell Purse",
-      "bg": "Чанта „Мида“"
+      "en": "Shell Bag",
+      "bg": "Shell Bag"
     },
     "description": {
-      "en": "A sculpted shell-shaped purse in ivory, with a movable handle.",
-      "bg": "Скулптурна чанта във формата на мида, в цвят слонова кост, с подвижна дръжка."
+      "en": "A shell-shaped bag with a movable handle.",
+      "bg": "A shell-shaped bag with a movable handle."
     },
     "details": {
       "material": {
-        "en": "",
-        "bg": ""
+        "en": "Macramé cord",
+        "bg": "Macramé cord"
       },
       "dimensions": {
         "en": "22 × 17 cm",
@@ -142,7 +104,7 @@ window.PRODUCTS = [
       },
       "colour": {
         "en": "Ivory",
-        "bg": "Слонова кост"
+        "bg": "Ivory"
       }
     }
   },
@@ -159,17 +121,17 @@ window.PRODUCTS = [
       "assets/uploads/ap-05-2.webp"
     ],
     "name": {
-      "en": "Ring Handle Purse, Mint",
-      "bg": "Чанта с дръжки халки, мента"
+      "en": "Ring Handle Bag",
+      "bg": "Ring Handle Bag"
     },
     "description": {
-      "en": "A rounded mint-green purse carried on two polished metal ring handles.",
-      "bg": "Заоблена чанта в ментово зелено с две полирани метални дръжки халки."
+      "en": "A rounded bag carried on two polished metal ring handles.",
+      "bg": "A rounded bag carried on two polished metal ring handles."
     },
     "details": {
       "material": {
-        "en": "",
-        "bg": ""
+        "en": "Macramé cord",
+        "bg": "Macramé cord"
       },
       "dimensions": {
         "en": "22 × 18 cm",
@@ -177,7 +139,7 @@ window.PRODUCTS = [
       },
       "colour": {
         "en": "Mint green",
-        "bg": "Ментово зелено"
+        "bg": "Mint green"
       }
     }
   },
@@ -194,17 +156,17 @@ window.PRODUCTS = [
       "assets/uploads/ap-06-2.webp"
     ],
     "name": {
-      "en": "Snow White Purse",
-      "bg": "Снежнобяла чанта"
+      "en": "Classic White Bag",
+      "bg": "Classic White Bag"
     },
     "description": {
-      "en": "A structured shoulder purse in snow white, worked in a deep textured stitch.",
-      "bg": "Стегната чанта за рамо в снежнобяло, изработена с плътна релефна плетка."
+      "en": "A structured shoulder bag worked in a deep textured stitch.",
+      "bg": "A structured shoulder bag worked in a deep textured stitch."
     },
     "details": {
       "material": {
-        "en": "",
-        "bg": ""
+        "en": "T-shirt yarn",
+        "bg": "T-shirt yarn"
       },
       "dimensions": {
         "en": "23 × 12 cm",
@@ -212,7 +174,7 @@ window.PRODUCTS = [
       },
       "colour": {
         "en": "Snow white",
-        "bg": "Снежнобяло"
+        "bg": "Snow white"
       }
     }
   },
@@ -229,17 +191,17 @@ window.PRODUCTS = [
       "assets/uploads/ap-07-2.webp"
     ],
     "name": {
-      "en": "Baby Blue Bubble Bag",
-      "bg": "Светлосиня чанта „Балон“"
+      "en": "Bubble Bag",
+      "bg": "Bubble Bag"
     },
     "description": {
-      "en": "A playful bubble bag in baby blue, made from extra-chunky yarn.",
-      "bg": "Игрива чанта „балон“ в бебешко синьо, изработена от много обемна прежда."
+      "en": "A playful bubble bag made from extra-chunky yarn.",
+      "bg": "A playful bubble bag made from extra-chunky yarn."
     },
     "details": {
       "material": {
-        "en": "Chunky yarn",
-        "bg": "Обемна прежда"
+        "en": "Wool",
+        "bg": "Wool"
       },
       "dimensions": {
         "en": "27 × 35 cm",
@@ -247,7 +209,7 @@ window.PRODUCTS = [
       },
       "colour": {
         "en": "Baby blue",
-        "bg": "Бебешко синьо"
+        "bg": "Baby blue"
       }
     }
   },
@@ -264,25 +226,25 @@ window.PRODUCTS = [
       "assets/uploads/ap-08-2.webp"
     ],
     "name": {
-      "en": "White & Silver Bucket Purse",
-      "bg": "Бяла чанта-торбичка със сребро"
+      "en": "Bucket Bag",
+      "bg": "Bucket Bag"
     },
     "description": {
-      "en": "A small drawstring bucket purse in white with a silver tint, carried on a beaded handle.",
-      "bg": "Малка чанта-торбичка с връзки, в бяло със сребрист отблясък и дръжка с мъниста."
+      "en": "A small drawstring bucket bag carried on a beaded handle.",
+      "bg": "A small drawstring bucket bag carried on a beaded handle."
     },
     "details": {
       "material": {
-        "en": "",
-        "bg": ""
+        "en": "T-shirt yarn with silver tint",
+        "bg": "T-shirt yarn with silver tint"
       },
       "dimensions": {
         "en": "16 × 18 cm",
         "bg": "16 × 18 см"
       },
       "colour": {
-        "en": "White with silver tint",
-        "bg": "Бяло със сребрист отблясък"
+        "en": "White",
+        "bg": "White"
       }
     }
   },
@@ -300,17 +262,17 @@ window.PRODUCTS = [
       "assets/uploads/ap-09-3.webp"
     ],
     "name": {
-      "en": "Lapis Blue Mini Purse",
-      "bg": "Мини чанта в лапис синьо"
+      "en": "Mini Bag",
+      "bg": "Mini Bag"
     },
     "description": {
-      "en": "A compact mini purse in lapis blue, with a chain strap for wearing across the body.",
-      "bg": "Компактна мини чанта в лапис синьо с верижка за носене през рамо."
+      "en": "A compact mini bag with a chain strap for wearing across the body.",
+      "bg": "A compact mini bag with a chain strap for wearing across the body."
     },
     "details": {
       "material": {
-        "en": "",
-        "bg": ""
+        "en": "T-shirt yarn",
+        "bg": "T-shirt yarn"
       },
       "dimensions": {
         "en": "20 × 15 cm",
@@ -318,7 +280,7 @@ window.PRODUCTS = [
       },
       "colour": {
         "en": "Lapis blue",
-        "bg": "Лапис синьо"
+        "bg": "Lapis blue"
       }
     }
   },
@@ -328,7 +290,7 @@ window.PRODUCTS = [
     "category": "purses",
     "status": "available",
     "price": "",
-    "featured": false,
+    "featured": true,
     "hero": false,
     "images": [
       "assets/uploads/ap-10-1.webp",
@@ -337,17 +299,17 @@ window.PRODUCTS = [
       "assets/uploads/ap-10-4.webp"
     ],
     "name": {
-      "en": "Red Wine Hobo Purse",
-      "bg": "Хобо чанта в червено вино"
+      "en": "Hobo Bag",
+      "bg": "Hobo Bag"
     },
     "description": {
-      "en": "A chunky hobo purse in red wine, with a silver clasp at the handle.",
-      "bg": "Обемна хобо чанта в цвят червено вино със сребриста закопчалка на дръжката."
+      "en": "A chunky hobo bag with a silver clasp and an adjustable handle.",
+      "bg": "A chunky hobo bag with a silver clasp and an adjustable handle."
     },
     "details": {
       "material": {
-        "en": "Chunky yarn",
-        "bg": "Обемна прежда"
+        "en": "Wool",
+        "bg": "Wool"
       },
       "dimensions": {
         "en": "32 × 13 × 13 cm",
@@ -355,7 +317,7 @@ window.PRODUCTS = [
       },
       "colour": {
         "en": "Red wine",
-        "bg": "Червено вино"
+        "bg": "Red wine"
       }
     }
   },
@@ -374,17 +336,17 @@ window.PRODUCTS = [
       "assets/uploads/ap-11-4.webp"
     ],
     "name": {
-      "en": "Lapis Blue Fringe Mini Tote",
-      "bg": "Мини чанта с ресни в лапис синьо"
+      "en": "Fringe Mini Tote Bag",
+      "bg": "Fringe Mini Tote Bag"
     },
     "description": {
-      "en": "A mini tote in lapis blue with long fringe falling from the base. Carry it by hand or over the shoulder.",
-      "bg": "Мини чанта в лапис синьо с дълги ресни отдолу. Носи се в ръка или на рамо."
+      "en": "A mini tote with long fringe falling from the base. Carry it by hand or over the shoulder.",
+      "bg": "A mini tote with long fringe falling from the base. Carry it by hand or over the shoulder."
     },
     "details": {
       "material": {
-        "en": "",
-        "bg": ""
+        "en": "Wool",
+        "bg": "Wool"
       },
       "dimensions": {
         "en": "20 × 15 cm",
@@ -392,7 +354,7 @@ window.PRODUCTS = [
       },
       "colour": {
         "en": "Lapis blue",
-        "bg": "Лапис синьо"
+        "bg": "Lapis blue"
       }
     }
   },
@@ -411,17 +373,17 @@ window.PRODUCTS = [
       "assets/uploads/ap-12-4.webp"
     ],
     "name": {
-      "en": "Coffee Brown Top Handle Purse",
-      "bg": "Кафява чанта с дръжки"
+      "en": "Top Handle Bag",
+      "bg": "Top Handle Bag"
     },
     "description": {
-      "en": "A coffee-brown purse with rounded top handles, roomy enough for a phone and the essentials.",
-      "bg": "Чанта в кафяво с кръгли дръжки, достатъчно просторна за телефон и най-необходимото."
+      "en": "A bag with rounded top handles, roomy enough for a phone and the essentials.",
+      "bg": "A bag with rounded top handles, roomy enough for a phone and the essentials."
     },
     "details": {
       "material": {
-        "en": "",
-        "bg": ""
+        "en": "Wool",
+        "bg": "Wool"
       },
       "dimensions": {
         "en": "22 × 13 × 9 cm",
@@ -429,7 +391,7 @@ window.PRODUCTS = [
       },
       "colour": {
         "en": "Coffee brown",
-        "bg": "Кафяво"
+        "bg": "Coffee brown"
       }
     }
   },
@@ -447,17 +409,17 @@ window.PRODUCTS = [
       "assets/uploads/ap-13-3.webp"
     ],
     "name": {
-      "en": "Dusty Rose Clutch",
-      "bg": "Клъч в пепелява роза"
+      "en": "Clutch Bag",
+      "bg": "Clutch Bag"
     },
     "description": {
-      "en": "A soft, rounded clutch in dusty rose with a lined interior. Held in the hand for evenings out.",
-      "bg": "Мек, заоблен клъч в цвят пепелява роза с хастар отвътре. Носи се в ръка за вечер навън."
+      "en": "A soft, rounded clutch with a lined interior, held in the hand for evenings out.",
+      "bg": "A soft, rounded clutch with a lined interior, held in the hand for evenings out."
     },
     "details": {
       "material": {
-        "en": "",
-        "bg": ""
+        "en": "Wool",
+        "bg": "Wool"
       },
       "dimensions": {
         "en": "32 × 13 × 13 cm",
@@ -465,7 +427,7 @@ window.PRODUCTS = [
       },
       "colour": {
         "en": "Dusty rose",
-        "bg": "Пепелява роза"
+        "bg": "Dusty rose"
       }
     }
   },
@@ -483,17 +445,17 @@ window.PRODUCTS = [
       "assets/uploads/ap-14-3.webp"
     ],
     "name": {
-      "en": "Sand Beige Mini Shopper",
-      "bg": "Мини чанта шопър в пясъчно бежово"
+      "en": "Mini Shopper Bag",
+      "bg": "Mini Shopper Bag"
     },
     "description": {
-      "en": "A small shopper in sand beige with cut-out handles, worked in a thick, sculpted stitch.",
-      "bg": "Малка чанта шопър в пясъчно бежово с изрязани дръжки, изработена с плътна релефна плетка."
+      "en": "A small shopper with cut-out handles, worked in a thick, textured stitch.",
+      "bg": "A small shopper with cut-out handles, worked in a thick, textured stitch."
     },
     "details": {
       "material": {
-        "en": "",
-        "bg": ""
+        "en": "Wool",
+        "bg": "Wool"
       },
       "dimensions": {
         "en": "20 × 15 × 9 cm",
@@ -501,7 +463,45 @@ window.PRODUCTS = [
       },
       "colour": {
         "en": "Sand beige",
-        "bg": "Пясъчно бежово"
+        "bg": "Sand beige"
+      }
+    }
+  },
+  {
+    "id": "ap-01",
+    "ref": "AP-01",
+    "category": "scarves",
+    "status": "sold",
+    "price": "€45",
+    "featured": false,
+    "hero": false,
+    "images": [
+      "assets/uploads/ap-01-1.webp",
+      "assets/uploads/ap-01-2.webp",
+      "assets/uploads/ap-01-3.webp",
+      "assets/uploads/ap-01-4.webp",
+      "assets/uploads/ap-01-5.webp"
+    ],
+    "name": {
+      "en": "Scarf",
+      "bg": "Scarf"
+    },
+    "description": {
+      "en": "A long, chunky scarf finished with a fringe at each end. Made for the coldest days.",
+      "bg": "A long, chunky scarf finished with a fringe at each end. Made for the coldest days."
+    },
+    "details": {
+      "material": {
+        "en": "Wool",
+        "bg": "Wool"
+      },
+      "dimensions": {
+        "en": "",
+        "bg": ""
+      },
+      "colour": {
+        "en": "Burgundy",
+        "bg": "Burgundy"
       }
     }
   }
