@@ -431,7 +431,80 @@
     if (page === "contact") initContact();
   }
 
+  /* ---------- live edits from the Google Sheet -------------------- */
+  // RFC 4180 CSV: quoted fields may hold commas, quotes ("") and line breaks
+  function parseCSV(text) {
+    const rows = []; let row = [], cell = "", q = false;
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i];
+      if (q) {
+        if (ch === '"') { if (text[i + 1] === '"') { cell += '"'; i++; } else q = false; }
+        else cell += ch;
+      } else if (ch === '"') q = true;
+      else if (ch === ",") { row.push(cell); cell = ""; }
+      else if (ch === "\n" || ch === "\r") {
+        if (ch === "\r" && text[i + 1] === "\n") i++;
+        row.push(cell); rows.push(row); row = []; cell = "";
+      } else cell += ch;
+    }
+    if (cell !== "" || row.length) { row.push(cell); rows.push(row); }
+    return rows;
+  }
+  function sheetStatus(v) {
+    v = (v || "").trim().toLowerCase();
+    if (!v) return "";
+    if (/sold|продад/.test(v)) return "sold";
+    if (/order|поръч/.test(v)) return "made-to-order";
+    if (/avail|налич/.test(v)) return "available";
+    return "";
+  }
+  function applySheet(text) {
+    const rows = parseCSV(text || "");
+    if (rows.length < 2) return false;
+    const head = rows[0].map(h => h.trim().toLowerCase());
+    const at = name => head.indexOf(name);
+    const c = { id: at("id"), status: at("status"), price: at("price"), size: at("size"),
+      matEn: at("material (en)"), matBg: at("material (bg)"), descEn: at("description (en)"), descBg: at("description (bg)") };
+    if (c.id < 0) return false;
+    const val = (r, i) => (i >= 0 && r[i] != null ? String(r[i]).trim() : "");
+    rows.slice(1).forEach(r => {
+      const p = P.find(x => x.id === val(r, c.id));
+      if (!p) return;
+      p.details = p.details || {};
+      const st = sheetStatus(val(r, c.status)); if (st) p.status = st;
+      if (c.price >= 0) p.price = val(r, c.price);
+      const size = val(r, c.size); if (size) p.details.dimensions = { en: size, bg: size.replace(/cm/g, "см") };
+      const mEn = val(r, c.matEn), mBg = val(r, c.matBg);
+      if (mEn || mBg) p.details.material = { en: mEn || mBg, bg: mBg || mEn };
+      const dEn = val(r, c.descEn), dBg = val(r, c.descBg);
+      if (dEn || dBg) p.description = { en: dEn || dBg, bg: dBg || dEn };
+    });
+    return true;
+  }
+  const SHEET_KEY = "ap-sheet";
+  function cachedSheet() {
+    try { const o = JSON.parse(sessionStorage.getItem(SHEET_KEY) || "null"); return o && o.text; } catch (e) { return null; }
+  }
+  function loadSheet() {
+    if (!S.sheetId || !window.fetch) return;
+    const url = S.sheetCsvUrl || ("https://docs.google.com/spreadsheets/d/" + S.sheetId + "/gviz/tq?tqx=out:csv");
+    const ctl = window.AbortController ? new AbortController() : null;
+    const timer = ctl && setTimeout(() => ctl.abort(), 6000);
+    fetch(url, { signal: ctl && ctl.signal, cache: "no-store" })
+      .then(r => (r.ok ? r.text() : Promise.reject(r.status)))
+      .then(text => {
+        if (timer) clearTimeout(timer);
+        if (!/^\s*"?id"?\s*,/i.test(text)) return;          // not the sheet (e.g. a sign-in page)
+        const before = cachedSheet();
+        try { sessionStorage.setItem(SHEET_KEY, JSON.stringify({ text: text })); } catch (e) { /* private mode */ }
+        if (text !== before && applySheet(text)) render();
+      })
+      .catch(() => { /* keep the built-in data */ });
+  }
+
+  applySheet(cachedSheet());   // instant on page-to-page navigation
   render();
+  loadSheet();
 
   /* ---------- visit counter (GoatCounter, no cookies) ------------- */
   if (S.goatcounter && /^https?:$/.test(location.protocol) && !/claude\.ai|claudeusercontent/.test(location.hostname)) {

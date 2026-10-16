@@ -20,9 +20,12 @@ to the clipboard so the buyer can paste it.
 
 ## Editing
 
-- **Pieces, photos, prices, availability** → the admin page at `/admin`
+- **Status, price, size, material, descriptions** → the Google Sheet "Adela Privé — Pieces"
+  (id in `sheetId` in `assets/js/config.js`). Read live on every visit; empty cells fall back
+  to the product files. Keep the `id` column and the header names as they are.
+- **New pieces, photos, names** → the product files in `content/products/` (or, later, the admin page at `/admin`
   (see `admin/README.md`). Each piece is a file in `content/products/`;
-  `assets/js/products.js` is generated from them — don't edit it by hand.
+  `assets/js/products.js` is generated from them — don't edit it by hand).
 - **Contact details** → `assets/js/config.js`
 - **Visit counter** → put your GoatCounter code in `goatcounter` in `assets/js/config.js`.
 - **All other text, both languages** → `assets/js/i18n.js`. Bulgarian should be proofread by a native speaker.
