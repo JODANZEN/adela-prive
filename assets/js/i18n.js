@@ -100,7 +100,7 @@ window.I18N = {
 
     "btn.instagram": "Message on Instagram",
     "btn.call": "Call {phone}",
-    "btn.copy": "Copy enquiry message",
+    "btn.copy": "Copy message",
     "btn.sms": "Send as a text message",
     "copied": "Message copied. Paste it into your Instagram chat.",
     "copyFailed": "Couldn't copy automatically. Select the message above and copy it.",

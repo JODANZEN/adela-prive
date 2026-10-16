@@ -24,7 +24,8 @@
   let lang = "en";
 
   function t(key, vars) {
-    let s = (T[lang] && T[lang][key]) || T.en[key] || key;
+    const has = (o, k) => o && Object.prototype.hasOwnProperty.call(o, k);
+    let s = has(T[lang], key) ? T[lang][key] : has(T.en, key) ? T.en[key] : key;
     if (vars) Object.keys(vars).forEach(k => { s = s.split("{" + k + "}").join(vars[k]); });
     return s;
   }
@@ -267,7 +268,7 @@
     const ref = refOf(p);
     const st = statusOf(p);
     document.title = name + " — Adela Privé";
-    const msg = withRef(st === "sold" ? "msg.sold" : (p.price ? "msg.piecePriced" : "msg.piece"), p, name);
+    const msg = withRef(st === "sold" ? "msg.sold" : "msg.piecePriced", p, name);
     const imgs = p.images || [];
     const many = imgs.length > 1;
 
@@ -300,8 +301,10 @@
           "</dl>" +
           (st === "sold" ? "" :
             '<div class="order">' +
+              '<div class="enquire__msg" id="enq-msg">' + esc(msg) + "</div>" +
               '<a class="btn" id="enq-ig" href="' + igDM() + '" target="_blank" rel="noopener">' + ICON.ig + esc(t("btn.order")) + "</a>" +
               '<a class="btn btn--ghost" href="' + tel() + '">' + ICON.phone + esc(t("btn.call", { phone: S.phone })) + "</a>" +
+              '<button class="btn btn--ghost" type="button" id="enq-copy">' + ICON.copy + esc(t("btn.copy")) + "</button>" +
               '<div class="toast" role="status" id="enq-toast"></div>' +
             "</div>") +
         "</div>" +
@@ -315,6 +318,7 @@
 
     // copy the message first so it can be pasted straight into the DM
     if ($("#enq-ig")) $("#enq-ig").addEventListener("click", () => { copyText(msg, $("#enq-toast")); });
+    if ($("#enq-copy")) $("#enq-copy").addEventListener("click", () => copyText(msg, $("#enq-toast")));
 
     const track = $("#g-track");
     const go = (i, smooth) => track.scrollTo({ left: i * track.clientWidth, behavior: smooth ? "smooth" : "auto" });
@@ -398,7 +402,7 @@
 
     function compose() {
       const p = P.find(x => x.id === pickedPiece);
-      return p ? withRef(p.price ? "msg.piecePriced" : "msg.piece", p, L(p.name)) : t("msg.general");
+      return p ? withRef("msg.piecePriced", p, L(p.name)) : t("msg.general");
     }
     function finalText() {
       const n = nameEl.value.trim();

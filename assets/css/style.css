@@ -384,6 +384,7 @@ main { position: relative; overflow-x: clip; }
 
 /* ---------- Order buttons on a product ------------------------- */
 .order { display: grid; gap: 10px; margin-top: 8px; }
+.order .enquire__msg { margin: 0 0 6px; background: var(--linen); }
 .order .btn { width: 100%; }
 
 /* ---------- Status labels -------------------------------------- */
