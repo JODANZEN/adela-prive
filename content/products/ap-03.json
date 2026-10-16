@@ -1,0 +1,22 @@
+{
+  "name_en": "Bordeaux Japanese Knot Bag",
+  "name_bg": "Чанта „Японски възел“ в бордо",
+  "status": "available",
+  "price": "",
+  "category": "purses",
+  "images": [
+    "/assets/uploads/ap-03-1.webp",
+    "/assets/uploads/ap-03-2.webp"
+  ],
+  "description_en": "A Japanese knot bag in bordeaux yarn with a glossy sheen, worn on the wrist, with a fringed base.",
+  "description_bg": "Чанта тип „японски възел“ от прежда в бордо с лек гланц. Носи се на китката и има ресни отдолу.",
+  "dimensions": "30 × 23 cm",
+  "colour_en": "Bordeaux, glossy",
+  "colour_bg": "Бордо с гланц",
+  "material_en": "",
+  "material_bg": "",
+  "ref": "AP-03",
+  "featured": true,
+  "hero": false,
+  "order": 30
+}

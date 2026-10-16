@@ -1,0 +1,22 @@
+{
+  "name_en": "Baby Blue Bubble Bag",
+  "name_bg": "Светлосиня чанта „Балон“",
+  "status": "available",
+  "price": "",
+  "category": "purses",
+  "images": [
+    "/assets/uploads/ap-07-1.webp",
+    "/assets/uploads/ap-07-2.webp"
+  ],
+  "description_en": "A playful bubble bag in baby blue, made from extra-chunky yarn.",
+  "description_bg": "Игрива чанта „балон“ в бебешко синьо, изработена от много обемна прежда.",
+  "dimensions": "27 × 35 cm",
+  "colour_en": "Baby blue",
+  "colour_bg": "Бебешко синьо",
+  "material_en": "Chunky yarn",
+  "material_bg": "Обемна прежда",
+  "ref": "AP-07",
+  "featured": false,
+  "hero": false,
+  "order": 70
+}

@@ -47,14 +47,20 @@
   };
 
   // product photos come in two sizes: 1000px (x.webp) and 500px (x-sm.webp)
-  const isProduct = src => /assets\/products\/.+\.webp$/.test(src);
-  const small = src => isProduct(src) ? src.replace(/\.webp$/, "-sm.webp") : src;
+  // photos uploaded on the admin page live in assets/uploads; the build makes a 500px "-sm" copy
+  const isProduct = src => /assets\/uploads\/[^/]+\.(webp|jpe?g|png)$/i.test(src) && !/-sm\.webp$/.test(src);
+  const small = src => isProduct(src) ? src.replace(/\.(webp|jpe?g|png)$/i, "-sm.webp") : src;
+  // if a small copy is missing (e.g. a brand-new upload before the build ran), use the full photo
+  const fallback = src => ' onerror="this.onerror=null;this.removeAttribute(\'srcset\');this.src=\'' + esc(src) + '\'"';
+  const priceText = p => statusOf(p) === "sold" ? t("status.sold") : (p.price || t("product.price"));
+  const refOf = p => p.ref || "";
+  const withRef = (key, p, name) => t(key, { name: name, ref: refOf(p) }).replace(" ()", "");
   function imgTag(src, alt, opts) {
     const load = ' loading="' + (opts.eager ? "eager" : "lazy") + '" decoding="async"';
-    if (opts.mode === "thumb") return '<img src="' + esc(small(src)) + '" alt="' + esc(alt) + '"' + load + ">";
+    if (opts.mode === "thumb") return '<img src="' + esc(small(src)) + '" alt="' + esc(alt) + '"' + load + fallback(src) + ">";
     if (opts.mode === "card" && isProduct(src))
       return '<img src="' + esc(small(src)) + '" srcset="' + esc(small(src)) + " 500w, " + esc(src) + ' 1000w"' +
-        ' sizes="(max-width: 560px) 50vw, (max-width: 1080px) 34vw, 25vw" alt="' + esc(alt) + '"' + load + ">";
+        ' sizes="(max-width: 560px) 50vw, (max-width: 1080px) 34vw, 25vw" alt="' + esc(alt) + '"' + load + fallback(src) + ">";
     return '<img src="' + esc(src) + '" alt="' + esc(alt) + '"' + load + ">";
   }
 
@@ -82,7 +88,7 @@
       '<div class="card__media">' + photoHTML(p.images, L(p.name), { hover: true, caption: false, mode: "card" }) + statusPill(p) + "</div>" +
       '<div class="card__meta"><span class="card__name">' + esc(L(p.name)) + "</span>" +
       '<span class="card__cat">' + esc(t("cat." + p.category)) + "</span>" +
-      '<span class="card__price">' + esc(t(statusOf(p) === "sold" ? "status.sold" : "product.price")) + "</span></div></a>";
+      '<span class="card__price">' + esc(priceText(p)) + "</span></div></a>";
   }
 
   /* ---------- header, drawer, footer ---------------------------- */
@@ -257,10 +263,10 @@
       return;
     }
     const name = L(p.name);
-    const ref = p.id.toUpperCase();
+    const ref = refOf(p);
     const st = statusOf(p);
     document.title = name + " — Adela Privé";
-    const msg = t(st === "sold" ? "msg.sold" : "msg.piece", { name: name, ref: ref });
+    const msg = withRef(st === "sold" ? "msg.sold" : (p.price ? "msg.piecePriced" : "msg.piece"), p, name);
     const imgs = p.images || [];
     const many = imgs.length > 1;
 
@@ -283,9 +289,9 @@
         '<div class="gallery' + (many ? "" : " gallery--single") + '">' + thumbs +
           '<div class="gallery__main"><div class="gallery__track" id="g-track">' + slides + "</div>" + statusPill(p) + dots + "</div></div>" +
         '<div class="info">' +
-          '<div class="ref">' + esc(t("product.ref")) + " " + esc(ref) + "</div>" +
+          (ref ? '<div class="ref">' + esc(t("product.ref")) + " " + esc(ref) + "</div>" : "") +
           "<h1>" + esc(name) + "</h1>" +
-          '<div class="price">' + esc(t(st === "sold" ? "status.sold" : "product.price")) + "</div>" +
+          '<div class="price">' + esc(priceText(p)) + "</div>" +
           '<p class="desc">' + esc(L(p.description)) + "</p>" +
           '<p class="handmade">' + esc(t("product.handmade")) + "</p>" +
           '<dl class="details">' +
@@ -397,7 +403,7 @@
 
     function compose() {
       const p = P.find(x => x.id === pickedPiece);
-      return p ? t("msg.piece", { name: L(p.name), ref: p.id.toUpperCase() }) : t("msg.general");
+      return p ? withRef(p.price ? "msg.piecePriced" : "msg.piece", p, L(p.name)) : t("msg.general");
     }
     function finalText() {
       const n = nameEl.value.trim();

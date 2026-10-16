@@ -1,0 +1,155 @@
+# Admin page for Adela Privé (Sveltia CMS) — https://sveltiacms.app
+# Each piece is one file in content/products/. Saving here commits to GitHub;
+# the GitHub Action then rebuilds the site (about a minute).
+
+backend:
+  name: github
+  repo: JODANZEN/adela-prive
+  branch: main
+  # After deploying the sign-in helper (see admin/README.md), put its address here
+  # so she gets a "Sign in with GitHub" button:
+  # base_url: https://sveltia-cms-auth.YOUR-NAME.workers.dev
+  commit_messages:
+    create: "Add piece: {{slug}}"
+    update: "Update piece: {{slug}}"
+    delete: "Remove piece: {{slug}}"
+    uploadMedia: "Upload photo: {{path}}"
+    deleteMedia: "Delete photo: {{path}}"
+
+app_title: Adela Privé — Admin
+site_url: https://jodanzen.github.io/adela-prive/
+display_url: https://jodanzen.github.io/adela-prive/
+logo:
+  src: https://jodanzen.github.io/adela-prive/assets/img/favicon.svg
+
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+media_libraries:
+  default:
+    config:
+      max_file_size: 25000000
+      filename_template: "{{slug}}-{{uuid_short}}"
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 1400
+          height: 1750
+
+collections:
+  - name: products
+    label: Pieces · Изделия
+    label_singular: Piece
+    description: Everything in the shop. Tap a piece to edit it, or New to add one.
+    folder: content/products
+    extension: json
+    format: json
+    create: true
+    delete: true
+    identifier_field: name_en
+    slug: "{{slug}}"
+    summary: "{{name_en}} · {{status}}"
+    sortable_fields: [order, name_en, status]
+    fields:
+      - label: Photos
+        name: images
+        widget: image
+        multiple: true
+        required: true
+        hint: The first photo is the main one; the second shows when someone hovers over the piece. Drag to reorder. Photos are compressed automatically.
+
+      - label: Availability · Наличност
+        name: status
+        widget: select
+        default: available
+        options:
+          - { label: "Available · Налично", value: available }
+          - { label: "Made to order · По поръчка", value: made-to-order }
+          - { label: "Sold · Продадено", value: sold }
+
+      - label: Price · Цена
+        name: price
+        widget: string
+        required: false
+        hint: Written exactly as it should appear, e.g. €45. Leave empty to show "Price on request".
+
+      - label: Name (English)
+        name: name_en
+        widget: string
+
+      - label: Име (български)
+        name: name_bg
+        widget: string
+        required: false
+        hint: If empty, the English name is used.
+
+      - label: Type · Вид
+        name: category
+        widget: select
+        default: purses
+        options:
+          - { label: "Purse · Чанта", value: purses }
+          - { label: "Scarf · Шал", value: scarves }
+
+      - label: Description (English)
+        name: description_en
+        widget: text
+        required: false
+
+      - label: Описание (български)
+        name: description_bg
+        widget: text
+        required: false
+
+      - label: Size · Размер
+        name: dimensions
+        widget: string
+        required: false
+        hint: e.g. 28 × 15 cm
+
+      - label: Colour (English)
+        name: colour_en
+        widget: string
+        required: false
+
+      - label: Цвят (български)
+        name: colour_bg
+        widget: string
+        required: false
+
+      - label: Material (English)
+        name: material_en
+        widget: string
+        required: false
+
+      - label: Материал (български)
+        name: material_bg
+        widget: string
+        required: false
+
+      - label: Reference code
+        name: ref
+        widget: string
+        required: false
+        hint: Shown on the piece and in enquiry messages, e.g. AP-15.
+
+      - label: Show on the home page
+        name: featured
+        widget: boolean
+        default: false
+        hint: Up to four pieces are shown.
+
+      - label: Big photo at the top of the home page
+        name: hero
+        widget: boolean
+        default: false
+        hint: Turn this on for one piece only.
+
+      - label: Order
+        name: order
+        widget: number
+        value_type: int
+        default: 200
+        required: false
+        hint: Lower numbers come first in the collection (the current pieces use 10, 20, 30…).

@@ -1,0 +1,25 @@
+{
+  "name_en": "Burgundy Scarf",
+  "name_bg": "Шал в бордо",
+  "status": "available",
+  "price": "",
+  "category": "scarves",
+  "images": [
+    "/assets/uploads/ap-01-1.webp",
+    "/assets/uploads/ap-01-2.webp",
+    "/assets/uploads/ap-01-3.webp",
+    "/assets/uploads/ap-01-4.webp",
+    "/assets/uploads/ap-01-5.webp"
+  ],
+  "description_en": "A long, chunky scarf in deep burgundy, finished with a fringe at each end. Made for the coldest days.",
+  "description_bg": "Дълъг, обемен шал в наситено бордо, завършен с ресни в двата края. За най-студените дни.",
+  "dimensions": "",
+  "colour_en": "Burgundy",
+  "colour_bg": "Бордо",
+  "material_en": "",
+  "material_bg": "",
+  "ref": "AP-01",
+  "featured": false,
+  "hero": true,
+  "order": 10
+}

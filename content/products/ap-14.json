@@ -1,0 +1,23 @@
+{
+  "name_en": "Sand Beige Mini Shopper",
+  "name_bg": "Мини чанта шопър в пясъчно бежово",
+  "status": "available",
+  "price": "",
+  "category": "purses",
+  "images": [
+    "/assets/uploads/ap-14-1.webp",
+    "/assets/uploads/ap-14-2.webp",
+    "/assets/uploads/ap-14-3.webp"
+  ],
+  "description_en": "A small shopper in sand beige with cut-out handles, worked in a thick, sculpted stitch.",
+  "description_bg": "Малка чанта шопър в пясъчно бежово с изрязани дръжки, изработена с плътна релефна плетка.",
+  "dimensions": "20 × 15 × 9 cm",
+  "colour_en": "Sand beige",
+  "colour_bg": "Пясъчно бежово",
+  "material_en": "",
+  "material_bg": "",
+  "ref": "AP-14",
+  "featured": false,
+  "hero": false,
+  "order": 140
+}

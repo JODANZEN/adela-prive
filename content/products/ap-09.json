@@ -1,0 +1,23 @@
+{
+  "name_en": "Lapis Blue Mini Purse",
+  "name_bg": "Мини чанта в лапис синьо",
+  "status": "available",
+  "price": "",
+  "category": "purses",
+  "images": [
+    "/assets/uploads/ap-09-1.webp",
+    "/assets/uploads/ap-09-2.webp",
+    "/assets/uploads/ap-09-3.webp"
+  ],
+  "description_en": "A compact mini purse in lapis blue, with a chain strap for wearing across the body.",
+  "description_bg": "Компактна мини чанта в лапис синьо с верижка за носене през рамо.",
+  "dimensions": "20 × 15 cm",
+  "colour_en": "Lapis blue",
+  "colour_bg": "Лапис синьо",
+  "material_en": "",
+  "material_bg": "",
+  "ref": "AP-09",
+  "featured": false,
+  "hero": false,
+  "order": 90
+}

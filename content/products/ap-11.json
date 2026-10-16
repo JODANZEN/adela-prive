@@ -1,0 +1,24 @@
+{
+  "name_en": "Lapis Blue Fringe Mini Tote",
+  "name_bg": "Мини чанта с ресни в лапис синьо",
+  "status": "available",
+  "price": "",
+  "category": "purses",
+  "images": [
+    "/assets/uploads/ap-11-1.webp",
+    "/assets/uploads/ap-11-2.webp",
+    "/assets/uploads/ap-11-3.webp",
+    "/assets/uploads/ap-11-4.webp"
+  ],
+  "description_en": "A mini tote in lapis blue with long fringe falling from the base. Carry it by hand or over the shoulder.",
+  "description_bg": "Мини чанта в лапис синьо с дълги ресни отдолу. Носи се в ръка или на рамо.",
+  "dimensions": "20 × 15 cm",
+  "colour_en": "Lapis blue",
+  "colour_bg": "Лапис синьо",
+  "material_en": "",
+  "material_bg": "",
+  "ref": "AP-11",
+  "featured": false,
+  "hero": false,
+  "order": 110
+}

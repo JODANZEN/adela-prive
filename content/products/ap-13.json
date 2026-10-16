@@ -1,0 +1,23 @@
+{
+  "name_en": "Dusty Rose Clutch",
+  "name_bg": "Клъч в пепелява роза",
+  "status": "available",
+  "price": "",
+  "category": "purses",
+  "images": [
+    "/assets/uploads/ap-13-1.webp",
+    "/assets/uploads/ap-13-2.webp",
+    "/assets/uploads/ap-13-3.webp"
+  ],
+  "description_en": "A soft, rounded clutch in dusty rose with a lined interior. Held in the hand for evenings out.",
+  "description_bg": "Мек, заоблен клъч в цвят пепелява роза с хастар отвътре. Носи се в ръка за вечер навън.",
+  "dimensions": "32 × 13 × 13 cm",
+  "colour_en": "Dusty rose",
+  "colour_bg": "Пепелява роза",
+  "material_en": "",
+  "material_bg": "",
+  "ref": "AP-13",
+  "featured": false,
+  "hero": false,
+  "order": 130
+}

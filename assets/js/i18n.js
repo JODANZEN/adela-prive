@@ -12,6 +12,7 @@ window.I18N = {
     "meta.description": "Hand-crocheted couture purses and scarves by Adela Privé, made in Bulgaria. Enquire on Instagram or by phone.",
 
     "announce": "Every piece is crocheted by hand. To order, message me on Instagram or call.",
+    "msg.piecePriced": "Hello! I'm interested in {name} ({ref}). Is it still available?",
     "status.available": "Available",
     "status.made-to-order": "Made to order",
     "status.sold": "Sold",
@@ -154,6 +155,7 @@ window.I18N = {
     "meta.description": "Ръчно плетени на една кука чанти и шалове от Adela Privé, изработени в България. Запитвания в Instagram или по телефона.",
 
     "announce": "Всяко изделие е плетено на ръка на една кука. За поръчка ми пишете в Instagram или се обадете.",
+    "msg.piecePriced": "Здравейте! Интересувам се от {name} ({ref}). Налично ли е още?",
     "status.available": "Налично",
     "status.made-to-order": "По поръчка",
     "status.sold": "Продадено",

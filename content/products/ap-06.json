@@ -1,0 +1,22 @@
+{
+  "name_en": "Snow White Purse",
+  "name_bg": "Снежнобяла чанта",
+  "status": "available",
+  "price": "",
+  "category": "purses",
+  "images": [
+    "/assets/uploads/ap-06-1.webp",
+    "/assets/uploads/ap-06-2.webp"
+  ],
+  "description_en": "A structured shoulder purse in snow white, worked in a deep textured stitch.",
+  "description_bg": "Стегната чанта за рамо в снежнобяло, изработена с плътна релефна плетка.",
+  "dimensions": "23 × 12 cm",
+  "colour_en": "Snow white",
+  "colour_bg": "Снежнобяло",
+  "material_en": "",
+  "material_bg": "",
+  "ref": "AP-06",
+  "featured": false,
+  "hero": false,
+  "order": 60
+}

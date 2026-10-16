@@ -1,0 +1,22 @@
+{
+  "name_en": "White & Silver Bucket Purse",
+  "name_bg": "Бяла чанта-торбичка със сребро",
+  "status": "available",
+  "price": "",
+  "category": "purses",
+  "images": [
+    "/assets/uploads/ap-08-1.webp",
+    "/assets/uploads/ap-08-2.webp"
+  ],
+  "description_en": "A small drawstring bucket purse in white with a silver tint, carried on a beaded handle.",
+  "description_bg": "Малка чанта-торбичка с връзки, в бяло със сребрист отблясък и дръжка с мъниста.",
+  "dimensions": "16 × 18 cm",
+  "colour_en": "White with silver tint",
+  "colour_bg": "Бяло със сребрист отблясък",
+  "material_en": "",
+  "material_bg": "",
+  "ref": "AP-08",
+  "featured": false,
+  "hero": false,
+  "order": 80
+}

@@ -1,0 +1,24 @@
+{
+  "name_en": "Black Triangle Tote",
+  "name_bg": "Черна триъгълна чанта",
+  "status": "available",
+  "price": "",
+  "category": "purses",
+  "images": [
+    "/assets/uploads/ap-02-1.webp",
+    "/assets/uploads/ap-02-2.webp",
+    "/assets/uploads/ap-02-3.webp",
+    "/assets/uploads/ap-02-4.webp"
+  ],
+  "description_en": "A soft triangle tote in black with long, loose fringe handles that fall past the bag.",
+  "description_bg": "Мека триъгълна чанта в черно с дълги свободни ресни, които се спускат под чантата.",
+  "dimensions": "28 × 15 cm",
+  "colour_en": "Black",
+  "colour_bg": "Черно",
+  "material_en": "",
+  "material_bg": "",
+  "ref": "AP-02",
+  "featured": true,
+  "hero": false,
+  "order": 20
+}

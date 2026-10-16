@@ -1,0 +1,22 @@
+{
+  "name_en": "Shell Purse",
+  "name_bg": "Чанта „Мида“",
+  "status": "available",
+  "price": "",
+  "category": "purses",
+  "images": [
+    "/assets/uploads/ap-04-1.webp",
+    "/assets/uploads/ap-04-2.webp"
+  ],
+  "description_en": "A sculpted shell-shaped purse in ivory, with a movable handle.",
+  "description_bg": "Скулптурна чанта във формата на мида, в цвят слонова кост, с подвижна дръжка.",
+  "dimensions": "22 × 17 cm",
+  "colour_en": "Ivory",
+  "colour_bg": "Слонова кост",
+  "material_en": "",
+  "material_bg": "",
+  "ref": "AP-04",
+  "featured": true,
+  "hero": false,
+  "order": 40
+}

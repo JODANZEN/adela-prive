@@ -1,0 +1,24 @@
+{
+  "name_en": "Red Wine Hobo Purse",
+  "name_bg": "Хобо чанта в червено вино",
+  "status": "available",
+  "price": "",
+  "category": "purses",
+  "images": [
+    "/assets/uploads/ap-10-1.webp",
+    "/assets/uploads/ap-10-2.webp",
+    "/assets/uploads/ap-10-3.webp",
+    "/assets/uploads/ap-10-4.webp"
+  ],
+  "description_en": "A chunky hobo purse in red wine, with a silver clasp at the handle.",
+  "description_bg": "Обемна хобо чанта в цвят червено вино със сребриста закопчалка на дръжката.",
+  "dimensions": "32 × 13 × 13 cm",
+  "colour_en": "Red wine",
+  "colour_bg": "Червено вино",
+  "material_en": "Chunky yarn",
+  "material_bg": "Обемна прежда",
+  "ref": "AP-10",
+  "featured": false,
+  "hero": false,
+  "order": 100
+}

@@ -1,0 +1,24 @@
+{
+  "name_en": "Coffee Brown Top Handle Purse",
+  "name_bg": "Кафява чанта с дръжки",
+  "status": "available",
+  "price": "",
+  "category": "purses",
+  "images": [
+    "/assets/uploads/ap-12-1.webp",
+    "/assets/uploads/ap-12-2.webp",
+    "/assets/uploads/ap-12-3.webp",
+    "/assets/uploads/ap-12-4.webp"
+  ],
+  "description_en": "A coffee-brown purse with rounded top handles, roomy enough for a phone and the essentials.",
+  "description_bg": "Чанта в кафяво с кръгли дръжки, достатъчно просторна за телефон и най-необходимото.",
+  "dimensions": "22 × 13 × 9 cm",
+  "colour_en": "Coffee brown",
+  "colour_bg": "Кафяво",
+  "material_en": "",
+  "material_bg": "",
+  "ref": "AP-12",
+  "featured": false,
+  "hero": false,
+  "order": 120
+}
