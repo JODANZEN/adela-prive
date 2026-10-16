@@ -46,11 +46,23 @@
     sms: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg>'
   };
 
+  // product photos come in two sizes: 1000px (x.webp) and 500px (x-sm.webp)
+  const isProduct = src => /assets\/products\/.+\.webp$/.test(src);
+  const small = src => isProduct(src) ? src.replace(/\.webp$/, "-sm.webp") : src;
+  function imgTag(src, alt, opts) {
+    const load = ' loading="' + (opts.eager ? "eager" : "lazy") + '" decoding="async"';
+    if (opts.mode === "thumb") return '<img src="' + esc(small(src)) + '" alt="' + esc(alt) + '"' + load + ">";
+    if (opts.mode === "card" && isProduct(src))
+      return '<img src="' + esc(small(src)) + '" srcset="' + esc(small(src)) + " 500w, " + esc(src) + ' 1000w"' +
+        ' sizes="(max-width: 560px) 50vw, (max-width: 1080px) 34vw, 25vw" alt="' + esc(alt) + '"' + load + ">";
+    return '<img src="' + esc(src) + '" alt="' + esc(alt) + '"' + load + ">";
+  }
+
   function photoHTML(images, alt, opts) {
     opts = opts || {};
     if (images && images.length) {
-      const first = '<img src="' + esc(images[0]) + '" alt="' + esc(alt) + '" loading="' + (opts.eager ? "eager" : "lazy") + '">';
-      const second = opts.hover && images[1] ? '<img src="' + esc(images[1]) + '" alt="" loading="lazy">' : "";
+      const first = imgTag(images[0], alt, opts);
+      const second = opts.hover && images[1] ? imgTag(images[1], "", { mode: opts.mode }) : "";
       return '<div class="photo">' + first + second + "</div>";
     }
     return '<div class="photo"><div class="placeholder" role="img" aria-label="' + esc(alt) + '">' +
@@ -58,12 +70,19 @@
       (opts.caption === false ? "" : "<span>" + esc(t("photo.soon")) + "</span>") + "</div></div>";
   }
 
+  const statusOf = p => p.status || "available";
+  function statusPill(p) {
+    const st = statusOf(p);
+    if (st === "available") return "";
+    return '<span class="pill pill--' + esc(st) + '">' + esc(t("status." + st)) + "</span>";
+  }
+
   function cardHTML(p) {
-    return '<a class="card" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
-      photoHTML(p.images, L(p.name), { hover: true, caption: false }) +
+    return '<a class="card' + (statusOf(p) === "sold" ? " card--sold" : "") + '" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
+      '<div class="card__media">' + photoHTML(p.images, L(p.name), { hover: true, caption: false, mode: "card" }) + statusPill(p) + "</div>" +
       '<div class="card__meta"><span class="card__name">' + esc(L(p.name)) + "</span>" +
       '<span class="card__cat">' + esc(t("cat." + p.category)) + "</span>" +
-      '<span class="card__price">' + esc(t("product.price")) + "</span></div></a>";
+      '<span class="card__price">' + esc(t(statusOf(p) === "sold" ? "status.sold" : "product.price")) + "</span></div></a>";
   }
 
   /* ---------- header, drawer, footer ---------------------------- */
@@ -225,6 +244,9 @@
     draw();
   }
 
+  const CHEV = d => '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3"><path d="' + d + '"/></svg>';
+  const PREV = CHEV("M15 4 7 12l8 8"), NEXT = CHEV("M9 4l8 8-8 8");
+
   function initProduct() {
     const root = $("#product");
     if (!root) return;
@@ -236,37 +258,43 @@
     }
     const name = L(p.name);
     const ref = p.id.toUpperCase();
+    const st = statusOf(p);
     document.title = name + " — Adela Privé";
-    const msg = t("msg.piece", { name: name, ref: ref });
+    const msg = t(st === "sold" ? "msg.sold" : "msg.piece", { name: name, ref: ref });
     const imgs = p.images || [];
-    const count = Math.max(imgs.length, 1);
+    const many = imgs.length > 1;
 
-    let thumbs = "";
-    if (imgs.length > 1) {
-      thumbs = '<div class="gallery__thumbs">' + imgs.map((src, i) =>
+    // gallery: a swipeable strip of photos; thumbnails on desktop, dots on phones
+    const slides = imgs.length
+      ? imgs.map((src, i) => '<button type="button" class="gallery__slide" data-i="' + i + '" aria-label="' + esc(t("gallery.open", { n: i + 1 })) + '">' +
+          imgTag(src, i === 0 ? name : "", { eager: i === 0 }) + "</button>").join("")
+      : photoHTML([], name);
+    const thumbs = many ? '<div class="gallery__thumbs">' + imgs.map((src, i) =>
         '<button type="button" data-i="' + i + '" aria-pressed="' + (i === 0) + '" aria-label="' + esc(t("product.photo", { n: i + 1 })) + '">' +
-        photoHTML([src], "") + "</button>").join("") + "</div>";
-    }
+        '<div class="photo">' + imgTag(src, "", { mode: "thumb" }) + "</div></button>").join("") + "</div>" : "";
+    const dots = many ? '<div class="gallery__dots" aria-hidden="true">' + imgs.map((_, i) => '<span' + (i === 0 ? ' class="on"' : "") + "></span>").join("") + "</div>" : "";
+
     const detail = (key, val) => '<div><dt>' + esc(t("product." + key)) + "</dt><dd>" + esc(val || t("product.tbd")) + "</dd></div>";
     const d = p.details || {};
 
     root.innerHTML =
       '<div class="crumb"><a class="link" href="collection.html">' + esc(t("product.back")) + "</a></div>" +
       '<div class="product">' +
-        '<div class="gallery' + (count > 1 ? "" : " gallery--single") + '">' + thumbs +
-          '<div class="gallery__main" id="main-photo">' + photoHTML(imgs.length ? [imgs[0]] : [], name, { eager: true }) + "</div></div>" +
+        '<div class="gallery' + (many ? "" : " gallery--single") + '">' + thumbs +
+          '<div class="gallery__main"><div class="gallery__track" id="g-track">' + slides + "</div>" + statusPill(p) + dots + "</div></div>" +
         '<div class="info">' +
           '<div class="ref">' + esc(t("product.ref")) + " " + esc(ref) + "</div>" +
           "<h1>" + esc(name) + "</h1>" +
-          '<div class="price">' + esc(t("product.price")) + "</div>" +
+          '<div class="price">' + esc(t(st === "sold" ? "status.sold" : "product.price")) + "</div>" +
           '<p class="desc">' + esc(L(p.description)) + "</p>" +
           '<p class="handmade">' + esc(t("product.handmade")) + "</p>" +
           '<dl class="details">' +
+            '<div><dt>' + esc(t("product.status")) + '</dt><dd class="status status--' + esc(st) + '">' + esc(t("status." + st)) + "</dd></div>" +
             detail("material", L(d.material)) + detail("dimensions", L(d.dimensions)) +
             detail("colour", L(d.colour)) +
           "</dl>" +
-          '<section class="enquire" aria-labelledby="enq-h"><h2 id="enq-h">' + esc(t("product.enquireTitle")) + "</h2>" +
-            "<p>" + esc(t("product.enquireText")) + "</p>" +
+          '<section class="enquire" aria-labelledby="enq-h"><h2 id="enq-h">' + esc(t(st === "sold" ? "product.enquireSoldTitle" : "product.enquireTitle")) + "</h2>" +
+            "<p>" + esc(t(st === "sold" ? "product.enquireSoldText" : "product.enquireText")) + "</p>" +
             '<div class="enquire__msg" id="enq-msg">' + esc(msg) + "</div>" +
             '<div class="enquire__actions">' +
               '<a class="btn" id="enq-ig" href="' + igDM() + '" target="_blank" rel="noopener">' + ICON.ig + esc(t("btn.instagram")) + "</a>" +
@@ -275,15 +303,30 @@
             "</div><div class=\"toast\" role=\"status\" id=\"enq-toast\"></div>" +
           "</section>" +
         "</div>" +
-      "</div>";
+      "</div>" +
+      (imgs.length ? lightboxHTML(imgs, name) : "");
+
+    // the viewer must sit directly in <body> so it covers the sticky header
+    const lbEl = $("#lightbox");
+    $$(".lightbox").forEach(x => { if (x !== lbEl) x.remove(); });
+    if (lbEl) document.body.appendChild(lbEl);
 
     // copy the message first so it can be pasted straight into the DM
     $("#enq-ig").addEventListener("click", () => { copyText(msg, $("#enq-toast")); });
     $("#enq-copy").addEventListener("click", () => copyText(msg, $("#enq-toast")));
-    $$(".gallery__thumbs button").forEach(b => b.addEventListener("click", () => {
-      $("#main-photo").innerHTML = photoHTML([imgs[+b.dataset.i]], name);
-      $$(".gallery__thumbs button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-    }));
+
+    const track = $("#g-track");
+    const go = (i, smooth) => track.scrollTo({ left: i * track.clientWidth, behavior: smooth ? "smooth" : "auto" });
+    let cur = 0;
+    track.addEventListener("scroll", () => {
+      const i = Math.round(track.scrollLeft / Math.max(track.clientWidth, 1));
+      if (i === cur) return;
+      cur = i;
+      $$(".gallery__thumbs button").forEach((b, j) => b.setAttribute("aria-pressed", String(j === i)));
+      $$(".gallery__dots span").forEach((s, j) => s.classList.toggle("on", j === i));
+    }, { passive: true });
+    $$(".gallery__thumbs button").forEach(b => b.addEventListener("click", () => go(+b.dataset.i, true)));
+    $$(".gallery__slide").forEach(b => b.addEventListener("click", () => openLightbox(+b.dataset.i)));
 
     const rel = $("#related");
     if (rel) {
@@ -293,13 +336,57 @@
     }
   }
 
+  /* ---------- full-screen photo viewer --------------------------- */
+  function lightboxHTML(imgs, name) {
+    return '<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="' + esc(name) + '" hidden>' +
+      '<div class="lightbox__track" id="lb-track">' +
+        imgs.map((src, i) => '<div class="lightbox__slide"><img src="' + esc(src) + '" alt="' + esc(t("product.photo", { n: i + 1 })) + '" loading="lazy"></div>').join("") +
+      "</div>" +
+      '<button type="button" class="lightbox__close">' + esc(t("nav.close")) + "</button>" +
+      (imgs.length > 1
+        ? '<button type="button" class="lightbox__nav lightbox__nav--prev" aria-label="' + esc(t("gallery.prev")) + '">' + PREV + "</button>" +
+          '<button type="button" class="lightbox__nav lightbox__nav--next" aria-label="' + esc(t("gallery.next")) + '">' + NEXT + "</button>" +
+          '<div class="lightbox__count" aria-live="polite"></div>'
+        : "") +
+      "</div>";
+  }
+  let lbReturn = null;
+  function openLightbox(i) {
+    const lb = $("#lightbox"); if (!lb) return;
+    const track = $("#lb-track"), n = track.children.length, count = $(".lightbox__count", lb);
+    const at = () => Math.round(track.scrollLeft / Math.max(track.clientWidth, 1));
+    const show = (k, smooth) => track.scrollTo({ left: Math.max(0, Math.min(n - 1, k)) * track.clientWidth, behavior: smooth ? "smooth" : "auto" });
+    const label = () => { if (count) count.textContent = (at() + 1) + " / " + n; };
+    const close = () => {
+      lb.hidden = true; document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKey);
+      if (lbReturn) lbReturn.focus();
+    };
+    const onKey = e => {
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowRight") show(at() + 1, true);
+      else if (e.key === "ArrowLeft") show(at() - 1, true);
+    };
+    lbReturn = document.activeElement;
+    lb.hidden = false; document.body.style.overflow = "hidden";
+    show(i, false); label();
+    track.onscroll = label;
+    $(".lightbox__close", lb).onclick = close;
+    const pv = $(".lightbox__nav--prev", lb), nx = $(".lightbox__nav--next", lb);
+    if (pv) pv.onclick = () => show(at() - 1, true);
+    if (nx) nx.onclick = () => show(at() + 1, true);
+    track.onclick = e => { if (e.target === track || e.target.classList.contains("lightbox__slide")) close(); };
+    document.addEventListener("keydown", onKey);
+    $(".lightbox__close", lb).focus();
+  }
+
   let pickedPiece = null;
   function initContact() {
     const row = $("#c-piece");
     if (!row) return;
     if (pickedPiece === null) pickedPiece = new URLSearchParams(location.search).get("id") || "";
     const thumb = p => p.images && p.images[0]
-      ? '<img src="' + esc(p.images[0]) + '" alt="" loading="lazy">'
+      ? imgTag(p.images[0], "", { mode: "thumb" })
       : '<img class="mono" src="' + IMG + 'monogram.svg" alt="">';
     const opt = (id, label, img) =>
       '<label class="pick"><input type="radio" name="piece" value="' + esc(id) + '"' + (id === pickedPiece ? " checked" : "") + '>' +
@@ -339,4 +426,14 @@
   }
 
   render();
+
+  /* ---------- visit counter (GoatCounter, no cookies) ------------- */
+  if (S.goatcounter && /^https?:$/.test(location.protocol) && !/claude\.ai|claudeusercontent/.test(location.hostname)) {
+    const pid = new URLSearchParams(location.search).get("id");
+    window.goatcounter = { path: location.pathname + (pid ? "?id=" + pid : "") };
+    const gc = document.createElement("script");
+    gc.async = true; gc.src = "https://gc.zgo.at/count.js";
+    gc.dataset.goatcounter = "https://" + S.goatcounter + ".goatcounter.com/count";
+    document.body.appendChild(gc);
+  }
 })();

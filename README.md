@@ -21,15 +21,17 @@ to the clipboard so the buyer can paste it.
 ## Editing
 
 - **Contact details** → `assets/js/config.js`
-- **Products** → `assets/js/products.js` (names, descriptions, details, photos). The current
-  five pieces are placeholders.
+- **Products** → `assets/js/products.js` (names, descriptions, details, photos, and
+  `status`: `"available"`, `"made-to-order"` or `"sold"`).
+- **Visit counter** → put your GoatCounter code in `goatcounter` in `assets/js/config.js`.
 - **All text, both languages** → `assets/js/i18n.js`. Bulgarian should be proofread by a native speaker.
 - **Colours / fonts / layout** → `assets/css/style.css` (tokens at the top).
 
 ### Adding product photos
 
 1. Put photos in `assets/products/<id>/`, e.g. `assets/products/ap-01/1.jpg`, `2.jpg`.
-2. List them in that product's `images` array in `products.js`.
+2. List them in that product's `images` array in `products.js`, and make a 500px copy
+   named `1-sm.webp`, `2-sm.webp`… (used in the grid so phones load faster).
 3. First photo = main image; second = shown on hover in the grid. The home hero uses the
    first featured product that has a photo.
 

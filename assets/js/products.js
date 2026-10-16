@@ -4,6 +4,8 @@
      drafts written from the photos: ask her to check them.
    - Photos live in assets/products/<id>/. The first one is the main
      photo; the second shows on hover in the grid.
+   - status: "available" | "made-to-order" | "sold"
+     (sold pieces stay on the site with a label; enquiries ask for a similar one)
    - featured: true  → shown on the home page (up to 4)
    - hero: true      → its first photo fills the big frame on the home page
    ------------------------------------------------------------------ */
@@ -13,7 +15,7 @@
 
   window.PRODUCTS = [
     {
-      id: "ap-01", category: "scarves", hero: true,
+      id: "ap-01", category: "scarves", status: "available", hero: true,
       images: pics("ap-01", 5),
       name: { en: "Burgundy Scarf", bg: "Шал в бордо" },
       description: {
@@ -23,7 +25,7 @@
       details: { material: TBD, dimensions: TBD, colour: { en: "Burgundy", bg: "Бордо" } }
     },
     {
-      id: "ap-02", category: "purses", featured: true,
+      id: "ap-02", category: "purses", status: "available", featured: true,
       images: pics("ap-02", 4),
       name: { en: "Black Triangle Tote", bg: "Черна триъгълна чанта" },
       description: {
@@ -33,7 +35,7 @@
       details: { material: TBD, dimensions: { en: "28 × 15 cm", bg: "28 × 15 см" }, colour: { en: "Black", bg: "Черно" } }
     },
     {
-      id: "ap-03", category: "purses", featured: true,
+      id: "ap-03", category: "purses", status: "available", featured: true,
       images: pics("ap-03", 2),
       name: { en: "Bordeaux Japanese Knot Bag", bg: "Чанта „Японски възел“ в бордо" },
       description: {
@@ -43,7 +45,7 @@
       details: { material: TBD, dimensions: { en: "30 × 23 cm", bg: "30 × 23 см" }, colour: { en: "Bordeaux, glossy", bg: "Бордо с гланц" } }
     },
     {
-      id: "ap-04", category: "purses", featured: true,
+      id: "ap-04", category: "purses", status: "available", featured: true,
       images: pics("ap-04", 2),
       name: { en: "Shell Purse", bg: "Чанта „Мида“" },
       description: {
@@ -53,7 +55,7 @@
       details: { material: TBD, dimensions: { en: "22 × 17 cm", bg: "22 × 17 см" }, colour: { en: "Ivory", bg: "Слонова кост" } }
     },
     {
-      id: "ap-05", category: "purses", featured: true,
+      id: "ap-05", category: "purses", status: "available", featured: true,
       images: pics("ap-05", 2),
       name: { en: "Ring Handle Purse, Mint", bg: "Чанта с дръжки халки, мента" },
       description: {
@@ -63,7 +65,7 @@
       details: { material: TBD, dimensions: { en: "22 × 18 cm", bg: "22 × 18 см" }, colour: { en: "Mint green", bg: "Ментово зелено" } }
     },
     {
-      id: "ap-06", category: "purses",
+      id: "ap-06", category: "purses", status: "available",
       images: pics("ap-06", 2),
       name: { en: "Snow White Purse", bg: "Снежнобяла чанта" },
       description: {
@@ -73,7 +75,7 @@
       details: { material: TBD, dimensions: { en: "23 × 12 cm", bg: "23 × 12 см" }, colour: { en: "Snow white", bg: "Снежнобяло" } }
     },
     {
-      id: "ap-07", category: "purses",
+      id: "ap-07", category: "purses", status: "available",
       images: pics("ap-07", 2),
       name: { en: "Baby Blue Bubble Bag", bg: "Светлосиня чанта „Балон“" },
       description: {
@@ -83,7 +85,7 @@
       details: { material: { en: "Chunky yarn", bg: "Обемна прежда" }, dimensions: { en: "27 × 35 cm", bg: "27 × 35 см" }, colour: { en: "Baby blue", bg: "Бебешко синьо" } }
     },
     {
-      id: "ap-08", category: "purses",
+      id: "ap-08", category: "purses", status: "available",
       images: pics("ap-08", 2),
       name: { en: "White & Silver Bucket Purse", bg: "Бяла чанта-торбичка със сребро" },
       description: {
@@ -93,7 +95,7 @@
       details: { material: TBD, dimensions: { en: "16 × 18 cm", bg: "16 × 18 см" }, colour: { en: "White with silver tint", bg: "Бяло със сребрист отблясък" } }
     },
     {
-      id: "ap-09", category: "purses",
+      id: "ap-09", category: "purses", status: "available",
       images: pics("ap-09", 3),
       name: { en: "Lapis Blue Mini Purse", bg: "Мини чанта в лапис синьо" },
       description: {
@@ -103,7 +105,7 @@
       details: { material: TBD, dimensions: { en: "20 × 15 cm", bg: "20 × 15 см" }, colour: { en: "Lapis blue", bg: "Лапис синьо" } }
     },
     {
-      id: "ap-10", category: "purses",
+      id: "ap-10", category: "purses", status: "available",
       images: pics("ap-10", 4),
       name: { en: "Red Wine Hobo Purse", bg: "Хобо чанта в червено вино" },
       description: {
@@ -113,7 +115,7 @@
       details: { material: { en: "Chunky yarn", bg: "Обемна прежда" }, dimensions: { en: "32 × 13 × 13 cm", bg: "32 × 13 × 13 см" }, colour: { en: "Red wine", bg: "Червено вино" } }
     },
     {
-      id: "ap-11", category: "purses",
+      id: "ap-11", category: "purses", status: "available",
       images: pics("ap-11", 4),
       name: { en: "Lapis Blue Fringe Mini Tote", bg: "Мини чанта с ресни в лапис синьо" },
       description: {
@@ -123,7 +125,7 @@
       details: { material: TBD, dimensions: { en: "20 × 15 cm", bg: "20 × 15 см" }, colour: { en: "Lapis blue", bg: "Лапис синьо" } }
     },
     {
-      id: "ap-12", category: "purses",
+      id: "ap-12", category: "purses", status: "available",
       images: pics("ap-12", 4),
       name: { en: "Coffee Brown Top Handle Purse", bg: "Кафява чанта с дръжки" },
       description: {
@@ -133,7 +135,7 @@
       details: { material: TBD, dimensions: { en: "22 × 13 × 9 cm", bg: "22 × 13 × 9 см" }, colour: { en: "Coffee brown", bg: "Кафяво" } }
     },
     {
-      id: "ap-13", category: "purses",
+      id: "ap-13", category: "purses", status: "available",
       images: pics("ap-13", 3),
       name: { en: "Dusty Rose Clutch", bg: "Клъч в пепелява роза" },
       description: {
@@ -143,7 +145,7 @@
       details: { material: TBD, dimensions: { en: "32 × 13 × 13 cm", bg: "32 × 13 × 13 см" }, colour: { en: "Dusty rose", bg: "Пепелява роза" } }
     },
     {
-      id: "ap-14", category: "purses",
+      id: "ap-14", category: "purses", status: "available",
       images: pics("ap-14", 3),
       name: { en: "Sand Beige Mini Shopper", bg: "Мини чанта шопър в пясъчно бежово" },
       description: {
