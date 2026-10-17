@@ -7,7 +7,7 @@ window.I18N = {
   en: {
     "meta.home": "Adela Privé — Crochet bags",
     "meta.collection": "The collection — Adela Privé",
-    "meta.atelier": "The atelier — Adela Privé",
+    "meta.atelier": "About me — Adela Privé",
     "meta.contact": "Contact — Adela Privé",
     "meta.description": "Crocheted bags and accessories by Adela Privé, each one with its own touch. Order on Instagram or by phone.",
 
@@ -44,7 +44,7 @@ window.I18N = {
     "duo.collection.b": "Collection",
     "duo.collection.a": "My",
     "nav.collection": "Collection",
-    "nav.atelier": "Atelier",
+    "nav.atelier": "About me",
     "nav.contact": "Contact",
     "nav.enquire": "Order",
     "nav.menu": "Menu",
@@ -163,7 +163,7 @@ window.I18N = {
   bg: {
     "meta.home": "Adela Privé — плетени чанти",
     "meta.collection": "Колекцията — Adela Privé",
-    "meta.atelier": "Ателието — Adela Privé",
+    "meta.atelier": "За мен — Adela Privé",
     "meta.contact": "Контакт — Adela Privé",
     "meta.description": "Плетени чанти и аксесоари от Adela Privé, всяко с личен почерк. Поръчки в Instagram или по телефона.",
 
@@ -200,7 +200,7 @@ window.I18N = {
     "duo.collection.b": "колекция",
     "duo.collection.a": "Моята",
     "nav.collection": "Колекция",
-    "nav.atelier": "Ателие",
+    "nav.atelier": "За мен",
     "nav.contact": "Контакт",
     "nav.enquire": "Поръчка",
     "nav.menu": "Меню",
