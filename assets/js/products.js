@@ -48,7 +48,8 @@ window.PRODUCTS = [
     "hero": true,
     "images": [
       "assets/uploads/ap-03-1.webp",
-      "assets/uploads/ap-03-2.webp"
+      "assets/uploads/ap-03-2.webp",
+      "assets/uploads/ap-03-3.webp"
     ],
     "name": {
       "en": "Japanese Knot Bag",
@@ -83,7 +84,8 @@ window.PRODUCTS = [
     "hero": false,
     "images": [
       "assets/uploads/ap-04-1.webp",
-      "assets/uploads/ap-04-2.webp"
+      "assets/uploads/ap-04-2.webp",
+      "assets/uploads/ap-04-3.webp"
     ],
     "name": {
       "en": "Shell Bag",
@@ -118,7 +120,8 @@ window.PRODUCTS = [
     "hero": false,
     "images": [
       "assets/uploads/ap-05-1.webp",
-      "assets/uploads/ap-05-2.webp"
+      "assets/uploads/ap-05-2.webp",
+      "assets/uploads/ap-05-3.webp"
     ],
     "name": {
       "en": "Ring Handle Bag",
@@ -333,7 +336,8 @@ window.PRODUCTS = [
       "assets/uploads/ap-11-1.webp",
       "assets/uploads/ap-11-2.webp",
       "assets/uploads/ap-11-3.webp",
-      "assets/uploads/ap-11-4.webp"
+      "assets/uploads/ap-11-4.webp",
+      "assets/uploads/ap-11-5.webp"
     ],
     "name": {
       "en": "Fringe Mini Tote Bag",
@@ -480,7 +484,8 @@ window.PRODUCTS = [
       "assets/uploads/ap-01-2.webp",
       "assets/uploads/ap-01-3.webp",
       "assets/uploads/ap-01-4.webp",
-      "assets/uploads/ap-01-5.webp"
+      "assets/uploads/ap-01-5.webp",
+      "assets/uploads/ap-01-6.webp"
     ],
     "name": {
       "en": "Scarf",

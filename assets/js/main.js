@@ -229,7 +229,7 @@
     if (frame) {
       const hero = P.find(p => p.hero && p.images.length) || P.find(p => p.featured && p.images.length) || P.find(p => p.images.length);
       frame.innerHTML = hero
-        ? '<a href="product.html?id=' + encodeURIComponent(hero.id) + '">' + photoHTML(hero.images, L(hero.name), { eager: true }) + "</a>"
+        ? '<a href="product.html?id=' + encodeURIComponent(hero.id) + '">' + photoHTML(S.heroImage ? [S.heroImage] : hero.images, L(hero.name), { eager: true }) + "</a>"
         : photoHTML([], "Adela Privé", { eager: true });
     }
     const ap = $("#atelier-photo");
