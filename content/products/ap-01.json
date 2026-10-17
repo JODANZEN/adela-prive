@@ -1,7 +1,7 @@
 {
   "name_en": "Scarf",
   "name_bg": "Шал",
-  "status": "sold",
+  "status": "available",
   "price": "€45",
   "category": "scarves",
   "images": [
@@ -11,8 +11,8 @@
     "/assets/uploads/ap-01-4.webp",
     "/assets/uploads/ap-01-5.webp"
   ],
-  "description_en": "A long, chunky scarf finished with a fringe at each end. Made for the coldest days.",
-  "description_bg": "Дълъг, обемен шал с ресни в двата края. За най-студените дни.",
+  "description_en": "A long, chunky scarf finished with a fringe at each end",
+  "description_bg": "Дълъг, обемен шал с ресни в двата края",
   "dimensions": "",
   "colour_en": "Burgundy",
   "colour_bg": "Бордо",

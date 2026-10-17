@@ -6,7 +6,7 @@ window.PRODUCTS = [
     "ref": "AP-02",
     "category": "purses",
     "status": "available",
-    "price": "",
+    "price": "€45",
     "featured": true,
     "hero": false,
     "images": [
@@ -20,13 +20,13 @@ window.PRODUCTS = [
       "bg": "Триъгълна чанта тоут"
     },
     "description": {
-      "en": "A soft triangle tote with long, loose fringe handles that fall past the bag.",
-      "bg": "Мека триъгълна чанта с дълги свободни ресни, които се спускат под чантата."
+      "en": "A soft triangle tote with long, loose fringe handles that fall around the bag and adjust its length",
+      "bg": "Мека триъгълна чанта с дълги свободни ресни, които се спускат около чантата и регулират дължината ѝ"
     },
     "details": {
       "material": {
-        "en": "Wool",
-        "bg": "Вълна"
+        "en": "T-shirt yarn",
+        "bg": "Трикотажна прежда"
       },
       "dimensions": {
         "en": "28 × 15 cm",
@@ -55,13 +55,13 @@ window.PRODUCTS = [
       "bg": "Чанта „Японски възел“"
     },
     "description": {
-      "en": "A Japanese knot bag in yarn with a glossy sheen, finished with a fringed base.",
-      "bg": "Чанта тип „японски възел“ от прежда с мек гланц, завършена с ресни отдолу."
+      "en": "A Japanese knot bag in a yarn with a soft glossy sheen, finished with a fringed base",
+      "bg": "Чанта тип „японски възел“ от прежда с мек гланц, завършена с ресни отдолу"
     },
     "details": {
       "material": {
-        "en": "Wool",
-        "bg": "Вълна"
+        "en": "Macramé cord",
+        "bg": "Макраме шнур"
       },
       "dimensions": {
         "en": "30 × 23 cm",
@@ -78,7 +78,7 @@ window.PRODUCTS = [
     "ref": "AP-04",
     "category": "purses",
     "status": "available",
-    "price": "",
+    "price": "€40",
     "featured": true,
     "hero": false,
     "images": [
@@ -90,8 +90,8 @@ window.PRODUCTS = [
       "bg": "Чанта „Мида“"
     },
     "description": {
-      "en": "A shell-shaped bag with a movable handle.",
-      "bg": "Чанта във формата на мида с подвижна дръжка."
+      "en": "A shell-shaped bag with a movable handle",
+      "bg": "Чанта във формата на мида с подвижна дръжка"
     },
     "details": {
       "material": {
@@ -113,7 +113,7 @@ window.PRODUCTS = [
     "ref": "AP-05",
     "category": "purses",
     "status": "available",
-    "price": "",
+    "price": "€35",
     "featured": true,
     "hero": false,
     "images": [
@@ -125,8 +125,8 @@ window.PRODUCTS = [
       "bg": "Чанта с дръжки халки"
     },
     "description": {
-      "en": "A rounded bag carried on two polished metal ring handles.",
-      "bg": "Заоблена чанта с две полирани метални дръжки халки."
+      "en": "A rounded bag carried on two polished metal ring handles",
+      "bg": "Заоблена чанта с две полирани метални дръжки халки"
     },
     "details": {
       "material": {
@@ -148,7 +148,7 @@ window.PRODUCTS = [
     "ref": "AP-06",
     "category": "purses",
     "status": "available",
-    "price": "",
+    "price": "€30",
     "featured": false,
     "hero": false,
     "images": [
@@ -156,12 +156,12 @@ window.PRODUCTS = [
       "assets/uploads/ap-06-2.webp"
     ],
     "name": {
-      "en": "Classic White Bag",
+      "en": "Classic Bag",
       "bg": "Класическа чанта"
     },
     "description": {
-      "en": "A structured shoulder bag worked in a deep textured stitch.",
-      "bg": "Стегната чанта за рамо, изработена с плътна релефна плетка."
+      "en": "",
+      "bg": ""
     },
     "details": {
       "material": {
@@ -183,7 +183,7 @@ window.PRODUCTS = [
     "ref": "AP-07",
     "category": "purses",
     "status": "available",
-    "price": "",
+    "price": "€50",
     "featured": false,
     "hero": false,
     "images": [
@@ -195,13 +195,13 @@ window.PRODUCTS = [
       "bg": "Чанта „Балон“"
     },
     "description": {
-      "en": "A playful bubble bag made from extra-chunky yarn.",
-      "bg": "Игрива чанта „балон“ от много обемна прежда."
+      "en": "A playful bubble bag made from extra-chunky yarn",
+      "bg": "Чанта тип \"бъбъл\" от обемна прежда"
     },
     "details": {
       "material": {
-        "en": "Wool",
-        "bg": "Вълна"
+        "en": "Chunky yarn",
+        "bg": "Прежда Маршмелоу"
       },
       "dimensions": {
         "en": "27 × 35 cm",
@@ -218,7 +218,7 @@ window.PRODUCTS = [
     "ref": "AP-08",
     "category": "purses",
     "status": "available",
-    "price": "",
+    "price": "€50",
     "featured": false,
     "hero": false,
     "images": [
@@ -230,8 +230,8 @@ window.PRODUCTS = [
       "bg": "Чанта-торбичка"
     },
     "description": {
-      "en": "A small drawstring bucket bag carried on a beaded handle.",
-      "bg": "Малка чанта-торбичка с връзки и дръжка с мъниста."
+      "en": "A small drawstring bucket bag carried on a beaded handle",
+      "bg": "Малка чанта-торбичка с връзки и дръжка с мъниста"
     },
     "details": {
       "material": {
@@ -253,7 +253,7 @@ window.PRODUCTS = [
     "ref": "AP-09",
     "category": "purses",
     "status": "available",
-    "price": "",
+    "price": "€30",
     "featured": false,
     "hero": false,
     "images": [
@@ -266,8 +266,82 @@ window.PRODUCTS = [
       "bg": "Мини чанта"
     },
     "description": {
-      "en": "A compact mini bag with a chain strap for wearing across the body.",
-      "bg": "Компактна мини чанта с верижка за носене през рамо."
+      "en": "A compact mini bag with a chain strap for wearing across the body",
+      "bg": "Компактна мини чанта с верижка за носене през рамо"
+    },
+    "details": {
+      "material": {
+        "en": "T-shirt yarn",
+        "bg": "Трикотажна прежда"
+      },
+      "dimensions": {
+        "en": "20 × 15 cm",
+        "bg": "20 × 15 см"
+      },
+      "colour": {
+        "en": "Lapis blue",
+        "bg": "Тъмно синьо"
+      }
+    }
+  },
+  {
+    "id": "ap-10",
+    "ref": "AP-10",
+    "category": "purses",
+    "status": "available",
+    "price": "€50",
+    "featured": true,
+    "hero": false,
+    "images": [
+      "assets/uploads/ap-10-1.webp",
+      "assets/uploads/ap-10-2.webp",
+      "assets/uploads/ap-10-3.webp",
+      "assets/uploads/ap-10-4.webp"
+    ],
+    "name": {
+      "en": "Hobo Bag",
+      "bg": "Хобо чанта"
+    },
+    "description": {
+      "en": "A chunky hobo bag with a silver clasp and adjustable handle",
+      "bg": "Обемна хобо чанта със сребриста закопчалка и регулируема дръжка"
+    },
+    "details": {
+      "material": {
+        "en": "T-shirt yarn",
+        "bg": "Трикотажна прежда"
+      },
+      "dimensions": {
+        "en": "32 × 13 × 13 cm",
+        "bg": "32 × 13 × 13 см"
+      },
+      "colour": {
+        "en": "Red wine",
+        "bg": "Червено вино"
+      }
+    }
+  },
+  {
+    "id": "ap-11",
+    "ref": "AP-11",
+    "category": "purses",
+    "status": "available",
+    "price": "€30",
+    "featured": false,
+    "hero": false,
+    "images": [
+      "assets/uploads/ap-11-1.webp",
+      "assets/uploads/ap-11-2.webp",
+      "assets/uploads/ap-11-3.webp",
+      "assets/uploads/ap-11-4.webp"
+    ],
+    "name": {
+      "en": "Fringe Mini Tote Bag",
+      "bg": "Мини чанта тоут с ресни"
+    },
+    "description": {
+      "en": "Mini bag with adjustable handle. Carry it by hand or over the shoulder",
+      "bg": "Мини чанта с регулируема дръжка за носене в ръка или през рамо"
     },
     "details": {
       "material": {
@@ -285,85 +359,11 @@ window.PRODUCTS = [
     }
   },
   {
-    "id": "ap-10",
-    "ref": "AP-10",
-    "category": "purses",
-    "status": "available",
-    "price": "",
-    "featured": true,
-    "hero": false,
-    "images": [
-      "assets/uploads/ap-10-1.webp",
-      "assets/uploads/ap-10-2.webp",
-      "assets/uploads/ap-10-3.webp",
-      "assets/uploads/ap-10-4.webp"
-    ],
-    "name": {
-      "en": "Hobo Bag",
-      "bg": "Хобо чанта"
-    },
-    "description": {
-      "en": "A chunky hobo bag with a silver clasp and an adjustable handle.",
-      "bg": "Обемна хобо чанта със сребриста закопчалка и регулируема дръжка."
-    },
-    "details": {
-      "material": {
-        "en": "Wool",
-        "bg": "Вълна"
-      },
-      "dimensions": {
-        "en": "32 × 13 × 13 cm",
-        "bg": "32 × 13 × 13 см"
-      },
-      "colour": {
-        "en": "Red wine",
-        "bg": "Червено вино"
-      }
-    }
-  },
-  {
-    "id": "ap-11",
-    "ref": "AP-11",
-    "category": "purses",
-    "status": "available",
-    "price": "",
-    "featured": false,
-    "hero": false,
-    "images": [
-      "assets/uploads/ap-11-1.webp",
-      "assets/uploads/ap-11-2.webp",
-      "assets/uploads/ap-11-3.webp",
-      "assets/uploads/ap-11-4.webp"
-    ],
-    "name": {
-      "en": "Fringe Mini Tote Bag",
-      "bg": "Мини чанта тоут с ресни"
-    },
-    "description": {
-      "en": "A mini tote with long fringe falling from the base. Carry it by hand or over the shoulder.",
-      "bg": "Носи се в ръка или на рамо."
-    },
-    "details": {
-      "material": {
-        "en": "Wool",
-        "bg": "Трикотажна прежда"
-      },
-      "dimensions": {
-        "en": "20 × 15 cm",
-        "bg": "20 × 15 см"
-      },
-      "colour": {
-        "en": "Lapis blue",
-        "bg": "Лапис синьо"
-      }
-    }
-  },
-  {
     "id": "ap-12",
     "ref": "AP-12",
     "category": "purses",
     "status": "available",
-    "price": "",
+    "price": "€35",
     "featured": false,
     "hero": false,
     "images": [
@@ -377,12 +377,12 @@ window.PRODUCTS = [
       "bg": "Чанта с горни дръжки"
     },
     "description": {
-      "en": "A bag with rounded top handles, roomy enough for a phone and the essentials.",
-      "bg": "Чанта с кръгли дръжки, достатъчно просторна за телефон и най-необходимото."
+      "en": "A bag with rounded top handles, spacious enough for a phone and the essentials",
+      "bg": "Чанта със заоблени  дръжки, достатъчно просторна за телефон и най-необходимото"
     },
     "details": {
       "material": {
-        "en": "Wool",
+        "en": "Macramé cord",
         "bg": "Макраме шнур"
       },
       "dimensions": {
@@ -400,7 +400,7 @@ window.PRODUCTS = [
     "ref": "AP-13",
     "category": "purses",
     "status": "available",
-    "price": "",
+    "price": "€45",
     "featured": false,
     "hero": false,
     "images": [
@@ -413,13 +413,13 @@ window.PRODUCTS = [
       "bg": "Клъч"
     },
     "description": {
-      "en": "A soft, rounded clutch with a lined interior, held in the hand for evenings out.",
-      "bg": "Мек, заоблен клъч с хастар отвътре, който се носи в ръка за вечер навън."
+      "en": "A soft, rounded clutch with a lined interior",
+      "bg": "Мек, заоблен клъч с плат отвътре"
     },
     "details": {
       "material": {
-        "en": "Wool",
-        "bg": "Вълна"
+        "en": "T-shirt yarn",
+        "bg": "Трикотажна прежда"
       },
       "dimensions": {
         "en": "32 × 13 × 13 cm",
@@ -436,7 +436,7 @@ window.PRODUCTS = [
     "ref": "AP-14",
     "category": "purses",
     "status": "available",
-    "price": "",
+    "price": "€25",
     "featured": false,
     "hero": false,
     "images": [
@@ -449,12 +449,12 @@ window.PRODUCTS = [
       "bg": "Мини чанта шопър"
     },
     "description": {
-      "en": "A small shopper with cut-out handles, worked in a thick, textured stitch.",
-      "bg": "Малка чанта шопър с изрязани дръжки."
+      "en": "A small shopper with cut-out handles",
+      "bg": "Малка чанта шопър с изрязани дръжки"
     },
     "details": {
       "material": {
-        "en": "Wool",
+        "en": "T-shirt yarn",
         "bg": "Трикотажна прежда"
       },
       "dimensions": {
@@ -471,7 +471,7 @@ window.PRODUCTS = [
     "id": "ap-01",
     "ref": "AP-01",
     "category": "scarves",
-    "status": "sold",
+    "status": "available",
     "price": "€45",
     "featured": false,
     "hero": false,
@@ -487,8 +487,8 @@ window.PRODUCTS = [
       "bg": "Шал"
     },
     "description": {
-      "en": "A long, chunky scarf finished with a fringe at each end. Made for the coldest days.",
-      "bg": "Дълъг, обемен шал с ресни в двата края. За най-студените дни."
+      "en": "A long, chunky scarf finished with a fringe at each end",
+      "bg": "Дълъг, обемен шал с ресни в двата края"
     },
     "details": {
       "material": {

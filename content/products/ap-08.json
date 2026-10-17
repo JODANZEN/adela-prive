@@ -2,14 +2,14 @@
   "name_en": "Bucket Bag",
   "name_bg": "Чанта-торбичка",
   "status": "available",
-  "price": "",
+  "price": "€50",
   "category": "purses",
   "images": [
     "/assets/uploads/ap-08-1.webp",
     "/assets/uploads/ap-08-2.webp"
   ],
-  "description_en": "A small drawstring bucket bag carried on a beaded handle.",
-  "description_bg": "Малка чанта-торбичка с връзки и дръжка с мъниста.",
+  "description_en": "A small drawstring bucket bag carried on a beaded handle",
+  "description_bg": "Малка чанта-торбичка с връзки и дръжка с мъниста",
   "dimensions": "16 × 18 cm",
   "colour_en": "White",
   "colour_bg": "Бяло",

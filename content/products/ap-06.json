@@ -1,15 +1,15 @@
 {
-  "name_en": "Classic White Bag",
+  "name_en": "Classic Bag",
   "name_bg": "Класическа чанта",
   "status": "available",
-  "price": "",
+  "price": "€30",
   "category": "purses",
   "images": [
     "/assets/uploads/ap-06-1.webp",
     "/assets/uploads/ap-06-2.webp"
   ],
-  "description_en": "A structured shoulder bag worked in a deep textured stitch.",
-  "description_bg": "Стегната чанта за рамо, изработена с плътна релефна плетка.",
+  "description_en": "",
+  "description_bg": "",
   "dimensions": "23 × 12 cm",
   "colour_en": "Snow white",
   "colour_bg": "Снежнобяло",

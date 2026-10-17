@@ -400,7 +400,13 @@ p { margin: 0 0 1em; }
 .atelier-story h2 { font-size: clamp(36px, 4vw, 56px); margin-bottom: 28px; }
 .atelier-story p { max-width: 46ch; }
 .atelier-story .lead { max-width: 40ch; }
-.atelier-cta { text-align: center; padding-bottom: clamp(80px, 10vw, 140px); }
+/* thank-you note at the end of the atelier page */
+.thanks { padding: clamp(80px, 10vw, 140px) 0 clamp(90px, 11vw, 150px); text-align: center; }
+.thanks__inner { max-width: 760px; }
+.thanks__mono { width: 64px; margin: 0 auto 28px; opacity: .9; }
+.thanks h2 { font-size: clamp(44px, 6vw, 84px); margin: 0 0 32px; }
+.thanks__text { font-size: clamp(21px, 2.1vw, 27px); line-height: 1.55; font-style: italic; color: var(--ink); margin: 0 auto; max-width: 34ch; }
+.thanks__sign { font-family: "Great Vibes", "Marck Script", cursive; font-size: 34px; color: var(--wine); margin: 28px 0 40px; }
 
 /* ---------- Ribbons (from the business card) --------------------
    Each ribbon enters from the side of the screen and tapers to a point,
