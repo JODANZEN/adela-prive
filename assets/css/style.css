@@ -176,10 +176,10 @@ p { margin: 0 0 1em; }
   margin-right: calc(-1 * clamp(80px, 12vw, 200px));
 }
 .hero__frame {
-  width: min(100%, 470px);
+  width: min(100%, 400px);
   box-shadow: 0 40px 70px -30px rgba(43, 10, 17, .55);
 }
-.hero__frame .photo { aspect-ratio: 4 / 5; }
+.hero__frame .photo { aspect-ratio: 826 / 1250; }   /* matches assets/img/hero.webp, so nothing is cropped */
 .hero__copy {
   position: relative; z-index: 2;
   padding: 56px var(--gutter) 56px calc(clamp(80px, 12vw, 200px) + clamp(40px, 5vw, 88px));

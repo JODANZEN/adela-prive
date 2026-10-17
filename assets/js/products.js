@@ -482,10 +482,7 @@ window.PRODUCTS = [
     "images": [
       "assets/uploads/ap-01-1.webp",
       "assets/uploads/ap-01-2.webp",
-      "assets/uploads/ap-01-3.webp",
-      "assets/uploads/ap-01-4.webp",
-      "assets/uploads/ap-01-5.webp",
-      "assets/uploads/ap-01-6.webp"
+      "assets/uploads/ap-01-3.webp"
     ],
     "name": {
       "en": "Scarf",
