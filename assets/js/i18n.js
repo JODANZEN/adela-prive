@@ -53,7 +53,7 @@ window.I18N = {
     "lang.label": "Language",
     "skip": "Skip to content",
 
-    "hero.title": "Crocheting unique bags",
+    "hero.title": "Unique crocheted bags",
     "hero.text": "Bags and accessories, each one with its own touch, in carefully chosen colours and yarns.",
     "hero.cta": "View the collection",
     "hero.cta2": "How to buy",
@@ -62,6 +62,7 @@ window.I18N = {
     "home.collection.text": "",
     "home.collection.all": "See all pieces",
 
+    "statement.home": "Don’t think like a designer. Be one.",
     "statement": "Crochet is much more than a hobby for me. It is a way to turn the ideas I love into something real.",
 
     "order.title": "How to buy",
@@ -214,6 +215,7 @@ window.I18N = {
     "home.collection.text": "",
     "home.collection.all": "Вижте всички изделия",
 
+    "statement.home": "Не мисли като дизайнер. Бъди такъв.",
     "statement": "Плетенето за мен е много повече от хоби – то е начин да превърна концепциите, които харесвам, в материална реалност.",
 
     "order.title": "Как да поръчате",

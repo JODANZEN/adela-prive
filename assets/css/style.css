@@ -272,22 +272,44 @@ p { margin: 0 0 1em; }
 /* filters */
 .filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px;
   border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 14px 0; margin-bottom: 48px; }
-.filters button {
+.filters > button {
   background: none; border: 0; cursor: pointer; padding: 6px 0;
   font-family: var(--sans); font-size: 13px; letter-spacing: .1em; color: var(--muted);
   border-bottom: 1px solid transparent;
 }
-.filters button[aria-pressed="true"] { color: var(--wine); border-bottom-color: var(--wine); }
+.filters > button[aria-pressed="true"] { color: var(--wine); border-bottom-color: var(--wine); }
 .filters__tools { margin-left: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
 .filters .count { font-family: var(--sans); font-size: 12px; letter-spacing: .1em; color: var(--muted); }
-.pickbox select {
-  font-family: var(--sans); font-size: 13px; letter-spacing: .06em; color: var(--ink);
-  background: transparent; border: 0; border-bottom: 1px solid var(--rule); border-radius: 0;
-  padding: 6px 22px 6px 0; cursor: pointer; -webkit-appearance: none; appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, var(--wine) 50%), linear-gradient(135deg, var(--wine) 50%, transparent 50%);
-  background-position: calc(100% - 10px) 55%, calc(100% - 5px) 55%; background-size: 5px 5px; background-repeat: no-repeat;
+/* filter + sort menus */
+.dd { position: relative; }
+.dd__btn {
+  display: inline-flex; align-items: baseline; gap: 10px; cursor: pointer;
+  background: none; border: 0; border-bottom: 1px solid transparent; padding: 6px 0; color: var(--ink);
+  transition: border-color .25s var(--ease);
 }
-.pickbox select:hover, .pickbox select:focus-visible { border-bottom-color: var(--wine); }
+.dd__btn:hover, .dd.is-open .dd__btn, .dd__btn:focus-visible { border-bottom-color: var(--wine); outline: none; }
+.dd__label { font-family: var(--sans); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.dd__value { font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--wine); white-space: nowrap; }
+.dd__chev { width: 11px; height: 8px; color: var(--wine); align-self: center; transition: transform .3s var(--ease); }
+.dd.is-open .dd__chev { transform: rotate(180deg); }
+.dd__list {
+  position: absolute; z-index: 30; top: calc(100% + 10px); right: 0; min-width: 100%; width: max-content; max-width: 86vw;
+  margin: 0; padding: 10px 0; list-style: none; outline: none;
+  background: var(--ivory); border: 1px solid var(--rule); border-top: 2px solid var(--wine);
+  box-shadow: 0 18px 40px -18px rgba(43, 10, 17, .35);
+  animation: dd-in .22s var(--ease);
+}
+@keyframes dd-in { from { opacity: 0; transform: translateY(-6px); } }
+.dd__list li {
+  position: relative; cursor: pointer; padding: 9px 26px 9px 34px;
+  font-family: var(--serif); font-size: 18px; color: var(--ink); white-space: nowrap;
+}
+.dd__list li.is-active { background: var(--linen); color: var(--wine); }
+.dd__list li[aria-selected="true"] { color: var(--wine); font-style: italic; }
+.dd__list li[aria-selected="true"]::before {
+  content: ""; position: absolute; left: 15px; top: 50%; width: 6px; height: 6px;
+  background: var(--wine); transform: translateY(-50%) rotate(45deg);
+}
 .empty { grid-column: 1 / -1; color: var(--muted); font-style: italic; padding: 40px 0; }
 
 /* ---------- Product page ---------------------------------------- */
@@ -527,8 +549,14 @@ main { position: relative; overflow-x: clip; }
   .gallery__dots { display: flex; }
   .lightbox__nav { display: none; }
   .details div { grid-template-columns: 110px 1fr; }
-  .filters__tools { margin-left: 0; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
-  .filters__tools .pickbox, .filters__tools select { width: 100%; min-width: 0; }
+  .filters__tools { margin-left: 0; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px;
+    border-top: 1px solid var(--rule); padding-top: 10px; }
+  .dd__btn { width: 100%; flex-wrap: wrap; row-gap: 0; position: relative; padding-right: 18px; text-align: left; }
+  .dd__label { flex-basis: 100%; }
+  .dd__value { font-size: 17px; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+  .dd__chev { position: absolute; right: 0; bottom: 12px; }
+  #f-material .dd__list { left: 0; right: auto; }
+  .dd__list li { white-space: normal; }
   .filters .count { grid-column: 1 / -1; }
 }
 @media (prefers-reduced-motion: reduce) {

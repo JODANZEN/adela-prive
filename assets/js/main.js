@@ -242,23 +242,79 @@
     const m = String(p.price || "").replace(/\s/g, "").replace(",", ".").match(/\d+(\.\d+)?/);
     return m ? parseFloat(m[0]) : null;
   };
+  // A small listbox in the site's own style (the native <select> popup can't be styled)
+  let ddOpen = null;
+  document.addEventListener("click", e => { if (ddOpen && !ddOpen.contains(e.target)) ddOpen.close(); });
+  function dropdown(el, label, options, value, onChange) {
+    if (!el) return;
+    const uid = el.id + "-list";
+    const cur = () => options.find(o => o[0] === value) || options[0];
+    el.innerHTML =
+      '<button type="button" class="dd__btn" aria-haspopup="listbox" aria-expanded="false" aria-controls="' + uid + '">' +
+        '<span class="dd__label">' + esc(label) + '</span><span class="dd__value"></span>' +
+        '<svg class="dd__chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>' +
+      "</button>" +
+      '<ul class="dd__list" role="listbox" id="' + uid + '" tabindex="-1" aria-label="' + esc(label) + '" hidden>' +
+        options.map((o, i) => '<li role="option" data-i="' + i + '" id="' + uid + "-" + i + '">' + esc(o[1]) + "</li>").join("") +
+      "</ul>";
+    const btn = $(".dd__btn", el), list = $(".dd__list", el), items = $$("li", list);
+    let active = 0;
+    const sync = () => {
+      $(".dd__value", el).textContent = cur()[1];
+      items.forEach((li, i) => li.setAttribute("aria-selected", String(options[i][0] === value)));
+    };
+    const focusItem = i => {
+      active = (i + items.length) % items.length;
+      items.forEach((li, j) => li.classList.toggle("is-active", j === active));
+      list.setAttribute("aria-activedescendant", items[active].id);
+      items[active].scrollIntoView({ block: "nearest" });
+    };
+    el.close = (refocus) => {
+      list.hidden = true; btn.setAttribute("aria-expanded", "false"); el.classList.remove("is-open");
+      if (ddOpen === el) ddOpen = null;
+      if (refocus) btn.focus();
+    };
+    const open = () => {
+      if (ddOpen && ddOpen !== el) ddOpen.close();
+      list.hidden = false; btn.setAttribute("aria-expanded", "true"); el.classList.add("is-open");
+      ddOpen = el; focusItem(Math.max(0, options.indexOf(cur()))); list.focus();
+    };
+    const pick = i => { value = options[i][0]; sync(); el.close(true); onChange(value); };
+    btn.onclick = e => { e.stopPropagation(); list.hidden ? open() : el.close(); };
+    btn.onkeydown = e => { if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); open(); } };
+    list.onclick = e => { const li = e.target.closest("li"); if (li) pick(+li.dataset.i); };
+    list.onmousemove = e => { const li = e.target.closest("li"); if (li) focusItem(+li.dataset.i); };
+    list.onkeydown = e => {
+      if (e.key === "ArrowDown") { e.preventDefault(); focusItem(active + 1); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); focusItem(active - 1); }
+      else if (e.key === "Home") { e.preventDefault(); focusItem(0); }
+      else if (e.key === "End") { e.preventDefault(); focusItem(items.length - 1); }
+      else if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(active); }
+      else if (e.key === "Escape" || e.key === "Tab") { el.close(e.key === "Escape"); }
+    };
+    sync();
+  }
+
   function initCollection() {
     const grid = $("#collection-grid");
     if (!grid) return;
-    const sortSel = $("#f-sort"), matSel = $("#f-material");
-    const mats = [...new Set(P.map(p => L(p.details && p.details.material)).filter(Boolean))].sort((a, b) => a.localeCompare(b, lang));
-    if (currentMaterial && !mats.includes(currentMaterial)) currentMaterial = "";
-    matSel.innerHTML = '<option value="">' + esc(t("filter.allMaterials")) + "</option>" +
-      mats.map(v => '<option value="' + esc(v) + '">' + esc(v) + "</option>").join("");
-    matSel.value = currentMaterial;
-    sortSel.innerHTML = ["recommended", "priceAsc", "priceDesc"].map(v =>
-      '<option value="' + v + '">' + esc(t("sort." + v)) + "</option>").join("");
-    sortSel.value = currentSort;
+    // materials are keyed by their English name, so a pick survives a language switch
+    const matKey = p => ((p.details && p.details.material && p.details.material.en) || "").trim().toLowerCase();
+    const matLabels = new Map();
+    P.forEach(p => { const k = matKey(p); if (k && !matLabels.has(k)) matLabels.set(k, L(p.details.material)); });
+    const mats = [...matLabels.keys()].sort((a, b) => matLabels.get(a).localeCompare(matLabels.get(b), lang));
+    if (currentMaterial && !matLabels.has(currentMaterial)) currentMaterial = "";
+    dropdown($("#f-material"), t("filter.material"),
+      [["", t("filter.allMaterials")]].concat(mats.map(k => [k, matLabels.get(k)])),
+      currentMaterial, v => { currentMaterial = v; draw(); });
+    dropdown($("#f-sort"), t("sort.label"),
+      ["recommended", "priceAsc", "priceDesc"].map(v => [v, t("sort." + v)]),
+      currentSort, v => { currentSort = v; draw(); });
 
     const draw = () => {
       let list = P.map((p, i) => ({ p, i }))
         .filter(({ p }) => currentFilter === "all" || p.category === currentFilter)
-        .filter(({ p }) => !currentMaterial || L(p.details && p.details.material) === currentMaterial);
+        .filter(({ p }) => !currentMaterial || matKey(p) === currentMaterial);
       if (currentSort !== "recommended") {
         const dir = currentSort === "priceAsc" ? 1 : -1;
         list.sort((a, b) => {
@@ -272,13 +328,11 @@
       list = list.map(x => x.p);
       grid.innerHTML = list.length ? list.map(cardHTML).join("") : '<p class="empty">' + esc(t("filter.none")) + "</p>";
       $("#count").textContent = t(list.length === 1 ? "count.one" : "count.many", { n: list.length });
-      $$(".filters button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.filter === currentFilter)));
+      $$(".filters > button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.filter === currentFilter)));
     };
-    $$(".filters button").forEach(b => {
+    $$(".filters > button").forEach(b => {
       b.onclick = () => { currentFilter = b.dataset.filter; draw(); };
     });
-    sortSel.onchange = () => { currentSort = sortSel.value; draw(); };
-    matSel.onchange = () => { currentMaterial = matSel.value; draw(); };
     const q = new URLSearchParams(location.search).get("c");
     if (q && !initCollection.done) currentFilter = q;
     initCollection.done = true;
