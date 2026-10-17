@@ -278,7 +278,17 @@ p { margin: 0 0 1em; }
   border-bottom: 1px solid transparent;
 }
 .filters button[aria-pressed="true"] { color: var(--wine); border-bottom-color: var(--wine); }
-.filters .count { margin-left: auto; font-family: var(--sans); font-size: 12px; letter-spacing: .1em; color: var(--muted); }
+.filters__tools { margin-left: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+.filters .count { font-family: var(--sans); font-size: 12px; letter-spacing: .1em; color: var(--muted); }
+.pickbox select {
+  font-family: var(--sans); font-size: 13px; letter-spacing: .06em; color: var(--ink);
+  background: transparent; border: 0; border-bottom: 1px solid var(--rule); border-radius: 0;
+  padding: 6px 22px 6px 0; cursor: pointer; -webkit-appearance: none; appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--wine) 50%), linear-gradient(135deg, var(--wine) 50%, transparent 50%);
+  background-position: calc(100% - 10px) 55%, calc(100% - 5px) 55%; background-size: 5px 5px; background-repeat: no-repeat;
+}
+.pickbox select:hover, .pickbox select:focus-visible { border-bottom-color: var(--wine); }
+.empty { grid-column: 1 / -1; color: var(--muted); font-style: italic; padding: 40px 0; }
 
 /* ---------- Product page ---------------------------------------- */
 .product { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(32px, 6vw, 96px); padding: 40px 0 clamp(80px, 10vw, 140px); align-items: start; }
@@ -516,7 +526,9 @@ main { position: relative; overflow-x: clip; }
   .gallery__dots { display: flex; }
   .lightbox__nav { display: none; }
   .details div { grid-template-columns: 110px 1fr; }
-  .filters .count { margin-left: 0; width: 100%; }
+  .filters__tools { margin-left: 0; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
+  .filters__tools .pickbox, .filters__tools select { width: 100%; min-width: 0; }
+  .filters .count { grid-column: 1 / -1; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }

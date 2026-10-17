@@ -232,19 +232,49 @@
     if (ap) ap.innerHTML = photoHTML(["assets/img/about-portrait.webp"], t("atelier.teaser.title"));
   }
 
-  let currentFilter = "all";
+  let currentFilter = "all", currentSort = "recommended", currentMaterial = "";
+  // "€45.00" → 45; no price → null
+  const priceValue = p => {
+    const m = String(p.price || "").replace(/\s/g, "").replace(",", ".").match(/\d+(\.\d+)?/);
+    return m ? parseFloat(m[0]) : null;
+  };
   function initCollection() {
     const grid = $("#collection-grid");
     if (!grid) return;
+    const sortSel = $("#f-sort"), matSel = $("#f-material");
+    const mats = [...new Set(P.map(p => L(p.details && p.details.material)).filter(Boolean))].sort((a, b) => a.localeCompare(b, lang));
+    if (currentMaterial && !mats.includes(currentMaterial)) currentMaterial = "";
+    matSel.innerHTML = '<option value="">' + esc(t("filter.allMaterials")) + "</option>" +
+      mats.map(v => '<option value="' + esc(v) + '">' + esc(v) + "</option>").join("");
+    matSel.value = currentMaterial;
+    sortSel.innerHTML = ["recommended", "priceAsc", "priceDesc"].map(v =>
+      '<option value="' + v + '">' + esc(t("sort." + v)) + "</option>").join("");
+    sortSel.value = currentSort;
+
     const draw = () => {
-      const list = currentFilter === "all" ? P : P.filter(p => p.category === currentFilter);
-      grid.innerHTML = list.map(cardHTML).join("");
+      let list = P.map((p, i) => ({ p, i }))
+        .filter(({ p }) => currentFilter === "all" || p.category === currentFilter)
+        .filter(({ p }) => !currentMaterial || L(p.details && p.details.material) === currentMaterial);
+      if (currentSort !== "recommended") {
+        const dir = currentSort === "priceAsc" ? 1 : -1;
+        list.sort((a, b) => {
+          const sa = statusOf(a.p) === "sold", sb = statusOf(b.p) === "sold";
+          if (sa !== sb) return sa ? 1 : -1;                       // sold out always last
+          const va = priceValue(a.p), vb = priceValue(b.p);
+          if (va === null || vb === null) return (va === null) - (vb === null) || a.i - b.i;  // unpriced after priced
+          return (va - vb) * dir || a.i - b.i;
+        });
+      }
+      list = list.map(x => x.p);
+      grid.innerHTML = list.length ? list.map(cardHTML).join("") : '<p class="empty">' + esc(t("filter.none")) + "</p>";
       $("#count").textContent = t(list.length === 1 ? "count.one" : "count.many", { n: list.length });
       $$(".filters button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.filter === currentFilter)));
     };
     $$(".filters button").forEach(b => {
       b.onclick = () => { currentFilter = b.dataset.filter; draw(); };
     });
+    sortSel.onchange = () => { currentSort = sortSel.value; draw(); };
+    matSel.onchange = () => { currentMaterial = matSel.value; draw(); };
     const q = new URLSearchParams(location.search).get("c");
     if (q && !initCollection.done) currentFilter = q;
     initCollection.done = true;
