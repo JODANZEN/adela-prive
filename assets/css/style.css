@@ -232,7 +232,7 @@ p { margin: 0 0 1em; }
 .card__meta { padding-top: 18px; display: grid; gap: 2px; }
 .card__name { font-size: 24px; line-height: 1.2; }
 .card__cat { font-style: italic; color: var(--muted); font-size: 17px; }
-.card__price { font-family: var(--sans); font-size: 12px; letter-spacing: .1em; color: var(--muted); margin-top: 6px; }
+.card__price { font-family: var(--serif); font-size: 20px; letter-spacing: .02em; color: var(--wine); margin-top: 6px; }
 .card .photo::after {
   content: ""; position: absolute; inset: 0; border: 1px solid transparent; transition: border-color .3s var(--ease);
 }
@@ -304,7 +304,7 @@ p { margin: 0 0 1em; }
 .info { position: sticky; top: calc(var(--header-h) + 32px); }
 .info .ref { font-family: var(--sans); font-size: 12px; letter-spacing: .12em; color: var(--muted); }
 .info h1 { font-size: clamp(44px, 4.6vw, 68px); margin: 14px 0 12px; }
-.info .price { font-style: italic; font-size: 22px; color: var(--wine); margin-bottom: 28px; }
+.info .price { font-size: 34px; line-height: 1.1; color: var(--wine); margin-bottom: 28px; }
 .info .desc { font-size: 21px; max-width: 38ch; }
 .info .handmade { font-style: italic; color: var(--muted); font-size: 18px; }
 .details { margin: 32px 0; border-top: 1px solid var(--rule); }
@@ -404,6 +404,7 @@ main { position: relative; overflow-x: clip; }
   background: var(--ivory); color: var(--wine); border: 1px solid var(--rule); }
 .pill--sold { background: var(--wine); color: var(--ivory); border-color: var(--wine); }
 .card--sold .photo img { filter: saturate(.5) brightness(1.04); }
+.card--sold .card__price { font-size: 15px; font-style: italic; color: var(--muted); }
 .status--available { color: var(--ink); }
 .status--made-to-order { color: var(--wine); }
 .status--sold { color: var(--wine); font-style: italic; }

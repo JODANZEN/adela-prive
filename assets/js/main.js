@@ -200,18 +200,22 @@
   }
 
   /* ---------- copy helper --------------------------------------- */
+  // Copy synchronously first: the Order button also opens Instagram, and an async
+  // clipboard write can be cut off by the navigation (leaving the old text behind).
   function copyText(text, toastEl) {
-    const done = ok => { if (toastEl) toastEl.textContent = t(ok ? "copied" : "copyFailed"); };
-    if (navigator.clipboard && window.isSecureContext) {
-      return navigator.clipboard.writeText(text).then(() => { done(true); return true; }, () => { done(false); return false; });
-    }
+    const done = ok => { if (toastEl) toastEl.textContent = t(ok ? "copied" : "copyFailed"); return ok; };
+    let ok = false;
     try {
       const ta = document.createElement("textarea");
-      ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
-      document.body.appendChild(ta); ta.select();
-      const ok = document.execCommand("copy"); document.body.removeChild(ta);
-      done(ok); return Promise.resolve(ok);
-    } catch (e) { done(false); return Promise.resolve(false); }
+      ta.value = text; ta.style.position = "fixed"; ta.style.top = "0"; ta.style.opacity = "0";
+      ta.style.fontSize = "16px";                       // stops iOS zooming in
+      document.body.appendChild(ta); ta.focus(); ta.select(); ta.setSelectionRange(0, text.length);
+      ok = document.execCommand("copy"); document.body.removeChild(ta);
+    } catch (e) { ok = false; }
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text).then(() => done(true), () => done(ok));
+    }
+    return Promise.resolve(done(ok));
   }
 
   /* ---------- pages --------------------------------------------- */
@@ -346,8 +350,9 @@
     if (lbEl) document.body.appendChild(lbEl);
 
     // copy the message first so it can be pasted straight into the DM
-    if ($("#enq-ig")) $("#enq-ig").addEventListener("click", () => { copyText(msg, $("#enq-toast")); });
-    if ($("#enq-copy")) $("#enq-copy").addEventListener("click", () => copyText(msg, $("#enq-toast")));
+    const currentMsg = () => { const box = $("#enq-msg"); return box ? box.textContent : msg; };
+    if ($("#enq-ig")) $("#enq-ig").addEventListener("click", () => { copyText(currentMsg(), $("#enq-toast")); });
+    if ($("#enq-copy")) $("#enq-copy").addEventListener("click", () => copyText(currentMsg(), $("#enq-toast")));
 
     const track = $("#g-track");
     const go = (i, smooth) => track.scrollTo({ left: i * track.clientWidth, behavior: smooth ? "smooth" : "auto" });
@@ -437,11 +442,19 @@
       const n = nameEl.value.trim();
       return ta.value.trim() + (n ? "\n— " + n : "");
     }
-    if (!ta.dataset.touched) ta.value = compose();
-    ta.oninput = () => { ta.dataset.touched = "1"; };
-    row.onchange = e => {
-      pickedPiece = e.target.value; ta.value = compose(); ta.dataset.touched = "";
-    };
+    // Keep the message in step with the piece (name changes in the sheet, language
+    // switch, new pick). If the visitor edited it, only swap the old name for the new one.
+    const pickedName = () => { const p = P.find(x => x.id === pickedPiece); return p ? L(p.name) : ""; };
+    function refresh(force) {
+      const auto = compose(), name = pickedName();
+      const lastAuto = ta.dataset.auto || "", lastName = ta.dataset.name || "";
+      if (force || !ta.value.trim() || ta.value === lastAuto) ta.value = auto;
+      else if (lastName && name && lastName !== name) ta.value = ta.value.split(lastName).join(name);
+      ta.dataset.auto = auto; ta.dataset.name = name;
+    }
+    refresh(false);
+    ta.oninput = null;
+    row.onchange = e => { pickedPiece = e.target.value; refresh(true); };
     const sel = row.querySelector("input:checked");
     if (sel && pickedPiece) sel.closest(".pick").scrollIntoView({ block: "nearest", inline: "center" });
     // a real link opens Instagram; the click copies the message first
