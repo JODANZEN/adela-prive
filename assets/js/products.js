@@ -93,7 +93,7 @@ window.PRODUCTS = [
     },
     "description": {
       "en": "A shell-shaped bag with a movable handle",
-      "bg": "Чанта с формата на мида с подвижна дръжка"
+      "bg": "Чанта във формата на мида с подвижна дръжка"
     },
     "details": {
       "material": {
