@@ -10,10 +10,10 @@ window.PRODUCTS = [
     "featured": true,
     "hero": false,
     "images": [
-      "assets/uploads/ap-02-1.webp",
-      "assets/uploads/ap-02-2.webp",
-      "assets/uploads/ap-02-3.webp",
-      "assets/uploads/ap-02-4.webp"
+      "assets/uploads/ap-02-1.webp?v=9483fa8a",
+      "assets/uploads/ap-02-2.webp?v=e5448a8a",
+      "assets/uploads/ap-02-3.webp?v=616a4699",
+      "assets/uploads/ap-02-4.webp?v=5dc5e46a"
     ],
     "name": {
       "en": "Triangle Tote Bag",
@@ -47,9 +47,9 @@ window.PRODUCTS = [
     "featured": false,
     "hero": true,
     "images": [
-      "assets/uploads/ap-03-1.webp",
-      "assets/uploads/ap-03-2.webp",
-      "assets/uploads/ap-03-3.webp"
+      "assets/uploads/ap-03-1.webp?v=1ce98aed",
+      "assets/uploads/ap-03-2.webp?v=feec7c17",
+      "assets/uploads/ap-03-3.webp?v=361f3b69"
     ],
     "name": {
       "en": "Japanese Knot Bag",
@@ -83,9 +83,9 @@ window.PRODUCTS = [
     "featured": true,
     "hero": false,
     "images": [
-      "assets/uploads/ap-04-1.webp",
-      "assets/uploads/ap-04-2.webp",
-      "assets/uploads/ap-04-3.webp"
+      "assets/uploads/ap-04-1.webp?v=9384d661",
+      "assets/uploads/ap-04-2.webp?v=758baf10",
+      "assets/uploads/ap-04-3.webp?v=38a916f8"
     ],
     "name": {
       "en": "Shell Bag",
@@ -119,9 +119,9 @@ window.PRODUCTS = [
     "featured": true,
     "hero": false,
     "images": [
-      "assets/uploads/ap-05-1.webp",
-      "assets/uploads/ap-05-2.webp",
-      "assets/uploads/ap-05-3.webp"
+      "assets/uploads/ap-05-1.webp?v=e15a8d9b",
+      "assets/uploads/ap-05-2.webp?v=cfb3c33f",
+      "assets/uploads/ap-05-3.webp?v=625821af"
     ],
     "name": {
       "en": "Ring Handle Bag",
@@ -155,8 +155,8 @@ window.PRODUCTS = [
     "featured": false,
     "hero": false,
     "images": [
-      "assets/uploads/ap-06-1.webp",
-      "assets/uploads/ap-06-2.webp"
+      "assets/uploads/ap-06-1.webp?v=286698d6",
+      "assets/uploads/ap-06-2.webp?v=21fb16c3"
     ],
     "name": {
       "en": "Classic Bag",
@@ -190,8 +190,8 @@ window.PRODUCTS = [
     "featured": false,
     "hero": false,
     "images": [
-      "assets/uploads/ap-07-1.webp",
-      "assets/uploads/ap-07-2.webp"
+      "assets/uploads/ap-07-1.webp?v=a6ae3636",
+      "assets/uploads/ap-07-2.webp?v=e043f458"
     ],
     "name": {
       "en": "Bubble Bag",
@@ -225,8 +225,8 @@ window.PRODUCTS = [
     "featured": false,
     "hero": false,
     "images": [
-      "assets/uploads/ap-08-1.webp",
-      "assets/uploads/ap-08-2.webp"
+      "assets/uploads/ap-08-1.webp?v=a43abb0a",
+      "assets/uploads/ap-08-2.webp?v=cef12556"
     ],
     "name": {
       "en": "Bucket Bag",
@@ -260,9 +260,9 @@ window.PRODUCTS = [
     "featured": false,
     "hero": false,
     "images": [
-      "assets/uploads/ap-09-1.webp",
-      "assets/uploads/ap-09-2.webp",
-      "assets/uploads/ap-09-3.webp"
+      "assets/uploads/ap-09-1.webp?v=9d59b855",
+      "assets/uploads/ap-09-2.webp?v=40aa9843",
+      "assets/uploads/ap-09-3.webp?v=72427a67"
     ],
     "name": {
       "en": "Mini Bag",
@@ -296,10 +296,10 @@ window.PRODUCTS = [
     "featured": true,
     "hero": false,
     "images": [
-      "assets/uploads/ap-10-1.webp",
-      "assets/uploads/ap-10-2.webp",
-      "assets/uploads/ap-10-3.webp",
-      "assets/uploads/ap-10-4.webp"
+      "assets/uploads/ap-10-1.webp?v=486f7915",
+      "assets/uploads/ap-10-2.webp?v=d8a395dd",
+      "assets/uploads/ap-10-3.webp?v=a6d446b4",
+      "assets/uploads/ap-10-4.webp?v=ea844b25"
     ],
     "name": {
       "en": "Hobo Bag",
@@ -333,10 +333,10 @@ window.PRODUCTS = [
     "featured": false,
     "hero": false,
     "images": [
-      "assets/uploads/ap-11-1.webp",
-      "assets/uploads/ap-11-2.webp",
-      "assets/uploads/ap-11-3.webp",
-      "assets/uploads/ap-11-4.webp"
+      "assets/uploads/ap-11-1.webp?v=cfd64b66",
+      "assets/uploads/ap-11-2.webp?v=cc061f57",
+      "assets/uploads/ap-11-3.webp?v=aae86ff7",
+      "assets/uploads/ap-11-4.webp?v=72e3df7f"
     ],
     "name": {
       "en": "Fringe Mini Tote Bag",
@@ -370,9 +370,9 @@ window.PRODUCTS = [
     "featured": false,
     "hero": false,
     "images": [
-      "assets/uploads/ap-12-1.webp",
-      "assets/uploads/ap-12-2.webp",
-      "assets/uploads/ap-12-3.webp"
+      "assets/uploads/ap-12-1.webp?v=892f3aec",
+      "assets/uploads/ap-12-2.webp?v=a0cb7900",
+      "assets/uploads/ap-12-3.webp?v=f4d2e7cf"
     ],
     "name": {
       "en": "Top Handle Bag",
@@ -406,9 +406,9 @@ window.PRODUCTS = [
     "featured": false,
     "hero": false,
     "images": [
-      "assets/uploads/ap-13-1.webp",
-      "assets/uploads/ap-13-2.webp",
-      "assets/uploads/ap-13-3.webp"
+      "assets/uploads/ap-13-1.webp?v=f78b72c4",
+      "assets/uploads/ap-13-2.webp?v=3d5beccf",
+      "assets/uploads/ap-13-3.webp?v=e1771f2e"
     ],
     "name": {
       "en": "Clutch Bag",
@@ -442,9 +442,9 @@ window.PRODUCTS = [
     "featured": false,
     "hero": false,
     "images": [
-      "assets/uploads/ap-14-1.webp",
-      "assets/uploads/ap-14-2.webp",
-      "assets/uploads/ap-14-3.webp"
+      "assets/uploads/ap-14-1.webp?v=a0ce7391",
+      "assets/uploads/ap-14-2.webp?v=ac0f4b86",
+      "assets/uploads/ap-14-3.webp?v=646fdb5b"
     ],
     "name": {
       "en": "Mini Shopper Bag",
@@ -478,8 +478,8 @@ window.PRODUCTS = [
     "featured": false,
     "hero": false,
     "images": [
-      "assets/uploads/ap-15-1.webp",
-      "assets/uploads/ap-15-2.webp"
+      "assets/uploads/ap-15-1.webp?v=f0f21f8c",
+      "assets/uploads/ap-15-2.webp?v=9c6b6e00"
     ],
     "name": {
       "en": "Ella Bag",
@@ -513,9 +513,9 @@ window.PRODUCTS = [
     "featured": false,
     "hero": false,
     "images": [
-      "assets/uploads/ap-01-1.webp",
-      "assets/uploads/ap-01-2.webp",
-      "assets/uploads/ap-01-3.webp"
+      "assets/uploads/ap-01-1.webp?v=e5a0bdee",
+      "assets/uploads/ap-01-2.webp?v=88e49636",
+      "assets/uploads/ap-01-3.webp?v=b3215314"
     ],
     "name": {
       "en": "Scarf",

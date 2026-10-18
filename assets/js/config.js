@@ -11,6 +11,6 @@ window.SITE = {
   // on every visit; anything left empty in the sheet falls back to the product files.
   // The sheet must be shared as "Anyone with the link: Viewer".
   sheetId: "1w3OGpzHbB9rVrmMlVb-Z4gRdhuYKdbirNUYibPnKcRo",
-  heroImage: "assets/img/hero.webp",       // big photo at the top of the home page (links to the "hero" piece)
+  heroImage: "assets/img/hero.webp?v=2",       // big photo at the top of the home page (links to the "hero" piece)
   goatcounter: ""                          // visit counter: your GoatCounter code, e.g. "adelaprive" ("" = off)
 };

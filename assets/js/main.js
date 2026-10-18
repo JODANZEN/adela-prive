@@ -49,8 +49,9 @@
 
   // product photos come in two sizes: 1000px (x.webp) and 500px (x-sm.webp)
   // photos uploaded on the admin page live in assets/uploads; the build makes a 500px "-sm" copy
-  const isProduct = src => /assets\/uploads\/[^/]+\.(webp|jpe?g|png)$/i.test(src) && !/-sm\.webp$/.test(src);
-  const small = src => isProduct(src) ? src.replace(/\.(webp|jpe?g|png)$/i, "-sm.webp") : src;
+  // product photos may carry a ?v= fingerprint (added by the build) so replaced photos aren't cached
+  const isProduct = src => /assets\/uploads\/[^/?]+\.(webp|jpe?g|png)(\?.*)?$/i.test(src) && !/-sm\.webp(\?|$)/.test(src);
+  const small = src => isProduct(src) ? src.replace(/\.(webp|jpe?g|png)(\?|$)/i, "-sm.webp$2") : src;
   // if a small copy is missing (e.g. a brand-new upload before the build ran), use the full photo
   const fallback = src => ' onerror="this.onerror=null;this.removeAttribute(\'srcset\');this.src=\'' + esc(src) + '\'"';
   const priceText = p => statusOf(p) === "sold" ? t("status.sold") : ((p.price || "").replace(/[.,]00(?=\D*$)/, "") || t("product.price"));

@@ -12,6 +12,7 @@ It does two things:
   2. Makes a 500px "-sm" copy of each photo in assets/uploads/ for the grid,
      so phones load small images.
 """
+import hashlib
 import json
 import pathlib
 import re
@@ -24,8 +25,15 @@ OUT = ROOT / "assets" / "js" / "products.js"
 
 
 def local(src: str) -> str:
-    """'/assets/uploads/x.webp' -> 'assets/uploads/x.webp' (works under any sub-path)."""
-    return re.sub(r"^/+", "", (src or "").strip())
+    """'/assets/uploads/x.webp' -> 'assets/uploads/x.webp?v=1a2b3c4d' (works under any sub-path).
+
+    The ?v= part is a fingerprint of the photo, so when a photo is replaced under the
+    same name, browsers fetch the new one instead of showing a cached copy."""
+    path = re.sub(r"^/+", "", (src or "").strip()).split("?")[0]
+    f = ROOT / path
+    if f.is_file():
+        return path + "?v=" + hashlib.md5(f.read_bytes()).hexdigest()[:8]
+    return path
 
 
 def pair(en: str, bg: str) -> dict:
