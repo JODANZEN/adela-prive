@@ -48,7 +48,7 @@ window.PRODUCTS = [
     "hero": true,
     "images": [
       "assets/uploads/ap-03-1.webp?v=1ce98aed",
-      "assets/uploads/ap-03-2.webp?v=feec7c17",
+      "assets/uploads/ap-03-2.webp?v=f6278d87",
       "assets/uploads/ap-03-3.webp?v=361f3b69"
     ],
     "name": {
@@ -190,7 +190,7 @@ window.PRODUCTS = [
     "featured": false,
     "hero": false,
     "images": [
-      "assets/uploads/ap-07-1.webp?v=a6ae3636",
+      "assets/uploads/ap-07-1.webp?v=14546add",
       "assets/uploads/ap-07-2.webp?v=e043f458"
     ],
     "name": {
@@ -225,7 +225,7 @@ window.PRODUCTS = [
     "featured": false,
     "hero": false,
     "images": [
-      "assets/uploads/ap-08-1.webp?v=a43abb0a",
+      "assets/uploads/ap-08-1.webp?v=dc4b87ab",
       "assets/uploads/ap-08-2.webp?v=cef12556"
     ],
     "name": {
@@ -333,7 +333,7 @@ window.PRODUCTS = [
     "featured": false,
     "hero": false,
     "images": [
-      "assets/uploads/ap-11-1.webp?v=cfd64b66",
+      "assets/uploads/ap-11-1.webp?v=a246f5c1",
       "assets/uploads/ap-11-2.webp?v=cc061f57",
       "assets/uploads/ap-11-3.webp?v=aae86ff7",
       "assets/uploads/ap-11-4.webp?v=72e3df7f"
