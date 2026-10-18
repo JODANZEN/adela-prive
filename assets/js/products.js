@@ -43,7 +43,7 @@ window.PRODUCTS = [
     "ref": "AP-03",
     "category": "purses",
     "status": "available",
-    "price": "€30",
+    "price": "€35",
     "featured": false,
     "hero": true,
     "images": [
@@ -53,7 +53,7 @@ window.PRODUCTS = [
     ],
     "name": {
       "en": "Japanese Knot Bag",
-      "bg": "Чанта „Японски възел“"
+      "bg": "Чанта тип „Японски възел“"
     },
     "description": {
       "en": "A Japanese knot bag in a yarn with a soft glossy sheen, finished with a fringed base",
@@ -89,7 +89,7 @@ window.PRODUCTS = [
     ],
     "name": {
       "en": "Shell Bag",
-      "bg": "Чанта „Мида“"
+      "bg": "Чанта тип „Мида“"
     },
     "description": {
       "en": "A shell-shaped bag with a movable handle",
@@ -125,7 +125,7 @@ window.PRODUCTS = [
     ],
     "name": {
       "en": "Ring Handle Bag",
-      "bg": "Чанта с дръжки халки"
+      "bg": "Чанта с метални халки"
     },
     "description": {
       "en": "A rounded bag carried on two polished metal ring handles",
@@ -163,8 +163,8 @@ window.PRODUCTS = [
       "bg": "Класическа чанта"
     },
     "description": {
-      "en": "",
-      "bg": ""
+      "en": "Bag for everyday use",
+      "bg": "Чанта за ежедневна употреба"
     },
     "details": {
       "material": {
@@ -195,7 +195,7 @@ window.PRODUCTS = [
     ],
     "name": {
       "en": "Bubble Bag",
-      "bg": "Чанта „Балон“"
+      "bg": "Чанта „бъбъл“"
     },
     "description": {
       "en": "A playful bubble bag made from extra-chunky yarn",
@@ -256,7 +256,7 @@ window.PRODUCTS = [
     "ref": "AP-09",
     "category": "purses",
     "status": "available",
-    "price": "€30",
+    "price": "€35",
     "featured": false,
     "hero": false,
     "images": [
@@ -357,7 +357,7 @@ window.PRODUCTS = [
       },
       "colour": {
         "en": "Lapis blue",
-        "bg": "Лапис синьо"
+        "bg": "Тъмно синьо"
       }
     }
   },
@@ -376,11 +376,11 @@ window.PRODUCTS = [
     ],
     "name": {
       "en": "Top Handle Bag",
-      "bg": "Чанта с горни дръжки"
+      "bg": "Чанта със заоблени дръжки"
     },
     "description": {
       "en": "A bag with rounded top handles, spacious enough for a phone and the essentials",
-      "bg": "Чанта със заоблени  дръжки, достатъчно просторна за телефон и най-необходимото"
+      "bg": "достатъчно просторна за телефон и най-необходимото"
     },
     "details": {
       "material": {
@@ -474,7 +474,7 @@ window.PRODUCTS = [
     "ref": "AP-15",
     "category": "purses",
     "status": "available",
-    "price": "",
+    "price": "€40",
     "featured": false,
     "hero": false,
     "images": [
@@ -486,21 +486,21 @@ window.PRODUCTS = [
       "bg": "Чанта „Ела“"
     },
     "description": {
-      "en": "",
-      "bg": ""
+      "en": "The perfect accent for a modern, sophisticated look",
+      "bg": "Перфектният акцент за модерна, изискана визия"
     },
     "details": {
       "material": {
-        "en": "",
-        "bg": ""
+        "en": "T-shirt yarn",
+        "bg": "Трикотажна прежда"
       },
       "dimensions": {
-        "en": "",
-        "bg": ""
+        "en": "21 × 17 cm",
+        "bg": "21 × 17 см"
       },
       "colour": {
-        "en": "White",
-        "bg": "Бяло"
+        "en": "Glossy white",
+        "bg": "Бляскаво бяло"
       }
     }
   },
@@ -531,8 +531,8 @@ window.PRODUCTS = [
         "bg": "Вълна"
       },
       "dimensions": {
-        "en": "",
-        "bg": ""
+        "en": "1.60 m",
+        "bg": "1.60 m"
       },
       "colour": {
         "en": "Burgundy",

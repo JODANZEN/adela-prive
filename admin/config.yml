@@ -39,9 +39,9 @@ media_libraries:
 
 collections:
   - name: products
-    label: Pieces · Изделия
+    label: Pieces · Артикули
     label_singular: Piece
-    description: Everything in the shop. Tap a piece to edit it, or New to add one.
+    description: Everything in the shop. Tap a piece to edit it, or New to add one. Changes are live about a minute after you save · Всички артикули. Промените излизат на сайта около минута след запазване.
     folder: content/products
     extension: json
     format: json
@@ -49,7 +49,7 @@ collections:
     delete: true
     identifier_field: name_en
     slug: "{{slug}}"
-    summary: "{{name_en}} · {{status}}"
+    summary: "{{ref}} · {{name_en}} · {{status}} · {{price}}"
     sortable_fields: [order, name_en, status]
     fields:
       - label: Photos
@@ -57,7 +57,7 @@ collections:
         widget: image
         multiple: true
         required: true
-        hint: The first photo is the main one; the second shows when someone hovers over the piece. Drag to reorder. Photos are compressed automatically.
+        hint: "Order: studio photo first, then open/full view, then on a model. Drag to reorder. Photos are resized automatically · Ред: студийна снимка, после отворена, после на модел. Плъзнете за смяна на реда."
 
       - label: Availability · Наличност
         name: status
@@ -66,13 +66,13 @@ collections:
         options:
           - { label: "Available · Налично", value: available }
           - { label: "Made to order · По поръчка", value: made-to-order }
-          - { label: "Sold · Продадено", value: sold }
+          - { label: "Sold out · Изчерпано", value: sold }
 
       - label: Price · Цена
         name: price
         widget: string
         required: false
-        hint: Written exactly as it should appear, e.g. €45. Leave empty to show "Price on request".
+        hint: Written as it should appear, e.g. €45. Leave empty to show "Price on request" · Например €45. Празно = „Цена при запитване“.
 
       - label: Name (English)
         name: name_en
@@ -89,8 +89,8 @@ collections:
         widget: select
         default: purses
         options:
-          - { label: "Purse · Чанта", value: purses }
-          - { label: "Scarf · Шал", value: scarves }
+          - { label: "Bag · Чанта", value: purses }
+          - { label: "Accessory · Аксесоар", value: scarves }
 
       - label: Description (English)
         name: description_en
@@ -132,7 +132,7 @@ collections:
         name: ref
         widget: string
         required: false
-        hint: Shown on the piece and in enquiry messages, e.g. AP-15.
+        hint: Shown on the piece and in order messages. Use the next number, e.g. AP-16 · Следващият номер, напр. AP-16.
 
       - label: Show on the home page
         name: featured
@@ -144,7 +144,7 @@ collections:
         name: hero
         widget: boolean
         default: false
-        hint: Turn this on for one piece only.
+        hint: Turn this on for one piece only. The big home-page photo links to it · Само за един артикул – голямата снимка на началната страница води към него.
 
       - label: Order
         name: order
@@ -152,4 +152,4 @@ collections:
         value_type: int
         default: 200
         required: false
-        hint: Lower numbers come first in the collection (the current pieces use 10, 20, 30…).
+        hint: Lower numbers come first in the collection (current pieces use 10–150) · По-малките числа излизат първи.
