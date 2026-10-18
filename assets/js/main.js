@@ -514,7 +514,6 @@
     // a real link opens Instagram; the click copies the message first
     $("#c-ig").href = igDM();
     $("#c-ig").onclick = () => { copyText(finalText(), $("#c-toast")); };
-    $("#c-sms").onclick = () => { $("#c-sms").href = sms(finalText()); };
   }
 
   function render() {

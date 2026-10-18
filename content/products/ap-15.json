@@ -1,0 +1,22 @@
+{
+  "name_en": "Ella Bag",
+  "name_bg": "Чанта „Ела“",
+  "status": "available",
+  "price": "",
+  "category": "purses",
+  "images": [
+    "/assets/uploads/ap-15-1.webp",
+    "/assets/uploads/ap-15-2.webp"
+  ],
+  "description_en": "",
+  "description_bg": "",
+  "dimensions": "",
+  "colour_en": "White",
+  "colour_bg": "Бяло",
+  "material_en": "",
+  "material_bg": "",
+  "ref": "AP-15",
+  "featured": false,
+  "hero": false,
+  "order": 150
+}

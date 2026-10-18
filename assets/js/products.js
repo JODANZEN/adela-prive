@@ -336,8 +336,7 @@ window.PRODUCTS = [
       "assets/uploads/ap-11-1.webp",
       "assets/uploads/ap-11-2.webp",
       "assets/uploads/ap-11-3.webp",
-      "assets/uploads/ap-11-4.webp",
-      "assets/uploads/ap-11-5.webp"
+      "assets/uploads/ap-11-4.webp"
     ],
     "name": {
       "en": "Fringe Mini Tote Bag",
@@ -468,6 +467,41 @@ window.PRODUCTS = [
       "colour": {
         "en": "Sand beige",
         "bg": "Пясъчно бежово"
+      }
+    }
+  },
+  {
+    "id": "ap-15",
+    "ref": "AP-15",
+    "category": "purses",
+    "status": "available",
+    "price": "",
+    "featured": false,
+    "hero": false,
+    "images": [
+      "assets/uploads/ap-15-1.webp",
+      "assets/uploads/ap-15-2.webp"
+    ],
+    "name": {
+      "en": "Ella Bag",
+      "bg": "Чанта „Ела“"
+    },
+    "description": {
+      "en": "",
+      "bg": ""
+    },
+    "details": {
+      "material": {
+        "en": "",
+        "bg": ""
+      },
+      "dimensions": {
+        "en": "",
+        "bg": ""
+      },
+      "colour": {
+        "en": "White",
+        "bg": "Бяло"
       }
     }
   },
