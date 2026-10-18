@@ -262,7 +262,7 @@ window.I18N = {
     "product.notFound": "Този артикул не беше намерен.",
     "product.photo": "Снимка {n}",
 
-    "btn.instagram": "Пишете ни в Instagram",
+    "btn.instagram": "Пишете ми в Instagram",
     "btn.call": "Обадете се на {phone}",
     "btn.copy": "Копирайте съобщението",
     "btn.sms": "Изпратете като SMS",
@@ -309,7 +309,7 @@ window.I18N = {
     "footer.follow": "Instagram",
     "footer.call": "Телефон",
     "footer.pages": "Страници",
-    "footer.reach": "Връзка с нас",
+    "footer.reach": "Връзка с мен",
     "footer.rights": "Всички права запазени.",
 
     "404.title": "Тази страница не съществува.",

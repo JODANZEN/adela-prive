@@ -372,8 +372,7 @@ window.PRODUCTS = [
     "images": [
       "assets/uploads/ap-12-1.webp",
       "assets/uploads/ap-12-2.webp",
-      "assets/uploads/ap-12-3.webp",
-      "assets/uploads/ap-12-4.webp"
+      "assets/uploads/ap-12-3.webp"
     ],
     "name": {
       "en": "Top Handle Bag",
