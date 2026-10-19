@@ -17,6 +17,9 @@ backend:
     deleteMedia: "Delete photo: {{path}}"
 
 app_title: Adela Privé — Admin
+# Full-width form, no preview pane (the live site is the preview)
+editor:
+  preview: false
 site_url: https://jodanzen.github.io/adela-prive/
 display_url: https://jodanzen.github.io/adela-prive/
 logo:
@@ -40,8 +43,8 @@ media_libraries:
 collections:
   - name: products
     label: Pieces · Артикули
-    label_singular: Piece
-    description: Everything in the shop. Tap a piece to edit it, or New to add one. Changes are live about a minute after you save · Всички артикули. Промените излизат на сайта около минута след запазване.
+    label_singular: Piece · Артикул
+    description: Tap a piece to edit it, or New to add one. Changes are live about a minute after you save · Изберете артикул, за да го редактирате, или New за нов. Промените излизат на сайта около минута след запазване.
     folder: content/products
     extension: json
     format: json
@@ -50,14 +53,17 @@ collections:
     identifier_field: name_en
     slug: "{{slug}}"
     summary: "{{ref}} · {{name_en}} · {{status}} · {{price}}"
-    sortable_fields: [order, name_en, status]
+    sortable_fields:
+      fields: [order, name_en, status, price]
+      default: { field: order, direction: ascending }
     fields:
-      - label: Photos
+      # ---- the things she changes most ----
+      - label: Photos · Снимки
         name: images
         widget: image
         multiple: true
         required: true
-        hint: "Order: studio photo first, then open/full view, then on a model. Drag to reorder. Photos are resized automatically · Ред: студийна снимка, после отворена, после на модел. Плъзнете за смяна на реда."
+        hint: "Studio photo first, then open/full view, then on a model. Drag to reorder · Първо студийна снимка, после отворена, после на модел. Плъзнете за смяна на реда."
 
       - label: Availability · Наличност
         name: status
@@ -72,8 +78,9 @@ collections:
         name: price
         widget: string
         required: false
-        hint: Written as it should appear, e.g. €45. Leave empty to show "Price on request" · Например €45. Празно = „Цена при запитване“.
+        hint: "e.g. €45. Empty = “Price on request” · Напр. €45. Празно = „Цена при запитване“."
 
+      # ---- names and text ----
       - label: Name (English)
         name: name_en
         widget: string
@@ -82,15 +89,7 @@ collections:
         name: name_bg
         widget: string
         required: false
-        hint: If empty, the English name is used.
-
-      - label: Type · Вид
-        name: category
-        widget: select
-        default: purses
-        options:
-          - { label: "Bag · Чанта", value: purses }
-          - { label: "Accessory · Аксесоар", value: scarves }
+        hint: If empty, the English name is used · Ако е празно, се показва английското име.
 
       - label: Description (English)
         name: description_en
@@ -101,6 +100,15 @@ collections:
         name: description_bg
         widget: text
         required: false
+
+      # ---- details ----
+      - label: Type · Вид
+        name: category
+        widget: select
+        default: purses
+        options:
+          - { label: "Bag · Чанта", value: purses }
+          - { label: "Accessory · Аксесоар", value: scarves }
 
       - label: Size · Размер
         name: dimensions
@@ -122,34 +130,36 @@ collections:
         name: material_en
         widget: string
         required: false
+        hint: Use the same wording as other pieces (e.g. T-shirt yarn) so the material filter groups them · Пишете материала еднакво, за да работи филтърът.
 
       - label: Материал (български)
         name: material_bg
         widget: string
         required: false
 
-      - label: Reference code
+      # ---- set once, rarely changed ----
+      - label: Reference code · Код
         name: ref
         widget: string
         required: false
-        hint: Shown on the piece and in order messages. Use the next number, e.g. AP-16 · Следващият номер, напр. AP-16.
+        hint: Shown on the piece and in order messages. Next free number, e.g. AP-16 · Следващият свободен номер, напр. AP-16.
 
-      - label: Show on the home page
+      - label: Show on the home page · На началната страница
         name: featured
         widget: boolean
         default: false
-        hint: Up to four pieces are shown.
+        hint: Up to four pieces are shown · Показват се до четири.
 
-      - label: Big photo at the top of the home page
+      - label: Big home-page photo links here · Голямата снимка води тук
         name: hero
         widget: boolean
         default: false
-        hint: Turn this on for one piece only. The big home-page photo links to it · Само за един артикул – голямата снимка на началната страница води към него.
+        hint: One piece only · Само за един артикул.
 
-      - label: Order
+      - label: Position in the collection · Позиция
         name: order
         widget: number
         value_type: int
         default: 200
         required: false
-        hint: Lower numbers come first in the collection (current pieces use 10–150) · По-малките числа излизат първи.
+        hint: Lower numbers come first (current pieces use 10–150) · По-малките числа излизат първи.
