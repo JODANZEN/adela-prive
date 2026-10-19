@@ -17,9 +17,6 @@ backend:
     deleteMedia: "Delete photo: {{path}}"
 
 app_title: Adela Privé — Admin
-# Full-width form, no preview pane (the live site is the preview)
-editor:
-  preview: false
 site_url: https://jodanzen.github.io/adela-prive/
 display_url: https://jodanzen.github.io/adela-prive/
 logo:
