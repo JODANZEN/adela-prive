@@ -1,23 +1,23 @@
 {
-  "name_en": "Scarf",
-  "name_bg": "Шал",
-  "status": "available",
-  "price": "€45",
-  "category": "scarves",
   "images": [
     "/assets/uploads/ap-01-1.webp",
     "/assets/uploads/ap-01-2.webp",
     "/assets/uploads/ap-01-3.webp"
   ],
+  "status": "available",
+  "price": "€45",
+  "name_en": "Scarf",
+  "name_bg": "Шал",
   "description_en": "A long, chunky scarf finished with a fringe at each end",
   "description_bg": "Дълъг, обемен шал с ресни в двата края",
+  "category": "scarves",
   "dimensions": "1.60 m",
   "colour_en": "Burgundy",
   "colour_bg": "Бордо",
   "material_en": "Wool",
   "material_bg": "Вълна",
   "ref": "AP-01",
-  "featured": false,
+  "featured": true,
   "hero": false,
   "order": 990
 }
