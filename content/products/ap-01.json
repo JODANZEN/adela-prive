@@ -17,7 +17,7 @@
   "material_en": "Wool",
   "material_bg": "Вълна",
   "ref": "AP-01",
-  "featured": true,
+  "featured": false,
   "hero": false,
   "order": 990
 }
