@@ -25,13 +25,11 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pillow
-      - name: Build products list and thumbnails
-        run: python scripts/build.py
-      - name: Leave out files the site doesn't need
-        run: rm -rf .github scripts content _incoming README.md
+      - name: Build the site into dist/
+        run: python scripts/dist.py
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: dist
 
   deploy:
     needs: build
