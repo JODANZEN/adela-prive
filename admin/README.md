@@ -1,6 +1,6 @@
 # Admin page
 
-`https://jodanzen.github.io/adela-prive/admin/` — add, edit and remove pieces, photos,
+`https://www.adelaprive.com/admin/` — add, edit and remove pieces, photos,
 prices and availability. Built with [Sveltia CMS](https://sveltiacms.app).
 
 ## Before she starts: switch off the Google Sheet
@@ -14,10 +14,9 @@ After that, this admin page is the only place to edit pieces.
 
 - Each piece is one file in `content/products/`. Photos go to `assets/uploads/`
   (converted to WebP, max 1400×1750, on upload).
-- Saving commits to GitHub. The **Build and publish site** action
-  (`.github/workflows/pages.yml`) then runs `scripts/build.py`, which writes
-  `assets/js/products.js` and the small `-sm` grid photos, and publishes the site.
-  Live in about a minute.
+- Saving commits to GitHub. Cloudflare (project `adela-prive`) sees the commit, runs
+  `scripts/dist.py` (products list, small `-sm` grid photos, sitemap) and publishes
+  www.adelaprive.com. Live in about a minute.
 - Every change is a commit, so anything deleted can be restored from GitHub history.
 
 ## Who can sign in
@@ -49,15 +48,8 @@ Product data is generated. After pulling changes made on the admin page, run
 `python scripts/build.py` (needs `pip install pillow` for thumbnails) before opening
 `index.html` locally.
 
-## Custom domain (e.g. adelaprive.com)
+## Hosting
 
-1. Buy the domain (Cloudflare Registrar or Porkbun, about $10–11 a year for a .com).
-2. DNS records at the registrar:
-   - `A` for `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `AAAA` for `@` → `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
-   - `CNAME` for `www` → `jodanzen.github.io`
-   (On Cloudflare, set these to "DNS only", grey cloud.)
-3. Repo → Settings → Pages → Custom domain: `adelaprive.com` → Save. When the check
-   passes, tick **Enforce HTTPS** (the certificate can take up to an hour).
-4. Update `site_url` / `display_url` / `logo` in `admin/config.yml`, and add the new
-   domain to `ALLOWED_DOMAINS` on the sign-in worker.
+Cloudflare Workers (static assets), settings in `wrangler.jsonc`. Domain `adelaprive.com`
+is registered on the same Cloudflare account. Old `jodanzen.github.io/adela-prive` links
+forward to the new domain (`.github/workflows/pages.yml`).

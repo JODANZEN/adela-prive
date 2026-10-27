@@ -1,6 +1,6 @@
-# Rebuilds and publishes the site on every push to main —
-# including every save from the admin page.
-name: Build and publish site
+# The site now lives on Cloudflare (www.adelaprive.com), which rebuilds on every push.
+# GitHub Pages only forwards old jodanzen.github.io/adela-prive links to the new domain.
+name: Forward old GitHub Pages links
 
 on:
   push:
@@ -21,15 +21,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - run: pip install pillow
-      - name: Build the site into dist/
-        run: python scripts/dist.py
+      - name: Redirect pages only
+        run: mkdir fwd && cp scripts/redirect.html fwd/index.html && cp scripts/redirect.html fwd/404.html
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: fwd
 
   deploy:
     needs: build

@@ -17,10 +17,10 @@ backend:
     deleteMedia: "Delete photo: {{path}}"
 
 app_title: Adela Privé — Admin
-site_url: https://jodanzen.github.io/adela-prive/
-display_url: https://jodanzen.github.io/adela-prive/
+site_url: https://www.adelaprive.com/
+display_url: https://www.adelaprive.com/
 logo:
-  src: https://jodanzen.github.io/adela-prive/assets/img/favicon.svg
+  src: https://www.adelaprive.com/assets/img/favicon.svg
 
 media_folder: assets/uploads
 public_folder: /assets/uploads
