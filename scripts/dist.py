@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Build the site into dist/ for hosting (Cloudflare Pages).
+"""Build the site into dist/ for hosting (Cloudflare Workers / Pages, GitHub Pages).
 
     python scripts/dist.py
 
 Runs build.py (products list + small photos), then copies only the files
-visitors need into dist/. Cloudflare Pages settings:
+visitors need into dist/. Cloudflare settings:
     Build command:     pip install pillow && python scripts/dist.py
-    Output directory:  dist
+    Deploy command:    npx wrangler deploy      (reads wrangler.jsonc)
 """
 import pathlib
 import shutil
