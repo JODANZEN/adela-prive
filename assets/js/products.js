@@ -283,7 +283,7 @@ window.PRODUCTS = [
       },
       "colour": {
         "en": "Lapis blue",
-        "bg": "Тъмно синьо"
+        "bg": "Тъмносиньо"
       }
     }
   },
@@ -357,7 +357,7 @@ window.PRODUCTS = [
       },
       "colour": {
         "en": "Lapis blue",
-        "bg": "Тъмно синьо"
+        "bg": "Тъмносиньо"
       }
     }
   },
@@ -483,7 +483,7 @@ window.PRODUCTS = [
     ],
     "name": {
       "en": "Ella Bag",
-      "bg": "Чанта „Ела“"
+      "bg": "Чанта „Éла“"
     },
     "description": {
       "en": "The perfect accent for a modern, sophisticated look",

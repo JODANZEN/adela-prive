@@ -3,12 +3,11 @@
 `https://www.adelaprive.com/admin/` — add, edit and remove pieces, photos,
 prices and availability. Built with [Sveltia CMS](https://sveltiacms.app).
 
-## Before she starts: switch off the Google Sheet
+## The Google Sheet is retired
 
-The site still reads prices, names and availability from the Google Sheet, and the
-sheet wins over anything saved here. Once Adi can sign in, copy the sheet into
-`content/products/` one last time and set `sheetId: ""` in `assets/js/config.js`.
-After that, this admin page is the only place to edit pieces.
+Since 28 Oct 2026 the site no longer reads the Google Sheet (`sheetId: ""` in
+`assets/js/config.js`). Pieces are edited only here. The sheet can be deleted or kept as
+an archive; editing it changes nothing.
 
 ## How it works
 

@@ -603,7 +603,7 @@
       .catch(() => { /* keep the built-in data */ });
   }
 
-  applySheet(cachedSheet());   // instant on page-to-page navigation
+  if (S.sheetId) applySheet(cachedSheet());   // instant on page-to-page navigation
   render();
   loadSheet();
 
