@@ -6,9 +6,8 @@ backend:
   name: github
   repo: JODANZEN/adela-prive
   branch: main
-  # After deploying the sign-in helper (see admin/README.md), put its address here
-  # so she gets a "Sign in with GitHub" button:
-  # base_url: https://sveltia-cms-auth.YOUR-NAME.workers.dev
+  # Sign-in helper (Cloudflare worker, see admin/README.md) for the "Sign In with GitHub" button
+  base_url: https://sveltia-cms-auth.jdsn2101.workers.dev
   commit_messages:
     create: "Add piece: {{slug}}"
     update: "Update piece: {{slug}}"
