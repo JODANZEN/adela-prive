@@ -53,7 +53,7 @@ window.I18N = {
     "lang.label": "Language",
     "skip": "Skip to content",
 
-    "hero.title": "Unique crocheted bags",
+    "hero.title": "Unique crochet bags",
     "hero.text": "Bags and accessories, each one with its own touch, in carefully chosen colours and yarns.",
     "hero.cta": "View the collection",
     "hero.cta2": "How to buy",
