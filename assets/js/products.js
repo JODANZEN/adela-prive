@@ -384,7 +384,7 @@ window.PRODUCTS = [
     },
     "details": {
       "material": {
-        "en": "Macramé cord",
+        "en": "Macrame cord",
         "bg": "Макраме шнур"
       },
       "dimensions": {
@@ -501,6 +501,41 @@ window.PRODUCTS = [
       "colour": {
         "en": "Glossy white",
         "bg": "Бляскаво бяло"
+      }
+    }
+  },
+  {
+    "id": "top-handle-bag",
+    "ref": "AP-16",
+    "category": "purses",
+    "status": "made-to-order",
+    "price": "35",
+    "featured": false,
+    "hero": false,
+    "images": [
+      "assets/uploads/top-handle-bag-822fa8aca0b0.webp?v=da1582e5",
+      "assets/uploads/top-handle-bag-45dccdfceba4.webp?v=acadd59d"
+    ],
+    "name": {
+      "en": "Top Handle Bag",
+      "bg": "Чанта със заоблени дръжки"
+    },
+    "description": {
+      "en": "A bag with rounded top handles, spacious enough for a phone and the essentials",
+      "bg": "достатъчно просторна за телефон и най-необходимото"
+    },
+    "details": {
+      "material": {
+        "en": "Macramé cord",
+        "bg": "Макраме шнур"
+      },
+      "dimensions": {
+        "en": "22 × 13 × 9 cm",
+        "bg": "22 × 13 × 9 см"
+      },
+      "colour": {
+        "en": "Baby Blue",
+        "bg": "Бебешко синьо"
       }
     }
   },
