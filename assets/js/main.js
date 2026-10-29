@@ -47,11 +47,12 @@
     sms: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg>'
   };
 
-  // product photos come in two sizes: 1000px (x.webp) and 500px (x-sm.webp)
-  // photos uploaded on the admin page live in assets/uploads; the build makes a 500px "-sm" copy
+  // product photos: full size in assets/uploads (what the admin page shows),
+  // and a 500px copy with the same name in assets/thumbs (made by the build)
   // product photos may carry a ?v= fingerprint (added by the build) so replaced photos aren't cached
-  const isProduct = src => /assets\/uploads\/[^/?]+\.(webp|jpe?g|png)(\?.*)?$/i.test(src) && !/-sm\.webp(\?|$)/.test(src);
-  const small = src => isProduct(src) ? src.replace(/\.(webp|jpe?g|png)(\?|$)/i, "-sm.webp$2") : src;
+  const isProduct = src => /assets\/uploads\/[^/?]+\.(webp|jpe?g|png)(\?.*)?$/i.test(src);
+  // small grid copy, made by the build in assets/thumbs/ (same name, always .webp)
+  const small = src => isProduct(src) ? src.replace("assets/uploads/", "assets/thumbs/").replace(/\.(webp|jpe?g|png)(\?|$)/i, ".webp$2") : src;
   // if a small copy is missing (e.g. a brand-new upload before the build ran), use the full photo
   const fallback = src => ' onerror="this.onerror=null;this.removeAttribute(\'srcset\');this.src=\'' + esc(src) + '\'"';
   const priceText = p => statusOf(p) === "sold" ? t("status.sold") : ((p.price || "").replace(/[.,]00(?=\D*$)/, "") || t("product.price"));

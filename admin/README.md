@@ -14,7 +14,7 @@ an archive; editing it changes nothing.
 - Each piece is one file in `content/products/`. Photos go to `assets/uploads/`
   (converted to WebP, max 1400×1750, on upload).
 - Saving commits to GitHub. Cloudflare (project `adela-prive`) sees the commit, runs
-  `scripts/dist.py` (products list, small `-sm` grid photos, sitemap) and publishes
+  `scripts/dist.py` (products list, 500px grid copies in `assets/thumbs/`, sitemap) and publishes
   www.adelaprive.com. Live in about a minute.
 - Every change is a commit, so anything deleted can be restored from GitHub history.
 

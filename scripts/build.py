@@ -9,8 +9,10 @@ the admin page saves a change. You can also run it locally:
 It does two things:
   1. Reads every piece in content/products/*.json (the files the admin page
      edits) and writes assets/js/products.js, which the site loads.
-  2. Makes a 500px "-sm" copy of each photo in assets/uploads/ for the grid,
-     so phones load small images.
+  2. Makes a 500px copy of each photo in assets/uploads/ into assets/thumbs/
+     (same file name) for the grid, so phones load small images. assets/thumbs/
+     is generated on every build and not kept in git, so the photo folder the
+     admin page shows has one file per photo.
 """
 import hashlib
 import json
@@ -21,6 +23,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content" / "products"
 UPLOADS = ROOT / "assets" / "uploads"
+THUMBS = ROOT / "assets" / "thumbs"
 OUT = ROOT / "assets" / "js" / "products.js"
 
 
@@ -97,10 +100,11 @@ def make_thumbnails() -> None:
         print("Pillow not installed; skipping thumbnails (the site falls back to full photos)")
         return
     made = 0
+    THUMBS.mkdir(parents=True, exist_ok=True)
     for f in sorted(UPLOADS.iterdir()):
-        if f.suffix.lower() not in {".webp", ".jpg", ".jpeg", ".png"} or f.stem.endswith("-sm"):
+        if f.suffix.lower() not in {".webp", ".jpg", ".jpeg", ".png"}:
             continue
-        sm = f.with_name(f.stem + "-sm.webp")
+        sm = THUMBS / (f.stem + ".webp")
         if sm.exists() and sm.stat().st_mtime >= f.stat().st_mtime:
             continue
         with Image.open(f) as im:
