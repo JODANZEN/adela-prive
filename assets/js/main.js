@@ -362,8 +362,8 @@
 
     // gallery: a swipeable strip of photos; thumbnails on desktop, dots on phones
     const slides = imgs.length
-      ? imgs.map((src, i) => '<button type="button" class="gallery__slide" data-i="' + i + '" aria-label="' + esc(t("gallery.open", { n: i + 1 })) + '">' +
-          imgTag(src, i === 0 ? name : "", { eager: i === 0 }) + "</button>").join("")
+      ? imgs.map((src, i) => '<div class="gallery__slide">' +
+          imgTag(src, i === 0 ? name : "", { eager: i === 0 }) + "</div>").join("")
       : photoHTML([], name);
     const thumbs = many ? '<div class="gallery__thumbs">' + imgs.map((src, i) =>
         '<button type="button" data-i="' + i + '" aria-pressed="' + (i === 0) + '" aria-label="' + esc(t("product.photo", { n: i + 1 })) + '">' +
@@ -396,13 +396,7 @@
               '<div class="toast" role="status" id="enq-toast"></div>' +
             "</div>") +
         "</div>" +
-      "</div>" +
-      (imgs.length ? lightboxHTML(imgs, name) : "");
-
-    // the viewer must sit directly in <body> so it covers the sticky header
-    const lbEl = $("#lightbox");
-    $$(".lightbox").forEach(x => { if (x !== lbEl) x.remove(); });
-    if (lbEl) document.body.appendChild(lbEl);
+      "</div>";
 
     // copy the message first so it can be pasted straight into the DM
     const currentMsg = () => { const box = $("#enq-msg"); return box ? box.textContent : msg; };
@@ -420,7 +414,6 @@
       $$(".gallery__dots span").forEach((s, j) => s.classList.toggle("on", j === i));
     }, { passive: true });
     $$(".gallery__thumbs button").forEach(b => b.addEventListener("click", () => go(+b.dataset.i, true)));
-    $$(".gallery__slide").forEach(b => b.addEventListener("click", () => openLightbox(+b.dataset.i)));
 
     const rel = $("#related");
     if (rel) {
@@ -431,49 +424,6 @@
   }
 
   /* ---------- full-screen photo viewer --------------------------- */
-  function lightboxHTML(imgs, name) {
-    return '<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="' + esc(name) + '" hidden>' +
-      '<div class="lightbox__track" id="lb-track">' +
-        imgs.map((src, i) => '<div class="lightbox__slide"><img src="' + esc(src) + '" alt="' + esc(t("product.photo", { n: i + 1 })) + '" loading="lazy"></div>').join("") +
-      "</div>" +
-      '<button type="button" class="lightbox__close">' + esc(t("nav.close")) + "</button>" +
-      (imgs.length > 1
-        ? '<button type="button" class="lightbox__nav lightbox__nav--prev" aria-label="' + esc(t("gallery.prev")) + '">' + PREV + "</button>" +
-          '<button type="button" class="lightbox__nav lightbox__nav--next" aria-label="' + esc(t("gallery.next")) + '">' + NEXT + "</button>" +
-          '<div class="lightbox__count" aria-live="polite"></div>'
-        : "") +
-      "</div>";
-  }
-  let lbReturn = null;
-  function openLightbox(i) {
-    const lb = $("#lightbox"); if (!lb) return;
-    const track = $("#lb-track"), n = track.children.length, count = $(".lightbox__count", lb);
-    const at = () => Math.round(track.scrollLeft / Math.max(track.clientWidth, 1));
-    const show = (k, smooth) => track.scrollTo({ left: Math.max(0, Math.min(n - 1, k)) * track.clientWidth, behavior: smooth ? "smooth" : "auto" });
-    const label = () => { if (count) count.textContent = (at() + 1) + " / " + n; };
-    const close = () => {
-      lb.hidden = true; document.body.style.overflow = "";
-      document.removeEventListener("keydown", onKey);
-      if (lbReturn) lbReturn.focus();
-    };
-    const onKey = e => {
-      if (e.key === "Escape") close();
-      else if (e.key === "ArrowRight") show(at() + 1, true);
-      else if (e.key === "ArrowLeft") show(at() - 1, true);
-    };
-    lbReturn = document.activeElement;
-    lb.hidden = false; document.body.style.overflow = "hidden";
-    show(i, false); label();
-    track.onscroll = label;
-    $(".lightbox__close", lb).onclick = close;
-    const pv = $(".lightbox__nav--prev", lb), nx = $(".lightbox__nav--next", lb);
-    if (pv) pv.onclick = () => show(at() - 1, true);
-    if (nx) nx.onclick = () => show(at() + 1, true);
-    track.onclick = e => { if (e.target === track || e.target.classList.contains("lightbox__slide")) close(); };
-    document.addEventListener("keydown", onKey);
-    $(".lightbox__close", lb).focus();
-  }
-
   let pickedPiece = null;
   function initContact() {
     const row = $("#c-piece");
@@ -516,6 +466,10 @@
     $("#c-ig").href = igDM();
     $("#c-ig").onclick = () => { copyText(finalText(), $("#c-toast")); };
   }
+
+  // Photos can't be opened full size: no right-click "open image", no dragging them out
+  document.addEventListener("contextmenu", e => { if (e.target.closest && e.target.closest(".photo, .gallery__slide")) e.preventDefault(); });
+  document.addEventListener("dragstart", e => { if (e.target.tagName === "IMG") e.preventDefault(); });
 
   function render() {
     renderChrome();
