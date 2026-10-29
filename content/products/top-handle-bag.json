@@ -1,0 +1,22 @@
+{
+  "images": [
+    "/assets/uploads/top-handle-bag-822fa8aca0b0.webp",
+    "/assets/uploads/top-handle-bag-45dccdfceba4.webp"
+  ],
+  "status": "made-to-order",
+  "price": "35",
+  "name_en": "Top Handle Bag",
+  "name_bg": "Чанта със заоблени дръжки",
+  "description_en": "A bag with rounded top handles, spacious enough for a phone and the essentials",
+  "description_bg": "достатъчно просторна за телефон и най-необходимото",
+  "category": "purses",
+  "dimensions": "22 × 13 × 9 cm",
+  "colour_en": "Baby Blue",
+  "colour_bg": "Бебешко синьо",
+  "material_en": "Macramé cord",
+  "material_bg": "Макраме шнур",
+  "ref": "AP-16",
+  "featured": false,
+  "hero": false,
+  "order": 200
+}
