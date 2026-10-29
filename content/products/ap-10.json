@@ -1,24 +1,24 @@
 {
-  "name_en": "Hobo Bag",
-  "name_bg": "Хобо чанта",
-  "status": "available",
-  "price": "€50",
-  "category": "purses",
   "images": [
     "/assets/uploads/ap-10-1.webp",
     "/assets/uploads/ap-10-2.webp",
     "/assets/uploads/ap-10-3.webp",
     "/assets/uploads/ap-10-4.webp"
   ],
+  "status": "available",
+  "price": "€50",
+  "name_en": "Hobo Bag",
+  "name_bg": "Хобо чанта",
   "description_en": "A chunky hobo bag with a silver clasp and adjustable handle",
   "description_bg": "Обемна хобо чанта със сребриста закопчалка и регулируема дръжка",
+  "category": "purses",
   "dimensions": "32 × 13 × 13 cm",
   "colour_en": "Red wine",
   "colour_bg": "Червено вино",
   "material_en": "T-shirt yarn",
   "material_bg": "Трикотажна прежда",
   "ref": "AP-10",
-  "featured": true,
+  "featured": false,
   "hero": false,
   "order": 100
 }
