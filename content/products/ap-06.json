@@ -1,15 +1,15 @@
 {
-  "name_en": "Classic Bag",
-  "name_bg": "Класическа чанта",
-  "status": "available",
-  "price": "€30",
-  "category": "purses",
   "images": [
     "/assets/uploads/ap-06-1.webp",
     "/assets/uploads/ap-06-2.webp"
   ],
+  "status": "available",
+  "price": "€30",
+  "name_en": "Classic Bag",
+  "name_bg": "Класическа чанта",
   "description_en": "Bag for everyday use",
   "description_bg": "Чанта за ежедневна употреба",
+  "category": "purses",
   "dimensions": "23 × 12 cm",
   "colour_en": "Snow white",
   "colour_bg": "Снежнобяло",
@@ -18,5 +18,5 @@
   "ref": "AP-06",
   "featured": false,
   "hero": false,
-  "order": 60
+  "order": 150
 }
