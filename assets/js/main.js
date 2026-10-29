@@ -301,9 +301,17 @@
     const grid = $("#collection-grid");
     if (!grid) return;
     // materials are keyed by their English name, so a pick survives a language switch
-    const matKey = p => ((p.details && p.details.material && p.details.material.en) || "").trim().toLowerCase();
-    const matLabels = new Map();
-    P.forEach(p => { const k = matKey(p); if (k && !matLabels.has(k)) matLabels.set(k, L(p.details.material)); });
+    // Forgiving match: case, accents and extra spaces don't matter ("Macrame cord" = "Macramé cord"),
+    // and a piece with only a Bulgarian material still counts. The most used spelling is the label.
+    const norm = v => (v || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, " ").trim().toLowerCase();
+    const matKey = p => { const m = (p.details && p.details.material) || {}; return norm(m.en) || norm(m.bg); };
+    const matLabels = new Map(), seen = new Map();
+    P.forEach(p => {
+      const k = matKey(p); if (!k) return;
+      const label = L(p.details.material), byLabel = seen.get(k) || new Map();
+      byLabel.set(label, (byLabel.get(label) || 0) + 1); seen.set(k, byLabel);
+    });
+    seen.forEach((byLabel, k) => matLabels.set(k, [...byLabel].sort((a, b) => b[1] - a[1])[0][0]));
     const mats = [...matLabels.keys()].sort((a, b) => matLabels.get(a).localeCompare(matLabels.get(b), lang));
     if (currentMaterial && !matLabels.has(currentMaterial)) currentMaterial = "";
     dropdown($("#f-material"), t("filter.material"),
