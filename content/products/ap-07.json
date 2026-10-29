@@ -1,22 +1,22 @@
 {
-  "name_en": "Bubble Bag",
-  "name_bg": "Чанта „бъбъл“",
-  "status": "available",
-  "price": "€50",
-  "category": "purses",
   "images": [
     "/assets/uploads/ap-07-1.webp",
     "/assets/uploads/ap-07-2.webp"
   ],
+  "status": "available",
+  "price": "€50",
+  "name_en": "Bubble Bag",
+  "name_bg": "Чанта „бъбъл“",
   "description_en": "A playful bubble bag made from extra-chunky yarn",
   "description_bg": "Чанта тип \"бъбъл\" от обемна прежда",
+  "category": "purses",
   "dimensions": "27 × 35 cm",
   "colour_en": "Baby blue",
   "colour_bg": "Бебешко синьо",
   "material_en": "Chunky yarn",
   "material_bg": "Прежда Маршмелоу",
   "ref": "AP-07",
-  "featured": false,
+  "featured": true,
   "hero": false,
   "order": 70
 }
