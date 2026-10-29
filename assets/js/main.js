@@ -86,8 +86,10 @@
     return '<span class="pill pill--' + esc(st) + '">' + esc(t("status." + st)) + "</span>";
   }
 
+  // each piece has its own page at piece/<slug> (made by the build); product.html?id= still works
+  const pieceURL = p => p.slug ? "piece/" + p.slug : "product.html?id=" + encodeURIComponent(p.id);
   function cardHTML(p) {
-    return '<a class="card' + (statusOf(p) === "sold" ? " card--sold" : "") + '" href="product.html?id=' + encodeURIComponent(p.id) + '">' +
+    return '<a class="card' + (statusOf(p) === "sold" ? " card--sold" : "") + '" href="' + pieceURL(p) + '">' +
       '<div class="card__media">' + photoHTML(p.images, L(p.name), { hover: true, caption: false, mode: "card" }) + statusPill(p) + "</div>" +
       '<div class="card__meta"><span class="card__name">' + esc(L(p.name)) + "</span>" +
       '<span class="card__cat">' + esc(t("cat." + p.category)) + "</span>" +
@@ -111,7 +113,7 @@
     const header = $("#site-header");
     if (header) {
       header.innerHTML =
-        '<a class="skip" href="#main">' + esc(t("skip")) + "</a>" +
+        '<a class="skip" href="' + esc(location.pathname + location.search) + '#main">' + esc(t("skip")) + "</a>" +
         '<div class="announce">' + esc(t("announce")) + "</div>" +
         '<div class="site-header"><div class="wrap header-inner">' +
           '<nav class="nav" aria-label="Main">' + navLinks() + "</nav>" +
@@ -231,7 +233,7 @@
     if (frame) {
       const hero = P.find(p => p.hero && p.images.length) || P.find(p => p.featured && p.images.length) || P.find(p => p.images.length);
       frame.innerHTML = hero
-        ? '<a href="product.html?id=' + encodeURIComponent(hero.id) + '">' + photoHTML(S.heroImage ? [S.heroImage] : hero.images, L(hero.name), { eager: true }) + "</a>"
+        ? '<a href="' + pieceURL(hero) + '">' + photoHTML(S.heroImage ? [S.heroImage] : hero.images, L(hero.name), { eager: true }) + "</a>"
         : photoHTML([], "Adela Privé", { eager: true });
     }
     const ap = $("#atelier-photo");
@@ -355,7 +357,7 @@
   function initProduct() {
     const root = $("#product");
     if (!root) return;
-    const id = new URLSearchParams(location.search).get("id");
+    const id = document.body.dataset.id || new URLSearchParams(location.search).get("id");
     const p = P.find(x => x.id === id);
     if (!p) {
       root.innerHTML = '<div class="notfound"><h1>' + esc(t("product.notFound")) + '</h1><a class="btn" href="collection.html">' + esc(t("product.back")) + "</a></div>";
@@ -372,7 +374,7 @@
     // gallery: a swipeable strip of photos; thumbnails on desktop, dots on phones
     const slides = imgs.length
       ? imgs.map((src, i) => '<div class="gallery__slide">' +
-          imgTag(src, i === 0 ? name : "", { eager: i === 0 }) + "</div>").join("")
+          imgTag(src, i === 0 ? name : name + " — " + t("product.photo", { n: i + 1 }), { eager: i === 0 }) + "</div>").join("")
       : photoHTML([], name);
     const thumbs = many ? '<div class="gallery__thumbs">' + imgs.map((src, i) =>
         '<button type="button" data-i="' + i + '" aria-pressed="' + (i === 0) + '" aria-label="' + esc(t("product.photo", { n: i + 1 })) + '">' +

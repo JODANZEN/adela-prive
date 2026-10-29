@@ -19,6 +19,7 @@ import json
 import pathlib
 import re
 import sys
+import unicodedata
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content" / "products"
@@ -42,6 +43,12 @@ def local(src: str) -> str:
 def pair(en: str, bg: str) -> dict:
     en, bg = (en or "").strip(), (bg or "").strip()
     return {"en": en, "bg": bg or en}
+
+
+def slugify(text: str) -> str:
+    """'Japanese Knot Bag' -> 'japanese-knot-bag' (for the piece's web address)."""
+    t = unicodedata.normalize("NFKD", text or "").encode("ascii", "ignore").decode()
+    return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-") or "piece"
 
 
 def load_products() -> list:
@@ -77,6 +84,14 @@ def load_products() -> list:
             },
         })
     items.sort(key=lambda p: (p["order"], p["id"]))
+    # web address for each piece: /piece/<name>; same names get their code added
+    used = set()
+    for p in items:
+        slug = slugify(p["name"]["en"])
+        if slug in used:
+            slug = slugify(p["name"]["en"] + "-" + (p["ref"] or p["id"]))
+        used.add(slug)
+        p["slug"] = slug
     for p in items:
         del p["order"]
     return items

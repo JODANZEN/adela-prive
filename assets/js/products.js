@@ -36,7 +36,8 @@ window.PRODUCTS = [
         "en": "Black",
         "bg": "Черно"
       }
-    }
+    },
+    "slug": "triangle-tote-bag"
   },
   {
     "id": "ap-03",
@@ -72,7 +73,8 @@ window.PRODUCTS = [
         "en": "Bordeaux, glossy",
         "bg": "Бордо с гланц"
       }
-    }
+    },
+    "slug": "japanese-knot-bag"
   },
   {
     "id": "ap-04",
@@ -108,7 +110,8 @@ window.PRODUCTS = [
         "en": "Ivory",
         "bg": "Слонова кост"
       }
-    }
+    },
+    "slug": "shell-bag"
   },
   {
     "id": "ap-05",
@@ -144,27 +147,28 @@ window.PRODUCTS = [
         "en": "Mint green",
         "bg": "Ментово зелено"
       }
-    }
+    },
+    "slug": "ring-handle-bag"
   },
   {
-    "id": "ap-06",
-    "ref": "AP-06",
+    "id": "ap-15",
+    "ref": "AP-15",
     "category": "purses",
     "status": "available",
-    "price": "€30",
+    "price": "€40",
     "featured": false,
     "hero": false,
     "images": [
-      "assets/uploads/ap-06-1.webp?v=286698d6",
-      "assets/uploads/ap-06-2.webp?v=21fb16c3"
+      "assets/uploads/ap-15-1.webp?v=f0f21f8c",
+      "assets/uploads/ap-15-2.webp?v=9c6b6e00"
     ],
     "name": {
-      "en": "Classic Bag",
-      "bg": "Класическа чанта"
+      "en": "Ella Bag",
+      "bg": "Чанта „Éла“"
     },
     "description": {
-      "en": "Bag for everyday use",
-      "bg": "Чанта за ежедневна употреба"
+      "en": "The perfect accent for a modern, sophisticated look",
+      "bg": "Перфектният акцент за модерна, изискана визия"
     },
     "details": {
       "material": {
@@ -172,14 +176,15 @@ window.PRODUCTS = [
         "bg": "Трикотажна прежда"
       },
       "dimensions": {
-        "en": "23 × 12 cm",
-        "bg": "23 × 12 см"
+        "en": "21 × 17 cm",
+        "bg": "21 × 17 см"
       },
       "colour": {
-        "en": "Snow white",
-        "bg": "Снежнобяло"
+        "en": "Glossy white",
+        "bg": "Бляскаво бяло"
       }
-    }
+    },
+    "slug": "ella-bag"
   },
   {
     "id": "ap-07",
@@ -187,7 +192,7 @@ window.PRODUCTS = [
     "category": "purses",
     "status": "available",
     "price": "€50",
-    "featured": false,
+    "featured": true,
     "hero": false,
     "images": [
       "assets/uploads/ap-07-1.webp?v=14546add",
@@ -214,7 +219,8 @@ window.PRODUCTS = [
         "en": "Baby blue",
         "bg": "Бебешко синьо"
       }
-    }
+    },
+    "slug": "bubble-bag"
   },
   {
     "id": "ap-08",
@@ -249,7 +255,8 @@ window.PRODUCTS = [
         "en": "White",
         "bg": "Бяло"
       }
-    }
+    },
+    "slug": "bucket-bag"
   },
   {
     "id": "ap-09",
@@ -285,7 +292,8 @@ window.PRODUCTS = [
         "en": "Lapis blue",
         "bg": "Тъмносиньо"
       }
-    }
+    },
+    "slug": "mini-bag"
   },
   {
     "id": "ap-10",
@@ -293,7 +301,7 @@ window.PRODUCTS = [
     "category": "purses",
     "status": "available",
     "price": "€50",
-    "featured": true,
+    "featured": false,
     "hero": false,
     "images": [
       "assets/uploads/ap-10-1.webp?v=486f7915",
@@ -322,7 +330,8 @@ window.PRODUCTS = [
         "en": "Red wine",
         "bg": "Червено вино"
       }
-    }
+    },
+    "slug": "hobo-bag"
   },
   {
     "id": "ap-11",
@@ -359,7 +368,8 @@ window.PRODUCTS = [
         "en": "Lapis blue",
         "bg": "Тъмносиньо"
       }
-    }
+    },
+    "slug": "fringe-mini-tote-bag"
   },
   {
     "id": "ap-12",
@@ -395,7 +405,8 @@ window.PRODUCTS = [
         "en": "Coffee brown",
         "bg": "Кафяво"
       }
-    }
+    },
+    "slug": "top-handle-bag"
   },
   {
     "id": "ap-13",
@@ -431,7 +442,8 @@ window.PRODUCTS = [
         "en": "Dusty rose",
         "bg": "Пепелява роза"
       }
-    }
+    },
+    "slug": "clutch-bag"
   },
   {
     "id": "ap-14",
@@ -467,27 +479,28 @@ window.PRODUCTS = [
         "en": "Sand beige",
         "bg": "Пясъчно бежово"
       }
-    }
+    },
+    "slug": "mini-shopper-bag"
   },
   {
-    "id": "ap-15",
-    "ref": "AP-15",
+    "id": "ap-06",
+    "ref": "AP-06",
     "category": "purses",
     "status": "available",
-    "price": "€40",
+    "price": "€30",
     "featured": false,
     "hero": false,
     "images": [
-      "assets/uploads/ap-15-1.webp?v=f0f21f8c",
-      "assets/uploads/ap-15-2.webp?v=9c6b6e00"
+      "assets/uploads/ap-06-1.webp?v=286698d6",
+      "assets/uploads/ap-06-2.webp?v=21fb16c3"
     ],
     "name": {
-      "en": "Ella Bag",
-      "bg": "Чанта „Éла“"
+      "en": "Classic Bag",
+      "bg": "Класическа чанта"
     },
     "description": {
-      "en": "The perfect accent for a modern, sophisticated look",
-      "bg": "Перфектният акцент за модерна, изискана визия"
+      "en": "Bag for everyday use",
+      "bg": "Чанта за ежедневна употреба"
     },
     "details": {
       "material": {
@@ -495,21 +508,22 @@ window.PRODUCTS = [
         "bg": "Трикотажна прежда"
       },
       "dimensions": {
-        "en": "21 × 17 cm",
-        "bg": "21 × 17 см"
+        "en": "23 × 12 cm",
+        "bg": "23 × 12 см"
       },
       "colour": {
-        "en": "Glossy white",
-        "bg": "Бляскаво бяло"
+        "en": "Snow white",
+        "bg": "Снежнобяло"
       }
-    }
+    },
+    "slug": "classic-bag"
   },
   {
     "id": "top-handle-bag",
     "ref": "AP-16",
     "category": "purses",
     "status": "made-to-order",
-    "price": "35",
+    "price": "€35",
     "featured": false,
     "hero": false,
     "images": [
@@ -537,7 +551,8 @@ window.PRODUCTS = [
         "en": "Baby Blue",
         "bg": "Бебешко синьо"
       }
-    }
+    },
+    "slug": "top-handle-bag-ap-16"
   },
   {
     "id": "ap-01",
@@ -573,6 +588,7 @@ window.PRODUCTS = [
         "en": "Burgundy",
         "bg": "Бордо"
       }
-    }
+    },
+    "slug": "scarf"
   }
 ];
