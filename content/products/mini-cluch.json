@@ -1,0 +1,23 @@
+{
+  "images": [
+    "/assets/uploads/mini-cluch-eae89c6d0202.webp",
+    "/assets/uploads/mini-cluch-d2a802e16b90.webp",
+    "/assets/uploads/mini-cluch-f73230c72bac.webp"
+  ],
+  "status": "available",
+  "price": "€50",
+  "name_en": "Mini cluch",
+  "name_bg": "Мини клъч",
+  "description_en": "A soft, rounded clutch",
+  "description_bg": "Мек, заоблен клъч",
+  "category": "purses",
+  "dimensions": "20 × 13 × 12 cm",
+  "colour_en": "Black",
+  "colour_bg": "Черно",
+  "material_en": "T-shirt yarn with silver tint",
+  "material_bg": "Трикотажна прежда със сребрист отблясък",
+  "ref": "AP-17",
+  "featured": false,
+  "hero": false,
+  "order": 40
+}
