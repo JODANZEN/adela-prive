@@ -114,6 +114,43 @@ window.PRODUCTS = [
     "slug": "shell-bag"
   },
   {
+    "id": "mini-cluch",
+    "ref": "AP-17",
+    "category": "purses",
+    "status": "available",
+    "price": "€50",
+    "featured": false,
+    "hero": false,
+    "images": [
+      "assets/uploads/mini-cluch-eae89c6d0202.webp?v=684ec9b2",
+      "assets/uploads/mini-cluch-d2a802e16b90.webp?v=3f43af9b",
+      "assets/uploads/mini-cluch-f73230c72bac.webp?v=67ab2c83"
+    ],
+    "name": {
+      "en": "Mini cluch",
+      "bg": "Мини клъч"
+    },
+    "description": {
+      "en": "A soft, rounded clutch",
+      "bg": "Мек, заоблен клъч"
+    },
+    "details": {
+      "material": {
+        "en": "T-shirt yarn with silver tint",
+        "bg": "Трикотажна прежда със сребрист отблясък"
+      },
+      "dimensions": {
+        "en": "20 × 13 × 12 cm",
+        "bg": "20 × 13 × 12 см"
+      },
+      "colour": {
+        "en": "Black",
+        "bg": "Черно"
+      }
+    },
+    "slug": "mini-cluch"
+  },
+  {
     "id": "ap-05",
     "ref": "AP-05",
     "category": "purses",
