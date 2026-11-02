@@ -573,6 +573,30 @@
   loadSheet();
 
   /* ---------- visit counter (GoatCounter, no cookies) ------------- */
+  // Page views, plus events for the clicks that matter: ordering, calling, copying the
+  // message, filters, language. They show in GoatCounter under paths like "order-instagram/bubble-bag".
+  const pieceSlug = () => { const p = P.find(x => x.id === (document.body.dataset.id || new URLSearchParams(location.search).get("id"))); return p ? (p.slug || p.id) : ""; };
+  function track(name) {
+    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: name, title: name, event: true }); } catch (e) { /* never break the page */ }
+  }
+  document.addEventListener("click", e => {
+    const el = e.target.closest && e.target.closest("a, button");
+    if (!el) return;
+    const where = page + (pieceSlug() ? "/" + pieceSlug() : "");
+    const href = el.getAttribute("href") || "";
+    if (el.id === "enq-ig" || el.id === "c-ig" || /instagram\.com|ig\.me/.test(href)) track("order-instagram/" + where);
+    else if (/^tel:/.test(href)) track("call/" + where);
+    else if (el.id === "enq-copy") track("copy-message/" + where);
+    else if (el.dataset.lang) track("language/" + el.dataset.lang);
+    else if (el.closest(".filters") && el.dataset.filter) track("filter-type/" + el.dataset.filter);
+  }, true);
+  document.addEventListener("click", e => {
+    const li = e.target.closest && e.target.closest(".dd__list li");
+    if (!li) return;
+    const box = li.closest(".dd");
+    track((box && box.id === "f-sort" ? "sort/" : "filter-material/") + (li.textContent || "").trim().toLowerCase().replace(/\s+/g, "-"));
+  }, true);
+
   if (S.goatcounter && /^https?:$/.test(location.protocol) && !/claude\.ai|claudeusercontent/.test(location.hostname)) {
     const pid = new URLSearchParams(location.search).get("id");
     window.goatcounter = { path: location.pathname + (pid ? "?id=" + pid : "") };
