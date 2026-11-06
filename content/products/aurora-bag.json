@@ -1,0 +1,22 @@
+{
+  "images": [
+    "/assets/uploads/aurora-bag-c28609623f53.webp",
+    "/assets/uploads/aurora-bag-f57b960f0c42.webp"
+  ],
+  "status": "available",
+  "price": "€35",
+  "name_en": "Aurora bag",
+  "name_bg": "Чанта \"Аурора\"",
+  "description_en": "An elegant accessory for an irresistible outfit",
+  "description_bg": "Елегантен аксесоар към един неотразим тоалет",
+  "category": "purses",
+  "dimensions": "21 × 17 cm",
+  "colour_en": "Bright red",
+  "colour_bg": "Ярко червено",
+  "material_en": "T-shirt yarn",
+  "material_bg": "Трикотажна прежда",
+  "ref": "AP-18",
+  "featured": false,
+  "hero": false,
+  "order": 200
+}
