@@ -260,6 +260,42 @@ window.PRODUCTS = [
     "slug": "bubble-bag"
   },
   {
+    "id": "aurora-bag",
+    "ref": "AP-18",
+    "category": "purses",
+    "status": "available",
+    "price": "€35",
+    "featured": false,
+    "hero": false,
+    "images": [
+      "assets/uploads/aurora-bag-c28609623f53.webp?v=25286e44",
+      "assets/uploads/aurora-bag-f57b960f0c42.webp?v=db9ee375"
+    ],
+    "name": {
+      "en": "Aurora bag",
+      "bg": "Чанта \"Аурора\""
+    },
+    "description": {
+      "en": "An elegant accessory for an irresistible outfit",
+      "bg": "Елегантен аксесоар към един неотразим тоалет"
+    },
+    "details": {
+      "material": {
+        "en": "T-shirt yarn",
+        "bg": "Трикотажна прежда"
+      },
+      "dimensions": {
+        "en": "21 × 17 cm",
+        "bg": "21 × 17 см"
+      },
+      "colour": {
+        "en": "Bright red",
+        "bg": "Ярко червено"
+      }
+    },
+    "slug": "aurora-bag"
+  },
+  {
     "id": "ap-08",
     "ref": "AP-08",
     "category": "purses",

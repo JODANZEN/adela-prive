@@ -11,5 +11,5 @@ window.SITE = {
   // Setting a sheet id here again would make the sheet override the admin page.
   sheetId: "",
   heroImage: "assets/img/hero.webp?v=2",       // big photo at the top of the home page (links to the "hero" piece)
-  goatcounter: ""                          // visit counter: your GoatCounter code, e.g. "adelaprive" ("" = off)
+  goatcounter: "adelaprive"                          // visit counter: your GoatCounter code, e.g. "adelaprive" ("" = off)
 };
