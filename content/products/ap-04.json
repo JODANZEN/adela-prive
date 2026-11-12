@@ -1,16 +1,16 @@
 {
-  "name_en": "Shell Bag",
-  "name_bg": "Чанта тип „Мида“",
-  "status": "available",
-  "price": "€40",
-  "category": "purses",
   "images": [
     "/assets/uploads/ap-04-1.webp",
     "/assets/uploads/ap-04-2.webp",
     "/assets/uploads/ap-04-3.webp"
   ],
+  "status": "available",
+  "price": "€45",
+  "name_en": "Shell Bag",
+  "name_bg": "Чанта тип „Мида“",
   "description_en": "A shell-shaped bag with a movable handle",
   "description_bg": "Чанта във формата на мида с подвижна дръжка",
+  "category": "purses",
   "dimensions": "22 × 17 cm",
   "colour_en": "Ivory",
   "colour_bg": "Слонова кост",
