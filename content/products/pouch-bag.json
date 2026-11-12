@@ -1,0 +1,23 @@
+{
+  "images": [
+    "/assets/uploads/pouch-bag-69b1a31d3e8e.webp",
+    "/assets/uploads/pouch-bag-825034cc394f.webp",
+    "/assets/uploads/pouch-bag-b53d2e87c521.webp"
+  ],
+  "status": "available",
+  "price": "€35",
+  "name_en": "Pouch bag",
+  "name_bg": "Мека, обла чанта",
+  "description_en": "A bag combining delicate details and a sophisticated look for every occasion",
+  "description_bg": "Чанта, съчетаваща нежни детайли и изискано излъчване за всеки повод",
+  "category": "purses",
+  "dimensions": "23 × 18 cm",
+  "colour_en": "Taupe",
+  "colour_bg": "Сиво-кафяво",
+  "material_en": "T-shirt yarn",
+  "material_bg": "Трикотажна прежда",
+  "ref": "AP-19",
+  "featured": false,
+  "hero": false,
+  "order": 39
+}
