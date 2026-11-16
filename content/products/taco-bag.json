@@ -1,0 +1,23 @@
+{
+  "images": [
+    "/assets/uploads/taco-bag-65f24d791f39.webp",
+    "/assets/uploads/taco-bag-43748e95901c.webp",
+    "/assets/uploads/taco-bag-1da97fcd5dcf.webp"
+  ],
+  "status": "available",
+  "price": "€30",
+  "name_en": "Taco bag",
+  "name_bg": "\"Тако\" чанта",
+  "description_en": "Perfect for everyday looks and summer occasions - adding a striking accent to any outfit",
+  "description_bg": "Идеална за ежедневни визии и летни поводи - с ефектен акцент към всяка визия",
+  "category": "purses",
+  "dimensions": "29 × 14 cm",
+  "colour_en": "Fern green",
+  "colour_bg": "Папратово зелено",
+  "material_en": "T-shirt yarn",
+  "material_bg": "Трикотажна прежда",
+  "ref": "AP-20",
+  "featured": false,
+  "hero": false,
+  "order": 39
+}
